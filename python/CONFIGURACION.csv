@@ -1,0 +1,39 @@
+NOMBRE PARAMETRO;VALOR;DESCRIPCION
+TAG;LIT6001;Nivel de combustible Tanque Principal
+PROTOCOLO;MODBUS_TCP;MODBUS_TCP o MODBUS_SERIAL
+ID;0;Id del  Servidor de datos
+SERIAL;12345;Serial del Equipo
+FABRICANTE;FAFNIR;Fabricante del instrumento
+VEL_SERIAL;9600;Velocidad Serial
+BITS_DATA;8;Bits de Datos Serial
+BIT_STOP;1;Bits de Parada Serial
+CTRL_SERIAL;OFF;Control de Flujo Serial
+PAR_SERIAL;NONE;Paridad Serial
+ADDRESS_IP;192.168.1.7;Direccion Ip del servidor COM TCP
+MASK_IP;255.255.255.0;Mascar de la SubRed COM TCP
+GATEWAY_IP;192.168.1.1;Gateway de la SubRed COM TCP
+PORT_TCP;502;Puerto de ComunicacionesCOM TCP
+***;***;***
+40001;F32_N_SERIE;Numero de serie de la sonda
+40006;I16_STATUS_SOND;Estado de la sonda 
+40007;I16_STATUS_TANK;Estado del tanque
+40009;I16_ALARM_PROD;Alarma de producto
+40010;I16_ALARM_AGUA;Alarma de Agua
+40011;I16_ALARM_DENS;Alarma de Densidad
+40033;F32_CAP_TANK_T;Capacidad del tanque
+40035;F32_CAP_TANK_MAX;Max Permisible volumen
+40037;F32_DIA_TANK;Diametro del Tanque
+40039;F32_TEMP_REF;Temperatura de Referencia
+40041;F32_DENS_POS;Posicion del Flot densidad
+40049;F32_LVL_PROD;Nivel de Producto
+40051;F32_LVL_WTR;Nivel de Agua
+40053;F32_TEMP_AVRG;Temperatura Promedio
+40055;F32_VOL_REAL;Volumen Producto
+40057;F32_VOL_TC;Volumen Producto Compensado
+40059;F32_VOL_WTR;Volumen Agua
+40061;F32_VOL_DISP;Volumen Disponible
+40063;F32_PROD_MASS;Masa del Producto
+40065;F32_PROD_DENS;Densidad del Producto
+40067;F32_P_DENS_TC;Densidad del Producto Compensada
+40069;F32_L_PROD100;Porcentaje del nivel de producto
+40071;F32_V_PROD100;Porcentaje del Volumen de producto
