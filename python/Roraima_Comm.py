@@ -3,17 +3,34 @@ import logging
 from datetime import datetime
 from pymodbus.client.sync import ModbusTcpClient
 import time
+import serial
+
+arduino = serial.Serial('/dev/ttyACM1', 9600)
 
 FORMAT = ('%(asctime)-15s %(threadName)-15s '
           '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
+
 logging.basicConfig(filename='log_modbus', filemode='w',format=FORMAT)
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
 
 def Roraima_communications():
-#if True:
-    while True:
+#if True:ddf
+     while True:
 #    if True:
+        comando = datetime.now().strftime("%d%b,%H:%M:%S+")
+        comando+='\n'
+        error_AN=0
+        try:
+            a=arduino.write(comando.encode())
+            lectura = arduino.readline()
+            txt=str(lectura)
+            txt=txt[2:-5]
+            analogico=txt.split("|")
+        except:
+            logging.error("No se puede contectar a Tarjeta ARDUINO")
+            analogico[0:5]=0;
+            error_AN=1
         error_bd=0
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
@@ -30,56 +47,61 @@ def Roraima_communications():
                 cursor.execute("SELECT * FROM "+ SENSOR +"_CONF WHERE 1")
                 CONF = cursor.fetchall()
                 CANT_DIR=len(CONF)
-                TAGS=[T[1] for T in CONF[0:14]]
-                VALORES=[V[2] for V in CONF[0:14]]
-                zipobj=zip(TAGS,VALORES)
-                D_CONF=dict(zipobj)
-                DIRE=[T[1] for T in CONF[14:CANT_DIR]]
-                TAGS=[V[2] for V in CONF[14:CANT_DIR]]
-                result=[0]*len(DIRE)
-                if D_CONF['PROTOCOLO']=='MODBUS_TCP':
-                    client = ModbusTcpClient(D_CONF['ADDRESS_IP'],port=int(D_CONF['PORT_TCP']))
-                    cnx_modbus=client.connect()
-                    result=list();
-                    if cnx_modbus== True:
-                        for x in DIRE:
+                TAGS=[T[1] for T in CONF]
+                RANG_MIN=[T[4] for T in CONF]
+                RANG_MAX=[T[5] for T in CONF]
+                PROTOCOLO=[T[6] for T in CONF]
+                DIRECCION=[T[7] for T in CONF]
+                PARAM_COMM1=[T[8] for T in CONF]
+                PARAM_COMM2=[T[9] for T in CONF]
+                PARAM_COMM3=[T[10] for T in CONF]
+                PARAM_COMM4=[T[11] for T in CONF]
+                PARAM_COMM5=[T[12] for T in CONF]
+                PARAM_COMM6=[T[13] for T in CONF]
+                result=list();
+                for j in range(len(TAGS)):
+                    if PROTOCOLO[j]=="MTCP":
+                        client = ModbusTcpClient(DIRECCION[j],port=int(PARAM_COMM3[j]))
+                        cnx_modbus=client.connect()
+                        if cnx_modbus== True:
+                            X_1=int(PARAM_COMM5[j])-40001
                             rr=0
-                            X_1=int(x)-40001
                             try:
-                                rr = client.read_holding_registers(X_1,1,unit=int(D_CONF['ID']))
-                                result.append(rr.registers)
+                                rr = client.read_holding_registers(X_1,1,unit=int(PARAM_COMM4[j]))
+                                result.append(rr.registers[0])
                             except:
-                                logger.exception("No se puede leer registros: " + SENSOR + ":" + x)
+                                logging.exception("No se puede leer registros: " + SENSOR + ":" + TAGS[j])
                                 error_general=1
-                                break
-                    else:
-                        error_general=1
-                        logging.error("No se puede conectar: " + SENSOR )
-                else:
-                    logging.debug("Protocolo no implementado aun: " + D_CONF['PROTOCOLO'])
-                    error_general=1
-                if error_general==0:
-                    fecha=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                    cursor.execute("SELECT COUNT(*) FROM "+ SENSOR +"_MEASURE")
-                    conteo=cursor.fetchone()
-                    LAST_ID=1
-                    if conteo[0] !=0:
-                        cursor.execute("SELECT ID FROM "+ SENSOR +"_MEASURE ORDER BY ID DESC LIMIT 1")
-                        LID=cursor.fetchone()
-                        LAST_ID=LID[0]+1
-                        Q1="INSERT INTO `"+ SENSOR + "_MEASURE`  (`ID`, `FECHA_HORA`"
-                        Q2= ")  VALUES ('"+ str(LAST_ID) + "','" + str(fecha)+"'"
-                        i=0;
-                        for j in range(len(TAGS)):
-                            Q1=Q1+ ",`" + TAGS[i]+"`"
-                            Q2=Q2+ ",'" + str(result[i][0])+"'"
-                            i+=1
-                        Query=Q1+Q2+")"
-                        cursor.execute(Query)
-                        connection.commit()
-                        logging.info("Se actualizo: "+ SENSOR + ","+ str(len(TAGS)) + " TAGS")
+                                result.append(0)
+                    if PROTOCOLO[j]=="ANA":
+                        canaltxt=DIRECCION[j]
+                        canal=int(canaltxt)
+                        if float(analogico[canal])>(1024/5):
+                            rANA=(float(analogico[canal])-(1024/5))/(1024-(1024/5))
+                            rMed=rANA*(float(RANG_MAX[j])-float(RANG_MIN[j]))+float(RANG_MIN[j])
+                            result.append(rMed)
+                        else:
+                            result.append(0)
+                            logging.error("Error en sensor Analogico : " + SENSOR +":"+TAGS[j]+":"+DIRECCION[j])
+                fecha=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                cursor.execute("SELECT COUNT(*) FROM "+ SENSOR +"_MEASURE")
+                conteo=cursor.fetchone()
+                LAST_ID=1
+                if conteo[0] !=0:
+                    cursor.execute("SELECT ID FROM "+ SENSOR +"_MEASURE ORDER BY ID DESC LIMIT 1")
+                    LID=cursor.fetchone()
+                    LAST_ID=LID[0]+1
+                Q1="INSERT INTO `"+ SENSOR + "_MEASURE`  (`ID`, `FECHA_HORA`"
+                Q2= ")  VALUES ('"+ str(LAST_ID) + "','" + str(fecha)+"'"
+                for j in range(len(TAGS)):
+                    Q1=Q1+ ",`" + TAGS[j]+"`"
+                    Q2=Q2+ ",'" + str(result[j])+"'"
+                Query=Q1+Q2+")"
+                cursor.execute(Query)
+                connection.commit()
+                logging.info("Se actualizo: "+ SENSOR + ","+ str(len(TAGS)) + " TAGS")
                 connection.close()
-        time.sleep(10)
+        time.sleep(60)
 
 try:
     Roraima_communications()
