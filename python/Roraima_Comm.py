@@ -5,7 +5,7 @@ from pymodbus.client.sync import ModbusTcpClient
 import time
 import serial
 
-arduino = serial.Serial('/dev/ttyACM1', 9600)
+arduino = serial.Serial('/dev/ttyACM0', 9600)
 
 FORMAT = ('%(asctime)-15s %(threadName)-15s '
           '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
