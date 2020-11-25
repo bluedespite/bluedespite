@@ -18,6 +18,7 @@ def Roraima_communications():
 #if True:ddf
      while True:
 #    if True:
+        t0=time.time()
         comando = datetime.now().strftime("%d%b,%H:%M:%S+")
         comando+='\n'
         error_AN=0
@@ -111,7 +112,16 @@ def Roraima_communications():
                 connection.commit()
                 logging.info("Se actualizo: "+ SENSOR + ","+ str(len(TAGS)) + " TAGS")
                 connection.close()
-        time.sleep(60)
+        t1=time.time()
+        while((t1-t0)<60):
+            t1=time.time()
+            comando = datetime.now().strftime("%d%b,%H:%M:%S+")
+            comando+='\n'
+            try:
+                a=arduino.write(comando.encode())
+            except:
+                logging.error("No se puede contectar a Tarjeta ARDUINO")
+
 
 try:
     Roraima_communications()
