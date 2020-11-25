@@ -29,7 +29,13 @@ def Roraima_communications():
             analogico=txt.split("|")
         except:
             logging.error("No se puede contectar a Tarjeta ARDUINO")
-            analogico[0:5]=0;
+            analogico=[]
+            analogico.append(0)
+            analogico.append(0)
+            analogico.append(0)
+            analogico.append(0)
+            analogico.append(0)
+            analogico.append(0)
             error_AN=1
         error_bd=0
         try:
