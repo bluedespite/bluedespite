@@ -10,7 +10,7 @@ arduino = serial.Serial('/dev/ttyACM0', 9600)
 FORMAT = ('%(asctime)-15s %(threadName)-15s '
           '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
 
-logging.basicConfig(filename='log_modbus', filemode='w',format=FORMAT)
+logging.basicConfig(filename='/home/pi/Documents/git_file/python/log_modbus', filemode='w',format=FORMAT)
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
 
