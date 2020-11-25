@@ -17,7 +17,6 @@ int Analogica2;
 int Analogica3;
 int Analogica4;
 int Analogica5;
-
 char button;
 
 LiquidCrystal lcd( pin_RS,  pin_EN,  pin_d4,  pin_d5,  pin_d6,  pin_d7);
@@ -55,7 +54,7 @@ CadenaEntrada="";
 FinCadena=false;
 }
 
- 
+
 Analogica0 = analogRead (0);
 Analogica1 = analogRead (1);
 Analogica2 = analogRead (2);
@@ -94,15 +93,14 @@ void serialEvent(){
     char CaracterEntrada=Serial.read();
     CadenaEntrada+=CaracterEntrada;
     if (CaracterEntrada =='\n'|| CadenaEntrada.length()>=18){
+      String mensaje=String(Analogica0, DEC)+"|"+String(Analogica1, DEC)+"|"+String(Analogica2, DEC)+"|"+String(Analogica3, DEC)+"|"+String(Analogica4, DEC)+"|"+String(Analogica5, DEC);
+      Serial.println(mensaje);
       FinCadena=true;
       }
   }
 }
 
 void CadaSegundo(){
-String mensaje=button+"|"+String(Analogica0, DEC)+"|"+String(Analogica1, DEC)+"|"+String(Analogica2, DEC)+"|"+String(Analogica3, DEC)+"|"+String(Analogica4, DEC)+"|"+String(Analogica5, DEC);
-Serial.println(mensaje);
-
 }
 
 
