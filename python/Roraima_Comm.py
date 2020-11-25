@@ -58,7 +58,7 @@ def Roraima_communications():
                 PARAM_COMM4=[T[11] for T in CONF]
                 PARAM_COMM5=[T[12] for T in CONF]
                 PARAM_COMM6=[T[13] for T in CONF]
-                result=list();
+                result=[];
                 for j in range(len(TAGS)):
                     if PROTOCOLO[j]=="MTCP":
                         client = ModbusTcpClient(DIRECCION[j],port=int(PARAM_COMM3[j]))
@@ -73,6 +73,10 @@ def Roraima_communications():
                                 logging.exception("No se puede leer registros: " + SENSOR + ":" + TAGS[j])
                                 error_general=1
                                 result.append(0)
+                        else:
+                            logging.exception("No se puede conectar: " + SENSOR + ":" + TAGS[j])
+                            error_general=1
+                            result.append(0)
                     if PROTOCOLO[j]=="ANA":
                         canaltxt=DIRECCION[j]
                         canal=int(canaltxt)
