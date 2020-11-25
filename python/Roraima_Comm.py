@@ -122,7 +122,6 @@ def Roraima_communications():
             except:
                 logging.error("No se puede contectar a Tarjeta ARDUINO")
 
-
 try:
     Roraima_communications()
 except (KeyboardInterrupt):

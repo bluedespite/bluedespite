@@ -1,0 +1,11 @@
+[Unit]
+Description=Demonio de Servicio Comunicaciones
+After=syslog.target
+[Service]
+Type=simple
+ExecStart=python3 /home/pi/Documents/git_files/python/Roraima_Comm.py
+WorkingDirectory=/home/pi/Documents/git_files
+StandartOutput=syslog
+StandartError=syslog
+[Install]
+WantedBy=multi-user.target
