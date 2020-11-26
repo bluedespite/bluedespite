@@ -4,7 +4,8 @@ After=syslog.target
 [Service]
 Type=simple
 ExecStart=python3 /home/pi/Documents/git_files/python/Roraima_Comm.py
-WorkingDirectory=/home/pi/Documents/git_files
+WorkingDirectory=/home/pi
+User=pi
 StandartOutput=syslog
 StandartError=syslog
 [Install]
