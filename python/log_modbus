@@ -1,0 +1,43 @@
+2020-11-25 20:08:31,932 MainThread      ERROR    Roraima_Comm   :33       No se puede contectar a Tarjeta ARDUINO
+2020-11-25 20:08:35,111 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:08:35,112 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:LVL_PROD
+NoneType: None
+2020-11-25 20:08:38,114 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:08:38,114 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:LVL_WTR
+NoneType: None
+2020-11-25 20:08:41,118 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:08:41,119 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:TEMP_PRB
+NoneType: None
+2020-11-25 20:08:41,119 MainThread      ERROR    Roraima_Comm   :97       Error en sensor Analogico : TORRIX1:TEMP_DESP:0
+2020-11-25 20:08:41,132 MainThread      INFO     Roraima_Comm   :114      Se actualizo: TORRIX1,4 TAGS
+2020-11-25 20:09:54,756 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:09:54,757 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:LVL_PROD
+NoneType: None
+2020-11-25 20:09:57,760 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:09:57,761 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:LVL_WTR
+NoneType: None
+2020-11-25 20:10:00,764 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:10:00,765 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:TEMP_PRB
+NoneType: None
+2020-11-25 20:10:00,776 MainThread      INFO     Roraima_Comm   :114      Se actualizo: TORRIX1,4 TAGS
+2020-11-25 20:11:07,437 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:11:07,438 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:LVL_PROD
+NoneType: None
+2020-11-25 20:11:10,443 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:11:10,443 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:LVL_WTR
+NoneType: None
+2020-11-25 20:11:13,448 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:11:13,448 MainThread      ERROR    Roraima_Comm   :85       No se puede conectar: TORRIX1:TEMP_PRB
+NoneType: None
+2020-11-25 20:11:13,462 MainThread      INFO     Roraima_Comm   :114      Se actualizo: TORRIX1,4 TAGS
+,4 TAGS
+2020-11-25 20:10:58,734 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:10:58,735 MainThread      ERROR    Roraima_Comm   :84       No se puede conectar: TORRIX1:LVL_PROD
+NoneType: None
+2020-11-25 20:11:01,739 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:11:01,739 MainThread      ERROR    Roraima_Comm   :84       No se puede conectar: TORRIX1:LVL_WTR
+NoneType: None
+2020-11-25 20:11:04,743 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-11-25 20:11:04,744 MainThread      ERROR    Roraima_Comm   :84       No se puede conectar: TORRIX1:TEMP_PRB
+NoneType: None
+2020-11-25 20:11:04,757 MainThread      INFO     Roraima_Comm   :113      Se actualizo: TORRIX1,4 TAGS

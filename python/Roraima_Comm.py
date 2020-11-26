@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import mysql.connector
 import logging
 from datetime import datetime
