@@ -58,7 +58,8 @@ for direccion in LISTA_DIRECCIONES[:][0]:
         if conteo[0] > 0:
             cursor_local.execute("SELECT ID FROM MAIN_SENSOR."+ SENSOR +"_MEASURE ORDER BY ID DESC LIMIT 1")
             LAST_ID=cursor_local.fetchone()
-        cursor_remoto.execute("SELECT * FROM "+ SENSOR +"_MEASURE WHERE ID > "+str(LAST_ID))
+        Query="SELECT * FROM "+ SENSOR +"_MEASURE WHERE `ID` > "+str(LAST_ID)
+        cursor_remoto.execute(Query)
         val=cursor_remoto.fetchall()
         Q1="INSERT INTO MAIN_SENSOR."+ SENSOR + "_MEASURE  (`ID`, `FECHA_HORA`"
         Q2= ")  VALUES (%s,%s"
@@ -67,8 +68,9 @@ for direccion in LISTA_DIRECCIONES[:][0]:
             Q2=Q2+ ",%s"
         Query=Q1+Q2+")"
         len_val=[T[0] for T in val]
-        for j in range(len(len_val))
+        for j in range(len(len_val)):
             cursor_local.execute(Query,val[j])
+
 connection_local.commit()
 connection_local.close()
 connection_remoto.close()
