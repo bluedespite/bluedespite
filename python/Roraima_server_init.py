@@ -35,8 +35,3 @@ for j in range(numero):
         except:
             numero=0
 connection.commit()
-
-
-
-
-mydb.commit()
