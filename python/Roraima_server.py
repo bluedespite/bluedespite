@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin python3
+
 import mysql.connector
 import logging
 from datetime import datetime
@@ -8,7 +9,7 @@ import time
 FORMAT = ('%(asctime)-15s %(threadName)-15s '
           '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
 
-logging.basicConfig(filename='log_server.txt', filemode='w',format=FORMAT)
+logging.basicConfig(filename='/home/ubuntu-user/Documentos/Roraima/git_files/python/log_server.txt', filemode='w',format=FORMAT)
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
 

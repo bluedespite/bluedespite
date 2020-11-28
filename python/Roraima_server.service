@@ -1,12 +1,11 @@
 [Unit]
-Description=Demonio de Servidor de Comunicaciones
-After=syslog.target
+Description=My Python daemon
+
 [Service]
 Type=simple
-ExecStart=python3 /home/ubuntu-user/Documentos/Roraima/git_files/python/Roraima_server.py
-WorkingDirectory= /home/ubuntu-user/Documentos/Roraima
-User=ubuntu_user
-StandartOutput=syslog
-StandartError=syslog
+ExecStart=/usr/bin/python3 /home/ubuntu-user/Documentos/Roraima/git_files/python/Roraima_server.py
+WorkingDirectory=/home/ubuntu-user/Documentos/
+User=ubuntu-user
+
 [Install]
-WantedBy=multi-user.target
+WantedBy=sysinit.target
