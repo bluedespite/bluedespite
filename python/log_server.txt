@@ -1,0 +1,4 @@
+2020-11-28 21:08:27,140 MainThread      INFO     Roraima_server :96       Se actualizo registros
+2020-11-28 21:18:37,422 MainThread      INFO     Roraima_server :96       Se actualizo registros
+2020-11-28 21:29:37,225 MainThread      INFO     Roraima_server :96       Se actualizo registros
+2020-11-28 21:41:19,886 MainThread      INFO     Roraima_server :96       Se actualizo registros
