@@ -5,19 +5,30 @@ from datetime import datetime
 from pymodbus.client.sync import ModbusTcpClient
 import time
 import serial
+import serial.tools.list_ports
 
-arduino = serial.Serial('/dev/ttyACM0', 9600)
 
-FORMAT = ('%(asctime)-15s %(threadName)-15s '
-          '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
 
-logging.basicConfig(filename='/home/pi/Documents/git_files/python/log_modbus', filemode='w',format=FORMAT)
-log=logging.getLogger()
-log.setLevel(logging.DEBUG)
 
 def Roraima_communications():
-#if True:ddf
-     while True:
+    FORMAT = ('%(asctime)-15s %(threadName)-15s '
+          '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
+
+    logging.basicConfig(filename='/home/pi/Documents/git_files/python/log_modbus', filemode='w',format=FORMAT)
+    log=logging.getLogger()
+    log.setLevel(logging.DEBUG)
+
+    for p in serial.tools.list_ports.comports():
+        try:
+            if 'Arduino' in p.manufacturer:
+                arduino_ports = p.device
+                logging.info("Puerto Serie Arduino:"+str(p.device))
+            
+        except:
+            break
+    arduino = serial.Serial(arduino_ports,9600)
+    #if True:ddf
+    while True:
 #    if True:
         t0=time.time()
         comando = datetime.now().strftime("%d%b,%H:%M:%S+")
