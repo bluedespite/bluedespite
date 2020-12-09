@@ -1,63 +1,24 @@
-2020-12-09 18:00:53,284 MainThread      INFO     Roraima_Comm   :25       Puerto Serie Arduino:/dev/ttyACM0
-2020-12-09 18:01:54,076 MainThread      ERROR    Roraima_Comm   :44       No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:01:57,274 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 18:01:57,275 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:LVL_PROD
+2020-12-09 18:42:16,710 MainThread      INFO     Roraima_Comm   :23       Puerto Serie Arduino:/dev/ttyACM0
+2020-12-09 18:42:18,714 MainThread      INFO     Roraima_Comm   :29       Info Puerto Serie Arduino:/dev/ttyAMA0
+2020-12-09 18:42:18,715 MainThread      ERROR    Roraima_Comm   :42       No se puede contectar a Tarjeta ARDUINO
+2020-12-09 18:42:21,923 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-12-09 18:42:21,923 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_PROD
 NoneType: None
-2020-12-09 18:01:57,373 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
-2020-12-09 18:01:57,373 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:LVL_WTR
+2020-12-09 18:42:22,013 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
+2020-12-09 18:42:22,013 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_WTR
 NoneType: None
-2020-12-09 18:02:00,377 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 18:02:00,378 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:TEMP_PRB
+2020-12-09 18:42:25,017 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-12-09 18:42:25,018 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:TEMP_PRB
 NoneType: None
-2020-12-09 18:02:00,378 MainThread      ERROR    Roraima_Comm   :108      Error en sensor Analogico : TORRIX1:TEMP_DESP:0
-2020-12-09 18:02:00,426 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TORRIX1,4 TAGS
-2020-12-09 18:02:03,643 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 18:02:03,644 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:LVL_PROD
+2020-12-09 18:42:25,018 MainThread      ERROR    Roraima_Comm   :106      Error en sensor Analogico : TORRIX1:TEMP_DESP:0
+2020-12-09 18:42:25,061 MainThread      INFO     Roraima_Comm   :123      Se actualizo: TORRIX1,4 TAGS
+2020-12-09 18:43:31,982 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-12-09 18:43:31,983 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_PROD
 NoneType: None
-2020-12-09 18:02:03,773 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
-2020-12-09 18:02:03,774 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:LVL_WTR
+2020-12-09 18:43:32,093 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
+2020-12-09 18:43:32,094 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_WTR
 NoneType: None
-2020-12-09 18:02:06,778 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 18:02:06,778 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:TEMP_PRB
+2020-12-09 18:43:35,098 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
+2020-12-09 18:43:35,098 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:TEMP_PRB
 NoneType: None
-2020-12-09 18:02:06,806 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TORRIX1,4 TAGS
-2020-12-09 18:03:16,957 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 18:03:16,958 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:LVL_PROD
-NoneType: None
-2020-12-09 18:03:17,053 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
-2020-12-09 18:03:17,054 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:LVL_WTR
-NoneType: None
-2020-12-09 18:03:20,058 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 18:03:20,059 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:TEMP_PRB
-NoneType: None
-2020-12-09 18:03:20,107 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TORRIX1,4 TAGS
-2020-12-09 18:03:49,551 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:03:51,068 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:03:53,839 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:03:56,850 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:04:24,969 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 18:04:24,970 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:LVL_PROD
-NoneType: None
-2020-12-09 18:04:25,053 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
-2020-12-09 18:04:25,054 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:LVL_WTR
-NoneType: None
-2020-12-09 18:04:28,061 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 18:04:28,061 MainThread      ERROR    Roraima_Comm   :96       No se puede conectar: TORRIX1:TEMP_PRB
-NoneType: None
-2020-12-09 18:04:28,115 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TORRIX1,4 TAGS
-2020-12-09 18:05:05,035 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:05,417 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:05,761 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:06,024 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:06,475 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:08,562 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:08,905 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:09,282 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:09,745 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:10,040 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:10,388 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:10,623 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:10,795 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:10,979 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:11,160 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 18:05:11,364 MainThread      ERROR    Roraima_Comm   :135      No se puede contectar a Tarjeta ARDUINO
+2020-12-09 18:43:35,147 MainThread      INFO     Roraima_Comm   :123      Se actualizo: TORRIX1,4 TAGS

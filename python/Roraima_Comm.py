@@ -13,11 +13,9 @@ import serial.tools.list_ports
 def Roraima_communications():
     FORMAT = ('%(asctime)-15s %(threadName)-15s '
           '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
-
     logging.basicConfig(filename='/home/pi/Documents/git_files/python/log_modbus', filemode='w',format=FORMAT)
     log=logging.getLogger()
     log.setLevel(logging.DEBUG)
-
     for p in serial.tools.list_ports.comports():
         try:
             if 'Arduino' in p.manufacturer:
@@ -26,10 +24,10 @@ def Roraima_communications():
             
         except:
             break
+    time.sleep(2)
     arduino = serial.Serial(arduino_ports,9600)
-    #if True:ddf
+    logging.info("Info Puerto Serie Arduino:"+str(p.device))
     while True:
-#    if True:
         t0=time.time()
         comando = datetime.now().strftime("%d%b,%H:%M:%S+")
         comando+='\n'
