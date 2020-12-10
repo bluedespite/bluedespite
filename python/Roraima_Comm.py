@@ -21,13 +21,13 @@ def Roraima_communications():
             if 'Arduino' in p.manufacturer:
                 arduino_ports = p.device
                 logging.info("Puerto Serie Arduino:"+str(p.device))
-            
+                break
         except:
             break
     time.sleep(2)
-    arduino = serial.Serial(arduino_ports,9600)
     logging.info("Info Puerto Serie Arduino:"+str(p.device))
     while True:
+        arduino = serial.Serial(arduino_ports,9600, timeout=5)
         t0=time.time()
         comando = datetime.now().strftime("%d%b,%H:%M:%S+")
         comando+='\n'
@@ -97,11 +97,15 @@ def Roraima_communications():
                     if PROTOCOLO[j]=="ANA":
                         canaltxt=DIRECCION[j]
                         canal=int(canaltxt)
-                        if float(analogico[canal])>(1024/5):
-                            rANA=(float(analogico[canal])-(1024/5))/(1024-(1024/5))
-                            rMed=rANA*(float(RANG_MAX[j])-float(RANG_MIN[j]))+float(RANG_MIN[j])
-                            result.append(rMed)
-                        else:
+                        try:
+                            if float(analogico[canal])>(1024/5):
+                                rANA=(float(analogico[canal])-(1024/5))/(1024-(1024/5))
+                                rMed=rANA*(float(RANG_MAX[j])-float(RANG_MIN[j]))+float(RANG_MIN[j])
+                                result.append(rMed)
+                            else:
+                                result.append(0)
+                                logging.error("Error en sensor Analogico : " + SENSOR +":"+TAGS[j]+":"+DIRECCION[j])
+                        except:
                             result.append(0)
                             logging.error("Error en sensor Analogico : " + SENSOR +":"+TAGS[j]+":"+DIRECCION[j])
                 fecha=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -135,5 +139,4 @@ def Roraima_communications():
 try:
     Roraima_communications()
 except (KeyboardInterrupt):
-    logging.debug("Interrupcion por Teclado. Finalizando")
     exit()
