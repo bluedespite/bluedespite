@@ -40,6 +40,20 @@ if True:
             if error_general==0:
                 for SENSOR in LISTA_SENSORES[:][0]:
                     j=j+1
+                    Query="SELECT NOMBRE FROM MAIN_DB WHERE NOMBRE="+SENSOR
+                    cursor_local.execute(Query)
+                    aux=cursor.fetchone()
+                    rcount = cursor_local.rowcount
+                    if rcount<1:
+                        Query="SELECT * FROM MAIN_DB WHERE 1 ORDER BY ID DESC LIMIT 1"
+                        cursor_local.execute(Query)
+                        lid=cursor_local.fetchone()
+                        aux=cursor_local.rowcount
+                        if  aux<1:
+                            index=str(1)
+                        else:
+                            index=str(1+aux[0])
+                        cursor.execute("INSERT INTO `MAIN_DB` (`ID`,`DB_SENSOR`) VALUES ("+str(lid[0]+1)+",'"+SENSOR+"')")
                     Query="SELECT * FROM "+ SENSOR +"_CONF WHERE 1"
                     cursor_remoto.execute(Query)
                     CONF = cursor_remoto.fetchall()

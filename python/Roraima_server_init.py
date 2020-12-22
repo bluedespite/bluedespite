@@ -8,7 +8,9 @@ while True:
     if n=="S":
         sql_select_Query= "CREATE OR REPLACE TABLE `MAIN_SERVER` ( `ID` INT NOT NULL , `DIRECCION_IP` TEXT NOT NULL , INDEX `ID` (`ID`)) ENGINE = InnoDB"
         cursor.execute(sql_select_Query)
-        sql_select_Query= "CREATE OR REPLACE TABLE `USUARIOS` ( `ID` INT NOT NULL , `Nombre` TEXT NOT NULL ,`Email` TEXT NOT NULL ,`Password` TEXT NOT NULL , INDEX `ID` (`ID`)) ENGINE = InnoDB"
+        sql_select_Query= "CREATE OR REPLACE TABLE `MAIN_DB` ( `ID` INT NOT NULL , `TABLA` TEXT NOT NULL , INDEX `ID` (`ID`)) ENGINE = InnoDB"
+        cursor.execute(sql_select_Query)
+        sql_select_Query= "CREATE OR REPLACE TABLE `USUARIOS` ( `ID` INT NOT NULL , `NOMBRE` TEXT NOT NULL ,`Email` TEXT NOT NULL ,`Password` TEXT NOT NULL , INDEX `ID` (`ID`)) ENGINE = InnoDB"
         cursor.execute(sql_select_Query)
         print("+++Configuracion de Usuarios +++")
         while True:
