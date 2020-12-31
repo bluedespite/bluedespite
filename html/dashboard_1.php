@@ -98,6 +98,20 @@
               </li>
             </ul>
 
+            <div class="dropdown">
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >
+                <span data-feather="calendar"></span>
+                Seleccion
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </ul>
+            </div>
+            </div>
+            </div>
+
 
 
 

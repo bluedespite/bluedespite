@@ -13,19 +13,18 @@ logging.basicConfig(filename='/home/ubuntu-user/Documentos/Roraima/git_files/pyt
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
 
-#def Roraima_Server():
-if True:
-    while True:
+def Roraima_Server():
+    if True:
         try:
             connection_local=mysql.connector.connect (host='localhost',database='MAIN_SENSOR', user='admin',password='12345')
             cursor_local=connection_local.cursor()
-            cursor_local.execute("SELECT DIRECCION_IP FROM MAIN_SENSOR.MAIN_SERVER WHERE 1")
+            cursor_local.execute("SELECT DIRECCION_IP FROM MAIN_SERVER WHERE 1")
             LISTA_DIRECCIONES=cursor_local.fetchall()
-            cursor_local.execute("SHOW DATABASES")
+            cursor_local.execute("SHOW TABLES")
             DBS=cursor_local.fetchall()
         except:
             logging.error("No se puede contectar a base de datos main_server del servidor central")
-            break
+            #break
         for direccion in LISTA_DIRECCIONES[:][0]:
             error_general=0;
             try:
@@ -40,23 +39,9 @@ if True:
             if error_general==0:
                 for SENSOR in LISTA_SENSORES[:][0]:
                     j=j+1
-                    Query="SELECT NOMBRE FROM MAIN_DB WHERE NOMBRE="+SENSOR
-                    cursor_local.execute(Query)
-                    aux=cursor.fetchone()
-                    rcount = cursor_local.rowcount
-                    if rcount<1:
-                        Query="SELECT * FROM MAIN_DB WHERE 1 ORDER BY ID DESC LIMIT 1"
-                        cursor_local.execute(Query)
-                        lid=cursor_local.fetchone()
-                        aux=cursor_local.rowcount
-                        if  aux<1:
-                            index=str(1)
-                        else:
-                            index=str(1+aux[0])
-                        cursor.execute("INSERT INTO `MAIN_DB` (`ID`,`DB_SENSOR`) VALUES ("+str(lid[0]+1)+",'"+SENSOR+"')")
                     Query="SELECT * FROM "+ SENSOR +"_CONF WHERE 1"
-                    cursor_remoto.execute(Query)
-                    CONF = cursor_remoto.fetchall()
+                    cursor_local.execute(Query)
+                    CONF = cursor_local.fetchall()
                     CANT_DIR=len(CONF)
                     TAGS=[T[1] for T in CONF]
                     RANG_MIN=[T[4] for T in CONF]
@@ -69,16 +54,10 @@ if True:
                     PARAM_COMM4=[T[11] for T in CONF]
                     PARAM_COMM5=[T[12] for T in CONF]
                     PARAM_COMM6=[T[13] for T in CONF]
-                    sql_select_Query= "CREATE OR REPLACE TABLE `MAIN_SENSOR`.`"+ SENSOR + "_CONF` ( `ID` INT NOT NULL , `TAG` TEXT NOT NULL ,`DESCRIPCION` TEXT NOT NULL , `UNITS` TEXT NOT NULL , `RANG_MIN` TEXT NOT NULL , `RANG_MAX` TEXT NOT NULL, `PROTOCOLO` TEXT NOT NULL,`DIRECCION` TEXT NOT NULL, `PARAM_COMM1` TEXT NOT NULL, `PARAM_COMM2` TEXT NOT NULL,`PARAM_COMM3` TEXT NOT NULL,`PARAM_COMM4` TEXT NOT NULL,`PARAM_COMM5` TEXT NOT NULL,`PARAM_COMM6` TEXT NOT NULL,   INDEX `ID` (`ID`)) ENGINE = InnoDB"
-                    cursor_local.execute(sql_select_Query)
-                    Query= "INSERT INTO `"+ SENSOR + "_CONF` (`ID`, `TAG`, `DESCRIPCION`,`UNITS`,`RANG_MIN`,`RANG_MAX`,`PROTOCOLO`,`DIRECCION`,`PARAM_COMM1`,`PARAM_COMM2`,`PARAM_COMM3`,`PARAM_COMM4`,`PARAM_COMM5`,`PARAM_COMM6`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-                    for j in range(len(TAGS)):
-                        cursor_local.execute(Query,CONF[j])
-                    connection_local.commit()
                     flag=False
                     prueba=SENSOR+"_MEASURE"
                     for DB in DBS[:][0]:
-                        if DB == prueba:
+                        if DB[0] == prueba:
                             flag=True
                     if flag == False:
                         sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SENSOR`.`"+ SENSOR + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL"

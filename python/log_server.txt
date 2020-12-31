@@ -1,2 +1,2 @@
-2020-12-22 14:21:50,474 MainThread      ERROR    Roraima_server :27       No se puede contectar a base de datos main_server del servidor central
-2020-12-22 14:21:50,474 MainThread      ERROR    Roraima_server :102      Finalizado
+2020-12-30 19:23:23,576 MainThread      INFO     Roraima_server :89       Se actualizo registros
+2020-12-30 19:25:04,098 MainThread      ERROR    Roraima_server :95       Finalizado
