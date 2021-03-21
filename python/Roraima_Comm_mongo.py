@@ -50,7 +50,6 @@ def Roraima_communications():
         error_bd=0
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
-            client=MongoClient(mongodb+srv://MongoAdmin:12345@cluster0.m3fmw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority)
             cursor=connection.cursor()
             cursor.execute("SELECT DB_SENSOR FROM MAIN WHERE 1")
             LISTA_SENSORES=cursor.fetchall()

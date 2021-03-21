@@ -45,8 +45,6 @@ if True:
         error_AN=1
     error_bd=0
     try:
-        client=MongoClient(mongodb+srv://MongoAdmin:12345@cluster0.m3fmw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority)
     except:
         logging.error("No se puede contectar a Base de Datos Remota")
         error_bd=1
-    
