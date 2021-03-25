@@ -1,49 +1,17 @@
-2020-12-09 20:26:59,569 MainThread      INFO     Roraima_Comm   :23       Puerto Serie Arduino:/dev/ttyACM0
-2020-12-09 20:27:01,571 MainThread      INFO     Roraima_Comm   :28       Info Puerto Serie Arduino:/dev/ttyACM0
-2020-12-09 20:27:09,776 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 20:27:09,777 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_PROD
+2021-03-21 12:01:31,131 MainThread      INFO     Roraima_Comm   :23       Puerto Serie Arduino:/dev/ttyACM1
+2021-03-21 12:01:33,133 MainThread      INFO     Roraima_Comm   :28       Info Puerto Serie Arduino:/dev/ttyACM1
+2021-03-21 12:01:41,163 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
+2021-03-21 12:01:41,164 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: Torrix:LVL_PROD
 NoneType: None
-2020-12-09 20:27:09,856 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
-2020-12-09 20:27:09,857 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_WTR
+2021-03-21 12:01:41,294 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
+2021-03-21 12:01:41,294 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: Torrix:LVL_WTR
 NoneType: None
-2020-12-09 20:27:12,861 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 20:27:12,862 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:TEMP_PRB
+2021-03-21 12:01:41,294 MainThread      ERROR    Roraima_Comm   :110      Error en sensor Analogico : Torrix:tmp:1
+2021-03-21 12:01:41,308 MainThread      INFO     Roraima_Comm   :127      Se actualizo: Torrix,3 TAGS
+2021-03-21 12:02:42,017 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
+2021-03-21 12:02:42,017 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: Torrix:LVL_PROD
 NoneType: None
-2020-12-09 20:27:12,862 MainThread      ERROR    Roraima_Comm   :110      Error en sensor Analogico : TORRIX1:TEMP_DESP:0
-2020-12-09 20:27:12,903 MainThread      INFO     Roraima_Comm   :127      Se actualizo: TORRIX1,4 TAGS
-2020-12-09 20:28:10,233 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 20:28:10,234 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_PROD
+2021-03-21 12:02:42,103 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
+2021-03-21 12:02:42,104 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: Torrix:LVL_WTR
 NoneType: None
-2020-12-09 20:28:10,336 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
-2020-12-09 20:28:10,336 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_WTR
-NoneType: None
-2020-12-09 20:28:13,341 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 20:28:13,341 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:TEMP_PRB
-NoneType: None
-2020-12-09 20:28:13,342 MainThread      ERROR    Roraima_Comm   :110      Error en sensor Analogico : TORRIX1:TEMP_DESP:0
-2020-12-09 20:28:13,388 MainThread      INFO     Roraima_Comm   :127      Se actualizo: TORRIX1,4 TAGS
-2020-12-09 20:29:17,844 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 20:29:17,845 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_PROD
-NoneType: None
-2020-12-09 20:29:17,936 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
-2020-12-09 20:29:17,937 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_WTR
-NoneType: None
-2020-12-09 20:29:20,941 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 20:29:20,941 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:TEMP_PRB
-NoneType: None
-2020-12-09 20:29:20,942 MainThread      ERROR    Roraima_Comm   :107      Error en sensor Analogico : TORRIX1:TEMP_DESP:0
-2020-12-09 20:29:20,985 MainThread      INFO     Roraima_Comm   :127      Se actualizo: TORRIX1,4 TAGS
-2020-12-09 20:30:25,235 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 20:30:25,236 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_PROD
-NoneType: None
-2020-12-09 20:30:25,376 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: [Errno 113] No route to host
-2020-12-09 20:30:25,376 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:LVL_WTR
-NoneType: None
-2020-12-09 20:30:28,378 MainThread      ERROR    sync           :215      Connection to (192.168.1.6, 502) failed: timed out
-2020-12-09 20:30:28,379 MainThread      ERROR    Roraima_Comm   :94       No se puede conectar: TORRIX1:TEMP_PRB
-NoneType: None
-2020-12-09 20:30:28,379 MainThread      ERROR    Roraima_Comm   :107      Error en sensor Analogico : TORRIX1:TEMP_DESP:0
-2020-12-09 20:30:28,407 MainThread      INFO     Roraima_Comm   :127      Se actualizo: TORRIX1,4 TAGS
-2020-12-09 20:30:55,690 MainThread      ERROR    Roraima_Comm   :137      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 20:30:55,878 MainThread      ERROR    Roraima_Comm   :137      No se puede contectar a Tarjeta ARDUINO
-2020-12-09 20:30:56,091 MainThread      ERROR    Roraima_Comm   :137      No se puede contectar a Tarjeta ARDUINO
+2021-03-21 12:02:42,114 MainThread      INFO     Roraima_Comm   :127      Se actualizo: Torrix,3 TAGS
