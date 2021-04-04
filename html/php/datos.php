@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'admin');
 define('DB_PASSWORD', '12345');
-define('DB_NAME', 'mibasededatos');
+define('DB_NAME', 'MAIN_SENSOR');
 
 // Desplegamos la conexión a la Basde de Datos
 $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -18,7 +18,7 @@ if(!$mysqli){
 }
 
 // Seleccionamos los datos de la tabla postres
-$query = sprintf("SELECT id, nombre, stock, precio FROM postres");
+$query = sprintf("SELECT ID, FECHA_HORA, LVL_PROD, LVL_WTR,tmp FROM Torrix_MEASURE");
 
 $result = $mysqli->query($query);
 
