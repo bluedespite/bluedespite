@@ -3,7 +3,7 @@ import mysql.connector
 print("***Configuracion Inicial***")
 
 try:
-    connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
+    connection=mysql.connector.connect (host='localhost',database='MAIN_SERVER',user='admin',password='12345')
     cursor=connection.cursor()
 except:
     print("No se puede contectar a base de datos main_server del servidor central")

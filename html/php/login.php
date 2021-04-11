@@ -2,13 +2,13 @@
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'admin');
 define('DB_PASSWORD', '12345');
-define('DB_DATABASE', 'MAIN_SENSOR');
+define('DB_DATABASE', 'MAIN_SERVER');
 $link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
 // Check connection
 if($link === false){
    echo "ERROR: No se puede conectar  " ;
-
+	header("Location: /index.html");
 }else {
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
