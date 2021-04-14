@@ -3,7 +3,7 @@ import mysql.connector
 print("***Configuracion Inicial***")
 
 try:
-    connection=mysql.connector.connect (host='localhost',database='MAIN_SERVER',user='admin',password='12345')
+    connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
     cursor=connection.cursor()
 except:
     print("No se puede contectar a base de datos main_server del servidor central")
@@ -61,7 +61,7 @@ for j in range(numero):
         except:
             numero=0
 connection.commit()
-cursor.execute("SELECT DIRECCION_IP FROM MAIN_SENSOR.MAIN_SERVER WHERE 1")
+cursor.execute("SELECT DIRECCION_IP FROM MAIN_SERVER WHERE 1")
 LISTA_DIRECCIONES=cursor.fetchall()
 for direccion in LISTA_DIRECCIONES[:][0]:
     error_general=0;
@@ -99,7 +99,7 @@ for direccion in LISTA_DIRECCIONES[:][0]:
             for j in range(len(TAGS)):
                 Query= "INSERT INTO `"+ SENSOR + "_CONF` (`ID`, `TAG`, `DESCRIPCION`,`UNITS`,`RANG_MIN`,`RANG_MAX`,`PROTOCOLO`,`DIRECCION`,`PARAM_COMM1`,`PARAM_COMM2`,`PARAM_COMM3`,`PARAM_COMM4`,`PARAM_COMM5`,`PARAM_COMM6`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                 cursor.execute(Query,CONF[j])
-            Query= "INSERT INTO `MAIN_SENSOR`.`MAIN_DB` (`ID`, `SENSOR`) VALUES (%s,%s)"
+            Query= "INSERT INTO `MAIN_DB` (`ID`, `SENSOR`) VALUES (%s,%s)"
             val = (str(k), SENSOR)
             cursor.execute(Query,val)
             connection.commit()

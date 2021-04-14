@@ -1,2 +1,1 @@
-2020-12-30 19:23:23,576 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2020-12-30 19:25:04,098 MainThread      ERROR    Roraima_server :95       Finalizado
+2021-04-13 21:32:13,792 MainThread      INFO     Roraima_server :89       Se actualizo registros
