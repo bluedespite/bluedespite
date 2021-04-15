@@ -8,12 +8,10 @@ import serial
 import serial.tools.list_ports
 
 
-
-
 def Roraima_communications():
     FORMAT = ('%(asctime)-15s %(threadName)-15s '
           '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
-    logging.basicConfig(filename='/home/pi/Documents/git_files/python/log_modbus', filemode='w',format=FORMAT)
+    logging.basicConfig(filename='Roraima_Log.txt', filemode='w',format=FORMAT)
     log=logging.getLogger()
     log.setLevel(logging.DEBUG)
     for p in serial.tools.list_ports.comports():
