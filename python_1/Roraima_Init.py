@@ -13,6 +13,8 @@ while True:
     if n=="S":
         sql_select_Query= "CREATE OR REPLACE TABLE `ESTACION` ( `ID` INT NOT NULL , `ESTACION` TEXT NOT NULL ,`ID_ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL, `ID_PRODUCTO` TEXT NOT NULL,`CAPACIDAD` INT NOT NULL,`DENSIDAD` FLOAT NOT NULL, INDEX `ID` (`ID`)) ENGINE = InnoDB"
         cursor.execute(sql_select_Query)
+        sql_select_Query= "CREATE OR REPLACE TABLE `MAIN` ( `ID` INT NOT NULL , `DB_SENSOR` TEXT NOT NULL,   INDEX `ID` (`ID`)) ENGINE = InnoDB"
+        cursor.execute(sql_select_Query)
         break
     if n=="n":
         break
