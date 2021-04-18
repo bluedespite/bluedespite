@@ -123,7 +123,7 @@ def Roraima_communications():
                 cursor.execute(Query)
                 connection.commit()
                 logging.info("Se actualizo: "+ SENSOR + ","+ str(len(TAGS)) + " TAGS")
-                connection.close()
+        connection.close()
         t1=time.time()
         while((t1-t0)<60):
             t1=time.time()
