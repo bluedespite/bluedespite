@@ -11,7 +11,7 @@ print("***El Programa de incializacion tiene tres componentes posibles: Bahia fi
 while True:
     n=input("Seleccione si es la Primera vez que corre la inicializacion(S/n):")
     if n=="S":
-        sql_select_Query= "CREATE OR REPLACE TABLE `DBDESTACION` ( `ID` INT NOT NULL , `ESTACION` TEXT NOT NULL ,`ID_ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL, `PRODUCTO` TEXT NOT NULL,`CAPACIDAD` INT NOT NULL,`DENSIDAD` FLOAT NOT NULL, INDEX `ID` (`ID`)) ENGINE = InnoDB"
+        sql_select_Query= "CREATE OR REPLACE TABLE `ESTACION` ( `ID` INT NOT NULL , `ESTACION` TEXT NOT NULL ,`ID_ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL, `ID_PRODUCTO` TEXT NOT NULL,`CAPACIDAD` INT NOT NULL,`DENSIDAD` FLOAT NOT NULL, INDEX `ID` (`ID`)) ENGINE = InnoDB"
         cursor.execute(sql_select_Query)
         break
     if n=="n":
@@ -34,11 +34,10 @@ while True:
         break
 
 while True:
-    ID_ESTACION=input("Introduce el ID de "+estacion+" : ")
+    ID_ESTACION=input("Introduce el ID de "+ESTACION+" : ")
     if ID_ESTACION !="":
         break
-TAG_SENSOR=ID_ESTACION
-if ESTACION="VEHICULO":
+if ESTACION=="VEHICULO":
     n_tanques=1
     ID_TANQUE=ID_ESTACION
     while True:
@@ -59,11 +58,11 @@ if ESTACION="VEHICULO":
                 break
         except:
             DENSIDAD=0
-    sql_select_Query="INSERT INTO ESTACION (`ID`, `ESTACION`,`ID_ESTACION`, `ID_TANQUE`,`PRODUCTO`,`CAPACIDAD`,`DENSIDAD`) VALUES (1,'"+ ID_ESTACION +"','"+ ID_TANQUE +"','"+ PRODUCTO +"','"+ CAPACIDAD +"','"+ DENSIDAD +"')"
+    sql_select_Query="INSERT INTO ESTACION (`ID`, `ESTACION`,`ID_ESTACION`, `ID_TANQUE`,`ID_PRODUCTO`,`CAPACIDAD`,`DENSIDAD`) VALUES (1,'"+ ESTACION +"','"+ ID_ESTACION +"','"+ ID_TANQUE +"','"+ ID_PRODUCTO +"','"+ CAPACIDAD +"','"+ DENSIDAD +"')"
     TAG_SENSOR.append(ID_ESTACION)
 else:
     while True:
-        n=input("Indique el numero de Tanques de "+ estacion + " " + ID_BAHIA +": ")
+        n=input("Indique el numero de Tanques de "+ ESTACION + " " + ID_ESTACION +": ")
         try:
             n_tanques=int(n)
             if n_tanques>0:
@@ -76,27 +75,27 @@ else:
             if ID_TANQUE!="":
                 TAG_SENSOR.append(ID_TANQUE)
                 break
-    while True:
-        CAPACIDAD=input("Indique la capacidad del tanque" + str(j) +": ")
-        try:
-            if int(CAPACIDAD) > 0:
-            break
-        except:
-            CAPACIDAD=0
-    while True:
-        ID_PRODUCTO=input("Indique el ID del producto del tanque" + str(j) +": ")
-        if ID_PRODUCTO!="":
+        while True:
+            CAPACIDAD=input("Indique la capacidad del tanque" + str(j) +": ")
+            try:
+                if int(CAPACIDAD) > 0:
+                    break
+            except:
+                CAPACIDAD=0
+        while True:
+            ID_PRODUCTO=input("Indique el ID del producto del tanque" + str(j) +": ")
+            if ID_PRODUCTO!="":
                 break
-    while True:
-        DENSIDAD=input("Indique la densidad del producto del tanque" + str(j) +": ")
-        try:
-            if int(DENSIDAD) > 0:
-                break
-        except:
-            DENSIDAD=0
-    sql_select_Query="INSERT INTO ESTACION (`ID`, `ESTACION`,`ID_ESTACION`, `ID_TANQUE`,`PRODUCTO`,`CAPACIDAD`,`DENSIDAD`) VALUES ("+ str(j+1) +",'"+ ID_ESTACION +"','"+ ID_TANQUE +"','"+ PRODUCTO +"','"+ CAPACIDAD +"','"+ DENSIDAD +"')"
-cursor.execute(sql_select_Query)
-connection.commit()
+        while True:
+            DENSIDAD=input("Indique la densidad del producto del tanque" + str(j) +": ")
+            try:
+                if int(DENSIDAD) > 0:
+                    break
+            except:
+                DENSIDAD=0
+        sql_select_Query="INSERT INTO ESTACION (`ID`, `ESTACION`,`ID_ESTACION`, `ID_TANQUE`,`ID_PRODUCTO`,`CAPACIDAD`,`DENSIDAD`) VALUES ("+ str(j+1) +",'"+ ESTACION +"','"+ ID_ESTACION +"','"+ ID_TANQUE +"','"+ ID_PRODUCTO +"','"+ CAPACIDAD +"','"+ DENSIDAD +"')"
+        cursor.execute(sql_select_Query)
+        connection.commit()
 print("******Configuracion de los instrumentos por tanque*****")
 print("******(El sensor de NIVEL DEBE SER EL PRIMER INSTRUMENTO OJO)*****")
 for T_SENSOR in TAG_SENSOR:
