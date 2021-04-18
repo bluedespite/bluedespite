@@ -219,7 +219,7 @@ for T_SENSOR in TAG_SENSOR:
                 if numero<2:
                     TABLA="2"
                     numero=2
-                    break
+                break
             except:
                 numero=0
         print("***Tabla de linealizacion de"+TABLA+" puntos en pares (Xn,Yn)***")
