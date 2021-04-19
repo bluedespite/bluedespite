@@ -7,17 +7,9 @@ connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user
 cursor=connection.cursor()
 print("***Configuracion Inicial***")
 print("***El Programa de incializacion tiene tres componentes posibles: Bahia fija, Cisterna o Vehiculo***")
-
-while True:
-    n=input("Seleccione si es la Primera vez que corre la inicializacion(S/n):")
-    if n=="S":
-        sql_select_Query= "CREATE OR REPLACE TABLE `ESTACION` ( `ID` INT NOT NULL , `ESTACION` TEXT NOT NULL ,`ID_ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL, `ID_PRODUCTO` TEXT NOT NULL,`CAPACIDAD` INT NOT NULL,`DENSIDAD` FLOAT NOT NULL, INDEX `ID` (`ID`)) ENGINE = InnoDB"
-        cursor.execute(sql_select_Query)
-        sql_select_Query= "CREATE OR REPLACE TABLE `MAIN` ( `ID` INT NOT NULL , `DB_SENSOR` TEXT NOT NULL,   INDEX `ID` (`ID`)) ENGINE = InnoDB"
-        cursor.execute(sql_select_Query)
-        break
-    if n=="n":
-        break
+input("Presione ENTER para Continuar")
+sql_select_Query= "CREATE OR REPLACE TABLE `ESTACION` ( `ID` INT NOT NULL , `ESTACION` TEXT NOT NULL ,`ID_ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL, `ID_PRODUCTO` TEXT NOT NULL,`CAPACIDAD` INT NOT NULL,`DENSIDAD` FLOAT NOT NULL, INDEX `ID` (`ID`)) ENGINE = InnoDB"
+cursor.execute(sql_select_Query)
 TAG_SENSOR=[]
 print("+++Configuracion de componentes +++")
 while True:
@@ -60,7 +52,6 @@ if ESTACION=="VEHICULO":
                 break
         except:
             DENSIDAD=0
-    sql_select_Query="INSERT INTO ESTACION (`ID`, `ESTACION`,`ID_ESTACION`, `ID_TANQUE`,`ID_PRODUCTO`,`CAPACIDAD`,`DENSIDAD`) VALUES (1,'"+ ESTACION +"','"+ ID_ESTACION +"','"+ ID_TANQUE +"','"+ ID_PRODUCTO +"','"+ CAPACIDAD +"','"+ DENSIDAD +"')"
     TAG_SENSOR.append(ID_ESTACION)
 else:
     while True:
@@ -244,19 +235,6 @@ for T_SENSOR in TAG_SENSOR:
         sql_select_Query= sql_select_Query + ", `" + n + "` FLOAT NOT NULL"
     sql_select_Query=sql_select_Query + "  , INDEX `ID` (`ID`)) ENGINE = InnoDB"
     cursor.execute(sql_select_Query)
-    sql_select_Query = ("SELECT * FROM MAIN " "WHERE DB_SENSOR = '"+T_SENSOR+"'")
-    cursor.execute(sql_select_Query)
-    cursor.fetchall()
-    i=cursor.rowcount
-    if i==0:
-        cursor.execute("SELECT * FROM MAIN ORDER BY ID DESC LIMIT 1")
-        aux=cursor.fetchone()
-        j=cursor.rowcount
-    if j<1:
-        index=str(1)
-    else:
-        index=str(1+aux[0])
-    cursor.execute("INSERT INTO `MAIN` (`ID`,`DB_SENSOR`) VALUES ("+index+",'"+T_SENSOR+"')")
     print("Se agrego un nuevo registro")
     connection.commit()
 connection.close()
