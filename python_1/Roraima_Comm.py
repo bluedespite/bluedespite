@@ -50,7 +50,7 @@ def Roraima_communications():
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
-            cursor.execute("SELECT DB_SENSOR FROM MAIN WHERE 1")
+            cursor.execute("SELECT ID_TANQUE FROM ESTACION WHERE 1")
             LISTA_SENSORES=cursor.fetchall()
         except:
             logging.error("No se puede contectar a base de datos Main Sensor de este dispositivo")
