@@ -1,1 +1,1 @@
-2021-05-10 21:50:02,308 MainThread      INFO     Roraima_server :91       Se actualizo registros
+2021-05-10 22:06:33,453 MainThread      INFO     Roraima_server :88       Se actualizo registros

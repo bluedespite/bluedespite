@@ -13,9 +13,8 @@ logging.basicConfig(filename='log_server.txt', filemode='w',format=FORMAT)
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
 
-#def Roraima_Server():
-if True:
-    if True:
+def Roraima_Server():
+    while True:
         try:
             connection_local=mysql.connector.connect (host='localhost',database='MAIN_SERVER', user='admin',password='12345')
             cursor_local=connection_local.cursor()
@@ -25,9 +24,7 @@ if True:
             DBS=cursor_local.fetchall()
         except:
             logging.error("No se puede contectar a base de datos main_server del servidor central")
-            #break
         for direccion in LISTA_DIRECCIONES:
-            print(direccion[:][0])
             error_general=0;
             try:
                 connection_remoto=mysql.connector.connect (host=direccion[:][0] ,database='MAIN_SENSOR',user='remoto',password='12345')
@@ -73,7 +70,7 @@ if True:
                     if conteo[0] > 0:
                         cursor_local.execute("SELECT ID FROM MAIN_SERVER."+ SENSOR[:][0] +"_MEASURE ORDER BY ID DESC LIMIT 1")
                         LAST_ID=cursor_local.fetchone()
-                    Query="SELECT * FROM "+ SENSOR[:][0] +"_MEASURE WHERE `ID` > "+str(LAST_ID)
+                    Query="SELECT * FROM "+ SENSOR[:][0] +"_MEASURE WHERE `ID` > "+str(LAST_ID[0])
                     cursor_remoto.execute(Query)
                     val=cursor_remoto.fetchall()
                     Q1="INSERT INTO MAIN_SERVER."+ SENSOR[:][0] + "_MEASURE  (`ID`, `FECHA_HORA`"
