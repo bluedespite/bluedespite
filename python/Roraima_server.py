@@ -12,9 +12,9 @@ FORMAT = ('%(asctime)-15s %(threadName)-15s '
 logging.basicConfig(filename='log_server.txt', filemode='w',format=FORMAT)
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
+#if True:
 
-#def Roraima_Server():
-if True:
+def Roraima_Server():
     if True:
         try:
             connection_local=mysql.connector.connect (host='localhost',database='MAIN_SERVER', user='admin',password='12345')
