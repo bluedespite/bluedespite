@@ -35,7 +35,7 @@ if True:
                 cursor_remoto.execute("SELECT ID_TANQUE FROM ESTACION WHERE 1")
                 LISTA_SENSORES=cursor_remoto.fetchall()
             except:
-                logging.error("No se puede contectar a base de datos main_server del servidor: "+str(direccion[:][0]))
+                logging.error("No se puede contectar a base de datos ESTACION del servidor: "+str(direccion[:][0]))
                 error_general=1
             j=0
             if error_general==0:
