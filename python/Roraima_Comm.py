@@ -50,16 +50,16 @@ def Roraima_communications():
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
-            cursor.execute("SELECT DB_SENSOR FROM MAIN WHERE 1")
+            cursor.execute("SELECT ID_TANQUE FROM ESTACION WHERE 1")
             LISTA_SENSORES=cursor.fetchall()
         except:
             logging.error("No se puede contectar a base de datos Main Sensor de este dispositivo")
             error_bd=1
         i=0
         if error_bd==0:
-            for SENSOR in LISTA_SENSORES[:][0]:
+            for SENSOR in LISTA_SENSORES:
                 error_general=0
-                cursor.execute("SELECT * FROM "+ SENSOR +"_CONF WHERE 1")
+                cursor.execute("SELECT * FROM "+ SENSOR[:][0] +"_CONF WHERE 1")
                 CONF = cursor.fetchall()
                 CANT_DIR=len(CONF)
                 TAGS=[T[1] for T in CONF]
@@ -85,11 +85,11 @@ def Roraima_communications():
                                 rr = client.read_holding_registers(X_1,1,unit=int(PARAM_COMM4[j]))
                                 result.append(rr.registers[0])
                             except:
-                                logging.exception("No se puede leer registros: " + SENSOR + ":" + TAGS[j])
+                                logging.exception("No se puede leer registros: " + SENSOR[:][0] + ":" + TAGS[j])
                                 error_general=1
                                 result.append(0)
                         else:
-                            logging.exception("No se puede conectar: " + SENSOR + ":" + TAGS[j])
+                            logging.exception("No se puede conectar: " + SENSOR[:][0] + ":" + TAGS[j])
                             error_general=1
                             result.append(0)
                     if PROTOCOLO[j]=="ANA":
@@ -102,19 +102,19 @@ def Roraima_communications():
                                 result.append(rMed)
                             else:
                                 result.append(0)
-                                logging.error("Error en sensor Analogico : " + SENSOR +":"+TAGS[j]+":"+DIRECCION[j])
+                                logging.error("Error en sensor Analogico : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j])
                         except:
                             result.append(0)
-                            logging.error("Error en sensor Analogico : " + SENSOR +":"+TAGS[j]+":"+DIRECCION[j])
+                            logging.error("Error en sensor Analogico : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j])
                 fecha=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                cursor.execute("SELECT COUNT(*) FROM "+ SENSOR +"_MEASURE")
+                cursor.execute("SELECT COUNT(*) FROM "+ SENSOR[:][0] +"_MEASURE")
                 conteo=cursor.fetchone()
                 LAST_ID=1
                 if conteo[0] !=0:
-                    cursor.execute("SELECT ID FROM "+ SENSOR +"_MEASURE ORDER BY ID DESC LIMIT 1")
+                    cursor.execute("SELECT ID FROM "+ SENSOR[:][0] +"_MEASURE ORDER BY ID DESC LIMIT 1")
                     LID=cursor.fetchone()
                     LAST_ID=LID[0]+1
-                Q1="INSERT INTO `"+ SENSOR + "_MEASURE`  (`ID`, `FECHA_HORA`"
+                Q1="INSERT INTO `"+ SENSOR[:][0] + "_MEASURE`  (`ID`, `FECHA_HORA`"
                 Q2= ")  VALUES ('"+ str(LAST_ID) + "','" + str(fecha)+"'"
                 for j in range(len(TAGS)):
                     Q1=Q1+ ",`" + TAGS[j]+"`"
@@ -122,7 +122,7 @@ def Roraima_communications():
                 Query=Q1+Q2+")"
                 cursor.execute(Query)
                 connection.commit()
-                logging.info("Se actualizo: "+ SENSOR + ","+ str(len(TAGS)) + " TAGS")
+                logging.info("Se actualizo: "+ SENSOR[:][0] + ","+ str(len(TAGS)) + " TAGS")
         connection.close()
         t1=time.time()
         while((t1-t0)<60):
