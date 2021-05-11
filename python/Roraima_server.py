@@ -72,9 +72,9 @@ if True:
                     LAST_ID=0
                     if conteo[0] > 0:
                         cursor_local.execute("SELECT ID FROM MAIN_SENSOR."+ SENSOR[:][0] +"_MEASURE ORDER BY ID DESC LIMIT 1")
+                        LAST_ID=cursor_local.fetchone()
                     Query="SELECT * FROM "+ SENSOR[:][0] +"_MEASURE WHERE `ID` > "+str(LAST_ID)
                     cursor_remoto.execute(Query)
-                    LAST_ID=cursor_local.fetchone()
                     val=cursor_remoto.fetchall()
                     Q1="INSERT INTO MAIN_SENSOR."+ SENSOR[:][0] + "_MEASURE  (`ID`, `FECHA_HORA`"
                     Q2= ")  VALUES (%s,%s"
