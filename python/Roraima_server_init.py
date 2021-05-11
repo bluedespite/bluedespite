@@ -3,10 +3,10 @@ import mysql.connector
 print("***Configuracion Inicial Servidor***")
 
 try:
-    connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
+    connection=mysql.connector.connect (host='localhost',database='MAIN_SERVER',user='admin',password='12345')
     cursor=connection.cursor()
 except:
-    print("No se puede contectar a base de datos MAIN_SENSOR del servidor central")
+    print("No se puede contectar a base de datos MAIN_SERVER del servidor central")
 
 while True:
     n=input("Seleccione si es la Primera vez que corre la inicializacion(S/n):")

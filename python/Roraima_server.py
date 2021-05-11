@@ -16,7 +16,7 @@ log.setLevel(logging.DEBUG)
 def Roraima_Server():
     if True:
         try:
-            connection_local=mysql.connector.connect (host='localhost',database='MAIN_SENSOR', user='admin',password='12345')
+            connection_local=mysql.connector.connect (host='localhost',database='MAIN_SERVER', user='admin',password='12345')
             cursor_local=connection_local.cursor()
             cursor_local.execute("SELECT DIRECCION_IP FROM MAIN_SERVER WHERE 1")
             LISTA_DIRECCIONES=cursor_local.fetchall()
@@ -88,7 +88,6 @@ def Roraima_Server():
                 connection_local.close()
         logging.info("Se actualizo registros")
         time.sleep(600)
-
 try:
     Roraima_Server()
 except:
