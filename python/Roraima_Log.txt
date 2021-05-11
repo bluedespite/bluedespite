@@ -1,74 +1,37 @@
-2021-05-10 21:15:30,786 MainThread      INFO     Roraima_Comm   :21       Puerto Serie Arduino:/dev/ttyACM0
-2021-05-10 21:15:32,789 MainThread      INFO     Roraima_Comm   :26       Info Puerto Serie Arduino:/dev/ttyACM0
-2021-05-10 21:15:40,808 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
-2021-05-10 21:15:40,809 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
+2021-05-10 21:47:22,936 MainThread      INFO     Roraima_Comm   :21       Puerto Serie Arduino:/dev/ttyACM0
+2021-05-10 21:47:24,938 MainThread      INFO     Roraima_Comm   :26       Info Puerto Serie Arduino:/dev/ttyACM0
+2021-05-10 21:47:32,974 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
+2021-05-10 21:47:32,975 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
 NoneType: None
-2021-05-10 21:15:40,810 MainThread      ERROR    Roraima_Comm   :108      Error en sensor Analogico : TK1:TMP01:1
-2021-05-10 21:15:40,826 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
-2021-05-10 21:15:40,928 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
-2021-05-10 21:15:40,929 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
+2021-05-10 21:47:32,976 MainThread      ERROR    Roraima_Comm   :108      Error en sensor Analogico : TK1:TMP01:1
+2021-05-10 21:47:32,986 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
+2021-05-10 21:47:33,079 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
+2021-05-10 21:47:33,079 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
 NoneType: None
-2021-05-10 21:15:40,929 MainThread      ERROR    Roraima_Comm   :108      Error en sensor Analogico : TK2:TMP02:0
-2021-05-10 21:15:40,938 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
-2021-05-10 21:16:41,738 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
-2021-05-10 21:16:41,738 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
+2021-05-10 21:47:33,080 MainThread      ERROR    Roraima_Comm   :108      Error en sensor Analogico : TK2:TMP02:0
+2021-05-10 21:47:33,091 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
+2021-05-10 21:48:33,388 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
+2021-05-10 21:48:33,389 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
 NoneType: None
-2021-05-10 21:16:41,754 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
-2021-05-10 21:16:41,879 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
-2021-05-10 21:16:41,879 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
+2021-05-10 21:48:33,400 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
+2021-05-10 21:48:33,478 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
+2021-05-10 21:48:33,479 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
 NoneType: None
-2021-05-10 21:16:41,889 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
-2021-05-10 21:17:47,883 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
-2021-05-10 21:17:47,883 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
+2021-05-10 21:48:33,480 MainThread      ERROR    Roraima_Comm   :105      Error en sensor Analogico : TK2:TMP02:0
+2021-05-10 21:48:33,495 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
+2021-05-10 21:49:39,190 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
+2021-05-10 21:49:39,190 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
 NoneType: None
-2021-05-10 21:17:47,898 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
-2021-05-10 21:17:48,038 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
-2021-05-10 21:17:48,039 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
+2021-05-10 21:49:39,205 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
+2021-05-10 21:49:39,328 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
+2021-05-10 21:49:39,329 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
 NoneType: None
-2021-05-10 21:17:48,039 MainThread      ERROR    Roraima_Comm   :105      Error en sensor Analogico : TK2:TMP02:0
-2021-05-10 21:17:48,055 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
-2021-05-10 21:18:55,769 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
-2021-05-10 21:18:55,770 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
+2021-05-10 21:49:39,338 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
+2021-05-10 21:50:45,738 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
+2021-05-10 21:50:45,739 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
 NoneType: None
-2021-05-10 21:18:55,783 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
-2021-05-10 21:18:55,878 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
-2021-05-10 21:18:55,879 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
+2021-05-10 21:50:45,755 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
+2021-05-10 21:50:45,879 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
+2021-05-10 21:50:45,879 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
 NoneType: None
-2021-05-10 21:18:55,879 MainThread      ERROR    Roraima_Comm   :105      Error en sensor Analogico : TK2:TMP02:0
-2021-05-10 21:18:55,890 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
-2021-05-10 21:20:01,782 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
-2021-05-10 21:20:01,782 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
-NoneType: None
-2021-05-10 21:20:01,798 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
-2021-05-10 21:20:01,879 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
-2021-05-10 21:20:01,880 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
-NoneType: None
-2021-05-10 21:20:01,881 MainThread      ERROR    Roraima_Comm   :105      Error en sensor Analogico : TK2:TMP02:0
-2021-05-10 21:20:01,893 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
-2021-05-10 21:21:09,300 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
-2021-05-10 21:21:09,300 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
-NoneType: None
-2021-05-10 21:21:09,314 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
-2021-05-10 21:21:09,408 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
-2021-05-10 21:21:09,409 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
-NoneType: None
-2021-05-10 21:21:09,409 MainThread      ERROR    Roraima_Comm   :108      Error en sensor Analogico : TK2:TMP02:0
-2021-05-10 21:21:09,417 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
-2021-05-10 21:22:13,703 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
-2021-05-10 21:22:13,704 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
-NoneType: None
-2021-05-10 21:22:13,730 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
-2021-05-10 21:22:13,808 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
-2021-05-10 21:22:13,809 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
-NoneType: None
-2021-05-10 21:22:13,809 MainThread      ERROR    Roraima_Comm   :105      Error en sensor Analogico : TK2:TMP02:0
-2021-05-10 21:22:13,822 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
-2021-05-10 21:23:19,715 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: timed out
-2021-05-10 21:23:19,716 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK1:LVL01
-NoneType: None
-2021-05-10 21:23:19,729 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK1,2 TAGS
-2021-05-10 21:23:19,798 MainThread      ERROR    sync           :219      Connection to (192.168.1.50, 502) failed: [Errno 113] No route to host
-2021-05-10 21:23:19,799 MainThread      ERROR    Roraima_Comm   :92       No se puede conectar: TK2:LVL02
-NoneType: None
-2021-05-10 21:23:19,799 MainThread      ERROR    Roraima_Comm   :105      Error en sensor Analogico : TK2:TMP02:0
-2021-05-10 21:23:19,809 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS
+2021-05-10 21:50:45,890 MainThread      INFO     Roraima_Comm   :125      Se actualizo: TK2,2 TAGS

@@ -12,9 +12,9 @@ FORMAT = ('%(asctime)-15s %(threadName)-15s '
 logging.basicConfig(filename='log_server.txt', filemode='w',format=FORMAT)
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
-#if True:
 
-def Roraima_Server():
+#def Roraima_Server():
+if True:
     if True:
         try:
             connection_local=mysql.connector.connect (host='localhost',database='MAIN_SERVER', user='admin',password='12345')
@@ -59,24 +59,24 @@ def Roraima_Server():
                     flag=False
                     prueba=SENSOR[:][0]+"_MEASURE"
                     for DB in DBS:
-                        if DB[:][0] == prueba:
+                        if DB[0][:] == prueba:
                             flag=True
                     if flag == False:
-                        sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SENSOR`.`"+ SENSOR[:][0] + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL"
+                        sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SERVER`.`"+ SENSOR[:][0] + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL"
                         for n in TAGS:
                             sql_select_Query= sql_select_Query + ", `" + n + "` FLOAT NOT NULL"
                         sql_select_Query=sql_select_Query + "  , INDEX `ID` (`ID`)) ENGINE = InnoDB"
                         cursor_local.execute(sql_select_Query)
-                    cursor_local.execute("SELECT COUNT(*) FROM MAIN_SENSOR."+ SENSOR[:][0] +"_MEASURE")
+                    cursor_local.execute("SELECT COUNT(*) FROM MAIN_SERVER."+ SENSOR[:][0] +"_MEASURE")
                     conteo=cursor_local.fetchone()
                     LAST_ID=0
                     if conteo[0] > 0:
-                        cursor_local.execute("SELECT ID FROM MAIN_SENSOR."+ SENSOR[:][0] +"_MEASURE ORDER BY ID DESC LIMIT 1")
+                        cursor_local.execute("SELECT ID FROM MAIN_SERVER."+ SENSOR[:][0] +"_MEASURE ORDER BY ID DESC LIMIT 1")
                         LAST_ID=cursor_local.fetchone()
                     Query="SELECT * FROM "+ SENSOR[:][0] +"_MEASURE WHERE `ID` > "+str(LAST_ID)
                     cursor_remoto.execute(Query)
                     val=cursor_remoto.fetchall()
-                    Q1="INSERT INTO MAIN_SENSOR."+ SENSOR[:][0] + "_MEASURE  (`ID`, `FECHA_HORA`"
+                    Q1="INSERT INTO MAIN_SERVER."+ SENSOR[:][0] + "_MEASURE  (`ID`, `FECHA_HORA`"
                     Q2= ")  VALUES (%s,%s"
                     for t in TAGS:
                         Q1=Q1+ ",`" + t +"`"
@@ -93,5 +93,5 @@ def Roraima_Server():
 try:
     Roraima_Server()
 except:
-    logging.error("Finalizado")
+    logging.error("Finalizado por Error")
     exit()
