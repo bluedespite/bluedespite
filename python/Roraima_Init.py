@@ -230,7 +230,7 @@ for T_SENSOR in TAG_SENSOR:
                         break
                 except:
                     numero=-1
-    sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SENSOR`.`"+ T_SENSOR + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL"
+    sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SENSOR`.`"+ T_SENSOR + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL,`LAT` FLOAT NULL, `LON` FLOAT NOT NULL,`VEL`FLOAT NOT NULL" 
     for n in Tags:
         sql_select_Query= sql_select_Query + ", `" + n + "` FLOAT NOT NULL"
     sql_select_Query=sql_select_Query + "  , INDEX `ID` (`ID`)) ENGINE = InnoDB"

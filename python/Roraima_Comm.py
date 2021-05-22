@@ -7,8 +7,11 @@ import time
 import serial
 import serial.tools.list_ports
 
+LAST_VALID_LON=0
+LAST_VALID_LAT=0
 
-def Roraima_communications():
+#def Roraima_communications():
+if True:
     FORMAT = ('%(asctime)-15s %(threadName)-15s '
           '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
     logging.basicConfig(filename='Roraima_Log.txt', filemode='w',format=FORMAT)
@@ -21,32 +24,54 @@ def Roraima_communications():
                 logging.info("Puerto Serie Arduino:"+str(p.device))
                 break
         except:
+            logging.error("No se puede contectar a Tarjeta ARDUINO")
+            while(True): #Se detiene todo
             break
     time.sleep(2)
     logging.info("Info Puerto Serie Arduino:"+str(p.device))
     while True:
-        arduino = serial.Serial(arduino_ports,9600, timeout=5)
+        arduino = serial.Serial(arduino_ports,9600, timeout=50)
         t0=time.time()
-        comando = datetime.now().strftime("%d%b,%H:%M:%S+")
-        comando+='\n'
         error_AN=0
         try:
-            a=arduino.write(comando.encode())
+            lectura = arduino.readline()
             lectura = arduino.readline()
             txt=str(lectura)
             txt=txt[2:-5]
-            analogico=txt.split("|")
+            arduinos={}
+            SerialA=txt.split("|")
+            for S in SerialA:
+                CLAVE=S.split("=")[0]
+                VALOR=S.split("=")[1]
+                print(CLAVE)
+                print(VALOR)
+                if VALOR=="INVALID DATETIME":
+                    VALOR=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                if VALOR=="INVALID SPEED":
+                    VALOR="0"
+                if VALOR=="INVALID LATITUDE":
+                    VALOR=LAST_VALID_LAT
+                if VALOR=="INVALID LONGITUDE":
+                    VALOR=LAST_VALID_LON
+                if CLAVE=="Latitude":
+                    LAST_VALID_LAT=VALOR
+                if CLAVE=="Longitude":
+                    LAST_VALID_LON=VALOR
+                arduinos[CLAVE]=VALOR
         except:
             logging.error("No se puede contectar a Tarjeta ARDUINO")
-            analogico=[]
-            analogico.append(0)
-            analogico.append(0)
-            analogico.append(0)
-            analogico.append(0)
-            analogico.append(0)
-            analogico.append(0)
+            while(True):
             error_AN=1
         error_bd=0
+        fecha=arduinos["DateTime"]
+        analogico=[]
+        analogico.append(int(arduinos["Analog0"]))
+        analogico.append(int(arduinos["Analog1"]))
+        analogico.append(int(arduinos["Analog2"]))
+        analogico.append(int(arduinos["Analog3"]))
+        analogico.append(int(arduinos["Analog4"])) 
+        analogico.append(int(arduinos["Analog5"]))  
+        break      
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
@@ -106,7 +131,6 @@ def Roraima_communications():
                         except:
                             result.append(0)
                             logging.error("Error en sensor Analogico : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j])
-                fecha=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 cursor.execute("SELECT COUNT(*) FROM "+ SENSOR[:][0] +"_MEASURE")
                 conteo=cursor.fetchone()
                 LAST_ID=1
