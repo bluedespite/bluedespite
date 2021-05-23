@@ -13,9 +13,8 @@ logging.basicConfig(filename='log_server.txt', filemode='w',format=FORMAT)
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
 
-#def Roraima_Server():
-if True:
-    if True:
+def Roraima_Server():
+    while True:
         try:
             connection_local=mysql.connector.connect (host='localhost',database='MAIN_SERVER', user='admin',password='12345')
             cursor_local=connection_local.cursor()
