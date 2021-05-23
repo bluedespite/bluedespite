@@ -170,7 +170,7 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $.ajax({
-            url: "php/$data1.php",
+            url: "php/data1.php",
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             method: "GET",
