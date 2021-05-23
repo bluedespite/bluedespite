@@ -149,15 +149,8 @@ def Roraima_communications():
         connection.close()
         arduino.flush()
         t1=time.time()
-        break
         while((t1-t0)<60):
             t1=time.time()
-            comando = datetime.now().strftime("%d%b,%H:%M:%S+")
-            comando+='\n'
-            try:
-                a=arduino.write(comando.encode())
-            except:
-                logging.error("No se puede contectar a Tarjeta ARDUINO")
 
 try:
     Roraima_communications()
