@@ -10,8 +10,7 @@ import serial.tools.list_ports
 LAST_VALID_LON=0
 LAST_VALID_LAT=0
 
-#def Roraima_communications():
-if True:
+def Roraima_communications():
     FORMAT = ('%(asctime)-15s %(threadName)-15s '
           '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
     logging.basicConfig(filename='Roraima_Log.txt', filemode='w',format=FORMAT)
