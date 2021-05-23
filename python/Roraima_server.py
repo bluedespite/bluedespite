@@ -13,8 +13,9 @@ logging.basicConfig(filename='log_server.txt', filemode='w',format=FORMAT)
 log=logging.getLogger()
 log.setLevel(logging.DEBUG)
 
-def Roraima_Server():
-    while True:
+#def Roraima_Server():
+if True:
+    if True:
         try:
             connection_local=mysql.connector.connect (host='localhost',database='MAIN_SERVER', user='admin',password='12345')
             cursor_local=connection_local.cursor()
@@ -25,7 +26,7 @@ def Roraima_Server():
         except:
             logging.error("No se puede contectar a base de datos main_server del servidor central")
         for direccion in LISTA_DIRECCIONES:
-            error_general=0;
+            error_general=0
             try:
                 connection_remoto=mysql.connector.connect (host=direccion[:][0] ,database='MAIN_SENSOR',user='remoto',password='12345')
                 cursor_remoto=connection_remoto.cursor()
@@ -59,7 +60,7 @@ def Roraima_Server():
                         if DB[0][:] == prueba:
                             flag=True
                     if flag == False:
-                        sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SENSOR`.`"+ T_SENSOR + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL,`LAT` FLOAT NULL, `LON` FLOAT NOT NULL,`VEL`FLOAT NOT NULL"
+                        sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SERVER`.`"+ SENSOR[:][0] + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL,`LAT` FLOAT NULL, `LON` FLOAT NOT NULL,`VEL` FLOAT NOT NULL"
                         for n in TAGS:
                             sql_select_Query= sql_select_Query + ", `" + n + "` FLOAT NOT NULL"
                         sql_select_Query=sql_select_Query + "  , INDEX `ID` (`ID`)) ENGINE = InnoDB"
