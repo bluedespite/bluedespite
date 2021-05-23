@@ -16,11 +16,11 @@ if(!$mysqli){
 	die("La Conexión ha fallado: " . $mysqli->error);
 }
 
-
-
-
+$query=sprintf("SHOW TABLES");
+$result = $mysqli->query($query);
+echo $result;
 $query = sprintf("SELECT ID, FECHA_HORA, LVL_PROD, LVL_WTR,tmp FROM Torrix_MEASURE");
-
+echo $result;
 
 
 $result = $mysqli->query($query);
