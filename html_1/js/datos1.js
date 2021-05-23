@@ -4,20 +4,20 @@ $(document).ready(function() {
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         method: "GET",
-        success: function(data1) {
+        success: function(data) {
             var FECHA_HORA = [];
             var LVL1 = [];
             var LVLWTR= [];
             var TMP= [];
             var color = ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'];
             var bordercolor = ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'];
-            console.log(data1);
+            console.log(data);
 
-            for (var i in data1) {
-                FECHA_HORA.push(data1[i].FECHA_HORA);
-                LVL1.push(data1[i].LVL1);
-                LVLWTR.push(data1[i].LVLWTR);
-                TMP.push(data1[i].TMP);
+            for (var i in data) {
+                FECHA_HORA.push(data[i].FECHA_HORA);
+                LVL1.push(data[i].LVL1);
+                LVLWTR.push(data[i].LVLWTR);
+                TMP.push(data[i].TMP);
             }
 
             var chartdata = {
