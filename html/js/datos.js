@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "php/datos.php",
+        url: "php/data1.php",
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         method: "GET",
@@ -28,7 +28,7 @@ $(document).ready(function() {
                     borderColor: color[0],
                     backgroundColor: color[0],
                     yAxisID: 'A'
-                    
+
                 },
                 {   label: 'Temperatura',
                     data: tmp,
@@ -48,7 +48,7 @@ $(document).ready(function() {
                         yAxes: [
                         {id:'A',ticks: {min: 0,max: 10000}},
                         {id:'B',ticks: {min: 0,max: 1000}}
-                            
+
                             ]
                     }
                 }
