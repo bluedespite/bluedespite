@@ -25,7 +25,6 @@ if True:
                 break
         except:
             logging.error("No se puede contectar a Tarjeta ARDUINO")
-            while(True): #Se detiene todo
             break
     time.sleep(2)
     logging.info("Info Puerto Serie Arduino:"+str(p.device))
@@ -33,18 +32,20 @@ if True:
         arduino = serial.Serial(arduino_ports,9600, timeout=50)
         t0=time.time()
         error_AN=0
+        arduinos={}
         try:
-            lectura = arduino.readline()
-            lectura = arduino.readline()
-            txt=str(lectura)
-            txt=txt[2:-5]
-            arduinos={}
+            while(True):
+                lectura = arduino.readline()
+                txt=str(lectura)
+                txt=txt[2:-5]
+                if txt.find('Latitude')<0:
+                    logging.info("Error de lectura en cadena Serial")
+                else:
+                    break
             SerialA=txt.split("|")
             for S in SerialA:
                 CLAVE=S.split("=")[0]
                 VALOR=S.split("=")[1]
-                print(CLAVE)
-                print(VALOR)
                 if VALOR=="INVALID DATETIME":
                     VALOR=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 if VALOR=="INVALID SPEED":
@@ -60,7 +61,7 @@ if True:
                 arduinos[CLAVE]=VALOR
         except:
             logging.error("No se puede contectar a Tarjeta ARDUINO")
-            while(True):
+            break
             error_AN=1
         error_bd=0
         fecha=arduinos["DateTime"]
@@ -69,9 +70,8 @@ if True:
         analogico.append(int(arduinos["Analog1"]))
         analogico.append(int(arduinos["Analog2"]))
         analogico.append(int(arduinos["Analog3"]))
-        analogico.append(int(arduinos["Analog4"])) 
-        analogico.append(int(arduinos["Analog5"]))  
-        break      
+        analogico.append(int(arduinos["Analog4"]))
+        analogico.append(int(arduinos["Analog5"]))
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
@@ -138,8 +138,8 @@ if True:
                     cursor.execute("SELECT ID FROM "+ SENSOR[:][0] +"_MEASURE ORDER BY ID DESC LIMIT 1")
                     LID=cursor.fetchone()
                     LAST_ID=LID[0]+1
-                Q1="INSERT INTO `"+ SENSOR[:][0] + "_MEASURE`  (`ID`, `FECHA_HORA`"
-                Q2= ")  VALUES ('"+ str(LAST_ID) + "','" + str(fecha)+"'"
+                Q1="INSERT INTO `"+ SENSOR[:][0] + "_MEASURE`  (`ID`, `FECHA_HORA`, `LAT`, `LON`, `VEL`"
+                Q2= ")  VALUES ('"+ str(LAST_ID) + "','" + str(fecha)+ "','" + str(arduinos["Latitude"])+ "','" + str(arduinos["Longitude"])+ "','" + str(arduinos["Velocity"])+"'"
                 for j in range(len(TAGS)):
                     Q1=Q1+ ",`" + TAGS[j]+"`"
                     Q2=Q2+ ",'" + str(result[j])+"'"
@@ -148,7 +148,9 @@ if True:
                 connection.commit()
                 logging.info("Se actualizo: "+ SENSOR[:][0] + ","+ str(len(TAGS)) + " TAGS")
         connection.close()
+        arduino.flush()
         t1=time.time()
+        break
         while((t1-t0)<60):
             t1=time.time()
             comando = datetime.now().strftime("%d%b,%H:%M:%S+")
