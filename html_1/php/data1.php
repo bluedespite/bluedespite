@@ -36,3 +36,4 @@ $mysqli->close();
 print json_encode($data1);
 
 //var_dump($data);
+?>
