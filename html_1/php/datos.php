@@ -15,18 +15,11 @@ $mysqli->query("SET NAMES 'utf8'");
 if(!$mysqli){
 	die("La Conexión ha fallado: " . $mysqli->error);
 }
-
-$query=sprintf("SHOW TABLES");
-$result = $mysqli->query($query);
-echo $result;
-$query = sprintf("SELECT ID, FECHA_HORA, LVL_PROD, LVL_WTR,tmp FROM Torrix_MEASURE");
-echo $result;
-
-
-$result = $mysqli->query($query);
-
-// Hacemos un bucle con los datos obntenidos
 $data = array();
+$result = $mysqli->query($query);
+$query = sprintf("SELECT ID, FECHA_HORA, LAT, LON,LVL1 ,LVLWTR,TMP FROM tk1_MEASURE");
+$result = $mysqli->query($query);
+
 foreach ($result as $row) {
 	$data[] = $row;
 }

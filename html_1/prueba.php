@@ -35,3 +35,4 @@ $result->close();
 
 // Cerramos la conexión a la Base de Datos
 $mysqli->close();
+?>
