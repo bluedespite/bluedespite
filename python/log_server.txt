@@ -1,10 +1,1 @@
-2021-05-22 20:20:03,722 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 20:30:03,842 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 20:40:03,979 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 20:50:04,104 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 21:00:04,246 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 21:10:04,375 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 21:20:04,512 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 21:30:04,640 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 21:40:04,764 MainThread      INFO     Roraima_server :89       Se actualizo registros
-2021-05-22 21:50:04,888 MainThread      INFO     Roraima_server :89       Se actualizo registros
+2021-05-23 16:45:27,516 MainThread      INFO     Roraima_server :89       Se actualizo registros
