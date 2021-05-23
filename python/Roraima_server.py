@@ -70,7 +70,8 @@ if True:
                     LAST_ID=0
                     if conteo[0] > 0:
                         cursor_local.execute("SELECT ID FROM MAIN_SERVER."+ SENSOR[:][0] +"_MEASURE ORDER BY ID DESC LIMIT 1")
-                        LAST_ID=cursor_local.fetchone()
+                        LID=cursor_local.fetchone()
+                        LAST_ID=LID[0]
                     Query="SELECT * FROM "+ SENSOR[:][0] +"_MEASURE WHERE `ID` > "+str(LAST_ID)
                     cursor_remoto.execute(Query)
                     val=cursor_remoto.fetchall()
