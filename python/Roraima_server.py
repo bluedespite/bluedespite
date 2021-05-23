@@ -59,7 +59,7 @@ def Roraima_Server():
                         if DB[0][:] == prueba:
                             flag=True
                     if flag == False:
-                        sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SERVER`.`"+ SENSOR[:][0] + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL"
+                        sql_select_Query="CREATE OR REPLACE TABLE `MAIN_SENSOR`.`"+ T_SENSOR + "_MEASURE` ( `ID` INT NOT NULL ,`FECHA_HORA` DATETIME NOT NULL,`LAT` FLOAT NULL, `LON` FLOAT NOT NULL,`VEL`FLOAT NOT NULL"
                         for n in TAGS:
                             sql_select_Query= sql_select_Query + ", `" + n + "` FLOAT NOT NULL"
                         sql_select_Query=sql_select_Query + "  , INDEX `ID` (`ID`)) ENGINE = InnoDB"
@@ -73,7 +73,7 @@ def Roraima_Server():
                     Query="SELECT * FROM "+ SENSOR[:][0] +"_MEASURE WHERE `ID` > "+str(LAST_ID[0])
                     cursor_remoto.execute(Query)
                     val=cursor_remoto.fetchall()
-                    Q1="INSERT INTO MAIN_SERVER."+ SENSOR[:][0] + "_MEASURE  (`ID`, `FECHA_HORA`"
+                    Q1="INSERT INTO MAIN_SERVER."+ SENSOR[:][0] + "_MEASURE  (`ID`, `FECHA_HORA`, `LAT`, `LON`, `VEL`"
                     Q2= ")  VALUES (%s,%s"
                     for t in TAGS:
                         Q1=Q1+ ",`" + t +"`"
