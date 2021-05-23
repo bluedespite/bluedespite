@@ -167,7 +167,77 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js" integrity="sha256-J2sc79NPV/osLcIpzL3K8uJyAD7T5gaEFKlLDM18oxY=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js" integrity="sha256-CfcERD4Ov4+lKbWbYqXD6aFM9M51gN4GUEtDhkWABMo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/datos1.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            url: "php/$data1.php",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            method: "GET",
+            success: function(data) {
+                var FECHA_HORA = [];
+                var LVL1 = [];
+                var LVLWTR= [];
+                var TMP= [];
+                var color = ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'];
+                var bordercolor = ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'];
+                console.log(data);
+
+                for (var i in data) {
+                    FECHA_HORA.push(data[i].FECHA_HORA);
+                    LVL1.push(data[i].LVL1);
+                    LVLWTR.push(data[i].LVLWTR);
+                    TMP.push(data[i].TMP);
+                }
+
+                var chartdata = {
+                    labels: FECHA_HORA,
+                    datasets: [
+                    {   label: 'Producto',
+                        data: LVL1,
+                        borderColor: color[0],
+                        backgroundColor: color[0],
+                        yAxisID: 'A'
+
+                    },
+                    {   label: 'Nivel Agua',
+                        data: LVLWTR,
+                        borderColor: color[1],
+                        backgroundColor: color[1],
+                        yAxisID: 'A'
+
+                    },
+                    {   label: 'Temperatura',
+                        data: tmp,
+                        borderColor: color[2],
+                        backgroundColor: color[2],
+                        yAxisID: 'B'
+                    }]};
+
+                var mostrar = $("#miGrafico");
+
+                var grafico = new Chart(mostrar, {
+                    type: 'line',
+                    data: chartdata,
+                    options: {
+                        responsive: true,
+                        scales: {
+                            yAxes: [
+                            {id:'A',ticks: {min: 0,max: 10000}},
+                            {id:'B',ticks: {min: 0,max: 1000}}
+
+                                ]
+                        }
+                    }
+                });
+            },
+            error: function(data1) {
+                console.log(data1);
+            }
+        });
+    });
+
+    </script>
 </body>
 
 </html>
