@@ -10,6 +10,8 @@ $(document).ready(function() {
             var LVL1=[];
             var VEL=[];
             var PFINAL=[];
+            var Vmax=0;
+            var Vmin=300;
             console.log(data);
             for (var i in data) {
                 FECHA_HORA.push(data[i].FECHA_HORA);
@@ -17,9 +19,12 @@ $(document).ready(function() {
                 VEL.push(data[i].VEL);
                 TRYC.push([data[i].LAT,data[i].LON]);
                 PFINAL=[data[i].LAT,data[i].LON];
-            }
-            var Vmax=Math.max(VEL);
-            var Vmin=Math.min(VEL);
+                if (data[i].VEL>Vmax){
+                  Vmax=data[i].VEL;
+                }
+                if (data[i].VEL<Vmin){
+                  Vmin=data[i].VEL;
+                }}
             console.log(Vmax);
             console.log(Vmin);
             var mymap = L.map('mapid').setView(PFINAL, 13);
