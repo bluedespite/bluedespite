@@ -9,7 +9,7 @@ $(document).ready(function() {
             var FECHA_HORA=[];
             var LVL1=[];
             var VEL=[];
-            var PFINAL=[-12.3,-77.6];
+            var PFINAL=[data[i].LAT,data[i].LON];
             console.log(data);
             for (var i in data) {
                 FECHA_HORA.push(data[i].FECHA_HORA);
