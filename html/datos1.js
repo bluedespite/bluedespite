@@ -12,6 +12,7 @@ $(document).ready(function() {
             var LAT=[];
             var LON=[];
             var VEL=[];
+            var TRYC[];
             var color = ['rgba(255, 0, 0, 0.2)', 'rgba(0, 0, 153, 0.2)', 'rgba(0, 102, 0, 0.2)', 'rgba(255, 255, 0, 0.2)', 'rgba(255, 102, 0, 0.2)', 'rgba(102, 0, 153, 0.2)', 'rgba(102, 0, 0, 0.2)'];
             var bordercolor = ['rgba(255,0,0,1)', 'rgba(0, 0, 153, 1)', 'rgba(0, 102, 0, 1)', 'rgba(255, 255, 0, 1)', 'rgba(255, 102, 0, 1)', 'rgba(102, 0, 153, 1)', 'rgba(0, 0, 0, 1)'];
             console.log(data);
@@ -24,8 +25,9 @@ $(document).ready(function() {
                 LAT.push(data[i].LAT);
                 LON.push(data[i].LON);
                 VEL.push(data[i].VEL);
+                TRYC.push([data[i].LAT,data[i].LON]);
             }
-            console.log("value,", TMP);
+            console.log("value,", TRYC);
             var chartdata = {
                 labels: FECHA_HORA,
                 datasets: [
