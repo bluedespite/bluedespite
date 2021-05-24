@@ -68,10 +68,10 @@ $(document).ready(function() {
                     responsive: true,
                     scales: {
                         yAxes: [
-                        {id:'A',ticks: {min: Math.min(LVL1),max: Math.max(LVL1)}},
-                        {id:'B',ticks: {min: Math.min(LVLWTR),max: Math.max(LVLWTR)}},
-                        {id:'C',ticks: {min: Math.min(VEL),max: Math.max(VEL)}},
-                        {id:'D',ticks: {min: Math.min(TMP),max: Math.max(TMP)}}
+                        {id:'A',ticks: {min: 0,max: 10000}},
+                        {id:'B',ticks: {min: 0,max: 10000}},
+                        {id:'C',ticks: {min: 0,max: 10}},
+                        {id:'D',ticks: {min: 0,max: 100}}
 
                             ]
                     }}});
