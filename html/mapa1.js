@@ -9,15 +9,15 @@ $(document).ready(function() {
             var FECHA_HORA=[];
             var LVL1=[];
             var VEL=[];
-            var PFINAL=[];
+            var PFINAL=[-12.3,-77.6];
             console.log(data);
             for (var i in data) {
                 FECHA_HORA.push(data[i].FECHA_HORA);
                 LVL1.push(data[i].LVL1);
                 VEL.push(data[i].VEL);
                 TRYC.push([data[i].LAT,data[i].LON]);
-                PFINAL=[data[i].LAT,data[i].LON];
             }
+            console.log("value,", i);
             console.log("value,", TRYC);
             var mymap = L.map('mapid').setView(PFINAL, 13);
           	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
