@@ -12,7 +12,7 @@ $(document).ready(function() {
             var LAT=[];
             var LON=[];
             var VEL=[];
-            var TRYC[];
+            var TRYC=[];
             var color = ['rgba(255, 0, 0, 0.2)', 'rgba(0, 0, 153, 0.2)', 'rgba(0, 102, 0, 0.2)', 'rgba(255, 255, 0, 0.2)', 'rgba(255, 102, 0, 0.2)', 'rgba(102, 0, 153, 0.2)', 'rgba(102, 0, 0, 0.2)'];
             var bordercolor = ['rgba(255,0,0,1)', 'rgba(0, 0, 153, 1)', 'rgba(0, 102, 0, 1)', 'rgba(255, 255, 0, 1)', 'rgba(255, 102, 0, 1)', 'rgba(102, 0, 153, 1)', 'rgba(0, 0, 0, 1)'];
             console.log(data);
