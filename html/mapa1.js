@@ -18,8 +18,6 @@ $(document).ready(function() {
                 TRYC.push([data[i].LAT,data[i].LON]);
                 PFINAL=[data[i].LAT,data[i].LON];
             }
-            console.log("value,", i);
-            console.log("value,", TRYC);
             var mymap = L.map('mapid').setView(PFINAL, 13);
           	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
           		maxZoom: 18,
@@ -29,10 +27,11 @@ $(document).ready(function() {
           		tileSize: 512,
           		zoomOffset: -1
           	}).addTo(mymap);
-
-          	L.marker(PFINAL).addTo(mymap).bindPopup("<b>Ubicacion Final:</b><br/>");
-      	     L.polygon(TRYC).addTo(mymap).bindPopup("Recorrido");
+            var distance = mymap.distance(TRYC[0] ,PFINAL);
+          	L.marker(PFINAL).addTo(mymap).bindPopup("<b>Ubicacion Final</b>");
+      	     L.polygon(TRYC).addTo(mymap).bindPopup("Recorrido"+distance.toString());
           	var popup = L.popup();
+
           	function onMapClick(e) {
           		popup
           			.setLatLng(e.latlng)
@@ -40,8 +39,6 @@ $(document).ready(function() {
           			.openOn(mymap);
           	}
           	mymap.on('click', onMapClick);
-
-
           },
           error: function(data1) {
           console.log(data1);
