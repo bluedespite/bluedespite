@@ -25,8 +25,8 @@ $(document).ready(function() {
                 LAT.push(data[i].LAT);
                 LON.push(data[i].LON);
                 VEL.push(data[i].VEL);
-                TRYC[0].push([data[i].LAT);
-                TRYC[1].push([data[i].LON);
+                TRYC[0].push(data[i].LAT);
+                TRYC[1].push(data[i].LON);
             }
             console.log("value,", TRYC);
             var chartdata = {
