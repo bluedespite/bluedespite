@@ -42,21 +42,21 @@ $(document).ready(function() {
                     data: LVLWTR,
                     borderColor: color[1],
                     backgroundColor: color[1],
-                    yAxisID: 'A'
+                    yAxisID: 'B'
 
                 },
                 {   label: 'Velocidad',
                     data: VEL,
                     borderColor: color[2],
                     backgroundColor: color[2],
-                    yAxisID: 'A'
+                    yAxisID: 'C'
 
                 },
                 {   label: 'Temperatura',
                     data: TMP,
                     borderColor: color[3],
                     backgroundColor: color[3],
-                    yAxisID: 'B'
+                    yAxisID: 'D'
                 }]};
 
             var mostrar = $("#miGrafico");
@@ -68,8 +68,10 @@ $(document).ready(function() {
                     responsive: true,
                     scales: {
                         yAxes: [
-                        {id:'A',ticks: {min: 0,max: 1000}},
-                        {id:'B',ticks: {min: 0,max: 1000}}
+                        {id:'A',ticks: {min: Math.min(LVL1),max: Math.max(LVL1)}},
+                        {id:'B',ticks: {min: Math.min(LVLWTR),max: Math.max(LVLWTR)}},
+                        {id:'C',ticks: {min: Math.min(VEL),max: Math.max(VEL)}},
+                        {id:'D',ticks: {min: Math.min(TMP),max: Math.max(TMP)}}
 
                             ]
                     }}});
