@@ -40,7 +40,6 @@ def Roraima_communications():
                 lectura = arduino.readline()
                 txt=str(lectura)
                 txt=txt[2:-5]
-                print(txt)
                 if txt.find('Latitude')<0  or txt.find('Longitude')<0:
                     logging.info("Error de lectura en cadena Serial")
                 else:
