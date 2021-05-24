@@ -16,7 +16,7 @@ if($link === false){
 
       $mypassword =$_POST['password'];
 
-      $sql = "SELECT * FROM USUARIOS WHERE Email='$myusername' AND Password='$mypassword'";
+      $sql = "SELECT * FROM USUARIOS WHERE Email=MD5('$myusername') AND Password=MD5('$mypassword')";
       echo $sql;
       $result = mysqli_query($link,$sql);
       $count = mysqli_num_rows($result);
