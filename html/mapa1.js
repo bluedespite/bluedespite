@@ -30,8 +30,8 @@ $(document).ready(function() {
           		zoomOffset: -1
           	}).addTo(mymap);
 
-          	L.marker(PFINAL).addTo(mymap).bindPopup("<b>Ubicacion Final:</b><br/>"+e.latlng.toString()).openPopup();
-      	     L.polygon(TRYC).addTo(mymap).bindPopup("Recorrido:"+e.latlng.toString());
+          	L.marker(PFINAL).addTo(mymap).bindPopup("<b>Ubicacion Final:</b><br/>");
+      	     L.polygon(TRYC).addTo(mymap).bindPopup("Recorrido");
           	var popup = L.popup();
           	function onMapClick(e) {
           		popup
