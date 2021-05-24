@@ -182,6 +182,7 @@
 
     	L.marker([-12.0632, -77.1126]).addTo(mymap)
     	.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+	     L.polygon(TRYC).addTo(mymap).bindPopup("I am a polygon.");
 
     	var popup = L.popup();
     	function onMapClick(e) {
