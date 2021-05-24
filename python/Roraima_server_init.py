@@ -13,7 +13,7 @@ while True:
     if n=="S":
         sql_select_Query= "CREATE OR REPLACE TABLE `MAIN_SERVER` ( `ID` INT NOT NULL , `DIRECCION_IP` TEXT NOT NULL , INDEX `ID` (`ID`)) ENGINE = InnoDB"
         cursor.execute(sql_select_Query)
-        sql_select_Query= "CREATE OR REPLACE TABLE `USUARIOS` ( `ID` INT NOT NULL , `NOMBRE` TEXT NOT NULL ,`Email` TEXT NOT NULL ,`Password` TEXT NOT NULL , INDEX `ID` (`ID`)) ENGINE = InnoDB"
+        sql_select_Query= "CREATE OR REPLACE TABLE `USUARIOS` ( `ID` INT NOT NULL , `NOMBRE` TEXT NOT NULL ,`Email` VARCHAR(32) NOT NULL ,`Password` VARCHAR(32) NOT NULL , INDEX `ID` (`ID`)) ENGINE = InnoDB"
         cursor.execute(sql_select_Query)
         print("+++Configuracion de Usuarios +++")
         while True:
@@ -30,7 +30,7 @@ while True:
                 Email=input("Introduzca el Email del Usuario No "+ str(j+1) + " :")
                 Contraseña=input("Introduzca la contaseña del Usuario No "+ str(j+1) + " :")
                 if (Nombre!="" and Email!="" and Contraseña!=""):
-                    sql = "INSERT INTO `USUARIOS`  (ID, `Nombre`, `Email`, `Password`) VALUES (%s, %s, %s, %s)"
+                    sql = "INSERT INTO `USUARIOS`  (ID, `Nombre`, `Email`, `Password`) VALUES (%s, %s, MD5(%s), MD5(%s))"
                     val = (str(j+1), Nombre,Email,Contraseña)
                     cursor.execute(sql,val)
                     break
