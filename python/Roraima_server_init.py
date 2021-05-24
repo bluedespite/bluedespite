@@ -28,10 +28,10 @@ while True:
             while True:
                 Nombre=input("Introduzca el Nombre del Usuario No "+ str(j+1) + " :")
                 Email=input("Introduzca el Email del Usuario No "+ str(j+1) + " :")
-                Contraseña=input("Introduzca la contaseña del Usuario No "+ str(j+1) + " :")
-                if (Nombre!="" and Email!="" and Contraseña!=""):
+                Contrasena=input("Introduzca la contaseña del Usuario No "+ str(j+1) + " :")
+                if (Nombre!="" and Email!="" and Contrasena!=""):
                     sql = "INSERT INTO `USUARIOS`  (ID, `Nombre`, `Email`, `Password`) VALUES (%s, %s, MD5(%s), MD5(%s))"
-                    val = (str(j+1), Nombre,Email,Contraseña)
+                    val = (str(j+1), Nombre,Email,Contrasena)
                     cursor.execute(sql,val)
                     break
         connection.commit()
