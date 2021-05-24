@@ -9,13 +9,14 @@ $(document).ready(function() {
             var FECHA_HORA=[];
             var LVL1=[];
             var VEL=[];
-            var PFINAL=[data[i].LAT,data[i].LON];
+            var PFINAL=[];
             console.log(data);
             for (var i in data) {
                 FECHA_HORA.push(data[i].FECHA_HORA);
                 LVL1.push(data[i].LVL1);
                 VEL.push(data[i].VEL);
                 TRYC.push([data[i].LAT,data[i].LON]);
+                PFINAL=[data[i].LAT,data[i].LON];
             }
             console.log("value,", i);
             console.log("value,", TRYC);
