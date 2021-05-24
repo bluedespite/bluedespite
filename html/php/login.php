@@ -11,9 +11,7 @@ if($link === false){
 	header("Location: /index.html");
 }else {
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-
       $myusername =$_POST['email'];
-
       $mypassword =$_POST['password'];
 
       $sql = "SELECT * FROM USUARIOS WHERE Email=MD5('$myusername') AND Password=MD5('$mypassword')";
