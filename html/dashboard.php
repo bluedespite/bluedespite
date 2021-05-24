@@ -158,6 +158,9 @@
                     <td>adipiscing</td>
                     <td>elit</td>
                   </tr>
+                </tbody>
+                </table>
+                </div>
             <div class="line"></div>
 
             <h2>Lorem Ipsum Dolor</h2>
