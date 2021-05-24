@@ -68,13 +68,11 @@ $(document).ready(function() {
                     responsive: true,
                     scales: {
                         yAxes: [
-                        {id:'A',ticks: {min: 0,max: 100}},
-                        {id:'B',ticks: {min: 0,max: 100}}
+                        {id:'A',ticks: {min: 0,max: 1000}},
+                        {id:'B',ticks: {min: 0,max: 1000}}
 
                             ]
-                    }
-                }
-            });
+                    }}});
         },
         error: function(data1) {
         console.log(data1);
