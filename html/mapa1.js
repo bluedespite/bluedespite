@@ -28,8 +28,9 @@ $(document).ready(function() {
           		zoomOffset: -1
           	}).addTo(mymap);
             var distance = mymap.distance(TRYC[0] ,PFINAL);
-          	L.marker(PFINAL).addTo(mymap).bindPopup("<b>Ubicacion Final</b>");
-      	     L.polygon(TRYC).addTo(mymap).bindPopup("Recorrido"+distance.toString());
+            L.marker(TRYC[0]).addTo(mymap).bindPopup("Inicial");
+          	L.marker(PFINAL).addTo(mymap).bindPopup("Final");
+      	     L.polygon(TRYC).addTo(mymap).bindPopup("Recorrido: "+distance.toString()+ "metros");
           	var popup = L.popup();
 
           	function onMapClick(e) {
