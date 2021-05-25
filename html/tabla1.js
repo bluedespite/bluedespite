@@ -15,15 +15,16 @@ $(document).ready(function() {
                 txt1+="<td>"+data[i].LVLWTR.toString()+"</td>";
                 txt1+="<td>"+data[i].TMP.toString()+"</td>";
                 txt1+=  "</tr>";
+                if (i === 20) { break; }
                 }
-                var txt = "<thead><tr><th>ID</th><th>FECHA HORA</th><th>POSICION</th>";
+                var txt = "<thead><tr><th>FECHA HORA</th><th>POSICION</th>";
                 txt+="<th>VELOCIDAD (KMPH)</th><th>NIVEL DE PRODUCTO</th><th>NIVEL DE AGUA</th>";
                 txt+="<th>TEMPERATURA</th></tr></thead><tbody>";
                 txt+=txt1+"<tr></tbody>";
                 document.getElementById("tablad").innerHTML=txt;
           },
-          error: function(data1) {
-          console.log(data1);
+          error: function(data) {
+          console.log(data);
           }
       });
       });
