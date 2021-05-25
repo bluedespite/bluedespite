@@ -15,6 +15,7 @@ log.setLevel(logging.DEBUG)
 
 def Roraima_Server():
     while True:
+        time.sleep(300)
         try:
             connection_local=mysql.connector.connect (host='localhost',database='MAIN_SERVER', user='admin',password='12345')
             cursor_local=connection_local.cursor()
@@ -87,7 +88,6 @@ def Roraima_Server():
                 connection_remoto.close()
                 connection_local.close()
         logging.info("Se actualizo registros")
-        time.sleep(600)
 try:
     Roraima_Server()
 except:
