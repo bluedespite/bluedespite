@@ -9,7 +9,7 @@ import serial.tools.list_ports
 
 LAST_VALID_LON=0
 LAST_VALID_LAT=0
-5400 usd
+#5400 usd
 
 def Roraima_communications():
     FORMAT = ('%(asctime)-15s %(threadName)-15s '
