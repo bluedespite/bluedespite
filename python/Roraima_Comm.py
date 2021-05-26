@@ -9,6 +9,7 @@ import serial.tools.list_ports
 
 LAST_VALID_LON=0
 LAST_VALID_LAT=0
+5400 usd
 
 def Roraima_communications():
     FORMAT = ('%(asctime)-15s %(threadName)-15s '
@@ -30,10 +31,10 @@ def Roraima_communications():
     while True:
         arduino = serial.Serial(arduino_ports,9600, timeout=50)
         t0=time.time()
-        error_AN=0
-        arduinos={}
-        try:
-            while(True):
+        while(True):
+            error_AN=0
+            arduinos={}
+            try:
                 comando = "ready"
                 comando+='\n'
                 a=arduino.write(comando.encode())
@@ -42,29 +43,27 @@ def Roraima_communications():
                 txt=txt[2:-5]
                 if txt.find('Latitude')<0  or txt.find('Longitude')<0:
                     logging.info("Error de lectura en cadena Serial")
-                else:
-                    break
-            SerialA=txt.split("|")
-            for S in SerialA:
-                CLAVE=S.split("=")[0]
-                VALOR=S.split("=")[1]
-                if VALOR=="INVALID DATETIME":
-                    VALOR=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                if VALOR=="INVALID SPEED":
-                    VALOR="0"
-                if VALOR=="INVALID LATITUDE":
-                    VALOR=LAST_VALID_LAT
-                if VALOR=="INVALID LONGITUDE":
-                    VALOR=LAST_VALID_LON
-                if CLAVE=="Latitude":
-                    LAST_VALID_LAT=VALOR
-                if CLAVE=="Longitude":
-                    LAST_VALID_LON=VALOR
-                arduinos[CLAVE]=VALOR
-        except:
-            logging.error("No se puede contectar a Tarjeta ARDUINO")
-            break
-            error_AN=1
+                SerialA=txt.split("|")
+                for S in SerialA:
+                    CLAVE=S.split("=")[0]
+                    VALOR=S.split("=")[1]
+                    if VALOR=="INVALID DATETIME":
+                        VALOR=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                    if VALOR=="INVALID SPEED":
+                        VALOR="0"
+                    if VALOR=="INVALID LATITUDE":
+                        VALOR=LAST_VALID_LAT
+                    if VALOR=="INVALID LONGITUDE":
+                        VALOR=LAST_VALID_LON
+                    if CLAVE=="Latitude":
+                        LAST_VALID_LAT=VALOR
+                    if CLAVE=="Longitude":
+                        LAST_VALID_LON=VALOR
+                    arduinos[CLAVE]=VALOR
+                break
+            except:
+                logging.error("No se puede contectar a Tarjeta ARDUINO")
+                error_AN=1
         error_bd=0
         fecha=arduinos["DateTime"]
         analogico=[]
