@@ -123,13 +123,11 @@ def Roraima_communications():
                         canaltxt=DIRECCION[j]
                         canal=int(canaltxt)
                         try:
-                            if float(analogico[canal])>(1024/5):
-                                rANA=(float(analogico[canal])-(1024/5))/(1024-(1024/5))
-                                rMed=rANA*(float(RANG_MAX[j])-float(RANG_MIN[j]))+float(RANG_MIN[j])
-                                result.append(rMed)
-                            else:
-                                result.append(0)
-                                logging.error("Error en sensor Analogico (131) : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+str(analogico[canal]))
+                            rANA=(float(analogico[canal])-(1024/5))/(1024-(1024/5))
+                            rMed=rANA*(float(RANG_MAX[j])-float(RANG_MIN[j]))+float(RANG_MIN[j])
+                            result.append(rMed)
+                            if float(analogico[canal])<(1024/5):
+                                logging.info("Medicion de sensor Analogico por debajo de 1 V: " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+str(analogico[canal]))
                         except:
                             result.append(0)
                             logging.error("Error en sensor Analogico (134) : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+str(analogico[canal]))
