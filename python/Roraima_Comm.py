@@ -127,7 +127,7 @@ def Roraima_communications():
                             rMed=rANA*(float(RANG_MAX[j])-float(RANG_MIN[j]))+float(RANG_MIN[j])
                             result.append(rMed)
                             if float(analogico[canal])<(1024/5):
-                                logging.info("Medicion de sensor Analogico por debajo de 1 V: " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+str(analogico[canal]))
+                                logging.warning("Medicion de sensor Analogico por debajo de 1 V: " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+str(analogico[canal]))
                         except:
                             result.append(0)
                             logging.error("Error en sensor Analogico (134) : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+str(analogico[canal]))
