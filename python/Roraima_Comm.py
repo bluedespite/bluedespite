@@ -129,10 +129,10 @@ def Roraima_communications():
                                 result.append(rMed)
                             else:
                                 result.append(0)
-                                logging.error("Error en sensor Analogico (131) : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+analogico[canal])
+                                logging.error("Error en sensor Analogico (131) : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+str(analogico[canal]))
                         except:
                             result.append(0)
-                            logging.error("Error en sensor Analogico (134) : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+analogico[canal])
+                            logging.error("Error en sensor Analogico (134) : " + SENSOR[:][0] +":"+TAGS[j]+":"+DIRECCION[j]+" :"+str(analogico[canal]))
                 cursor.execute("SELECT COUNT(*) FROM "+ SENSOR[:][0] +"_MEASURE")
                 conteo=cursor.fetchone()
                 LAST_ID=1
