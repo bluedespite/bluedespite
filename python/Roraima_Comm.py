@@ -43,24 +43,25 @@ def Roraima_communications():
                 txt=txt[2:-5]
                 if txt.find('Latitude')<0  or txt.find('Longitude')<0:
                     logging.info("Error de lectura en cadena Serial")
-                SerialA=txt.split("|")
-                for S in SerialA:
-                    CLAVE=S.split("=")[0]
-                    VALOR=S.split("=")[1]
-                    if VALOR=="INVALID DATETIME":
-                        VALOR=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                    if VALOR=="INVALID SPEED":
-                        VALOR="0"
-                    if VALOR=="INVALID LATITUDE":
-                        VALOR=LAST_VALID_LAT
-                    if VALOR=="INVALID LONGITUDE":
-                        VALOR=LAST_VALID_LON
-                    if CLAVE=="Latitude":
-                        LAST_VALID_LAT=VALOR
-                    if CLAVE=="Longitude":
-                        LAST_VALID_LON=VALOR
-                    arduinos[CLAVE]=VALOR
-                break
+                else:
+                    SerialA=txt.split("|")
+                    for S in SerialA:
+                        CLAVE=S.split("=")[0]
+                        VALOR=S.split("=")[1]
+                            if VALOR=="INVALID DATETIME":
+                                VALOR=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                            if VALOR=="INVALID SPEED":
+                                VALOR="0"
+                            if VALOR=="INVALID LATITUDE":
+                                VALOR=LAST_VALID_LAT
+                            if VALOR=="INVALID LONGITUDE":
+                                VALOR=LAST_VALID_LON
+                            if CLAVE=="Latitude":
+                                LAST_VALID_LAT=VALOR
+                            if CLAVE=="Longitude":
+                                LAST_VALID_LON=VALOR
+                        arduinos[CLAVE]=VALOR
+                    break
             except:
                 logging.error("No se puede contectar a Tarjeta ARDUINO")
                 error_AN=1
