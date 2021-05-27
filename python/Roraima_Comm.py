@@ -48,18 +48,18 @@ def Roraima_communications():
                     for S in SerialA:
                         CLAVE=S.split("=")[0]
                         VALOR=S.split("=")[1]
-                            if VALOR=="INVALID DATETIME":
-                                VALOR=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                            if VALOR=="INVALID SPEED":
-                                VALOR="0"
-                            if VALOR=="INVALID LATITUDE":
-                                VALOR=LAST_VALID_LAT
-                            if VALOR=="INVALID LONGITUDE":
-                                VALOR=LAST_VALID_LON
-                            if CLAVE=="Latitude":
-                                LAST_VALID_LAT=VALOR
-                            if CLAVE=="Longitude":
-                                LAST_VALID_LON=VALOR
+                        if VALOR=="INVALID DATETIME":
+                            VALOR=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                        if VALOR=="INVALID SPEED":
+                            VALOR="0"
+                        if VALOR=="INVALID LATITUDE":
+                            VALOR=LAST_VALID_LAT
+                        if VALOR=="INVALID LONGITUDE":
+                            VALOR=LAST_VALID_LON
+                        if CLAVE=="Latitude":
+                            LAST_VALID_LAT=VALOR
+                        if CLAVE=="Longitude":
+                            LAST_VALID_LON=VALOR
                         arduinos[CLAVE]=VALOR
                     break
             except:
