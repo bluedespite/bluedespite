@@ -1,8 +1,541 @@
-2021-05-23 16:49:05,460 MainThread      INFO     Roraima_Comm   :23       Puerto Serie Arduino:/dev/ttyACM0
-2021-05-23 16:49:07,463 MainThread      INFO     Roraima_Comm   :29       Info Puerto Serie Arduino:/dev/ttyACM0
-2021-05-23 16:49:57,514 MainThread      INFO     Roraima_Comm   :45       Error de lectura en cadena Serial
-2021-05-23 16:49:57,704 MainThread      INFO     Roraima_Comm   :152      Se actualizo: tk1,3 TAGS
-2021-05-23 16:50:07,649 MainThread      INFO     Roraima_Comm   :152      Se actualizo: tk1,3 TAGS
-2021-05-23 16:51:07,652 MainThread      INFO     Roraima_Comm   :152      Se actualizo: tk1,3 TAGS
-2021-05-23 16:52:07,655 MainThread      INFO     Roraima_Comm   :152      Se actualizo: tk1,3 TAGS
-2021-05-23 16:53:07,653 MainThread      INFO     Roraima_Comm   :152      Se actualizo: tk1,3 TAGS
+2021-05-27 08:40:17,594 MainThread      INFO     Roraima_Comm   :24       Puerto Serie Arduino:/dev/ttyACM1
+2021-05-27 08:40:19,596 MainThread      INFO     Roraima_Comm   :30       Info Puerto Serie Arduino:/dev/ttyACM1
+2021-05-27 08:40:19,802 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:41:19,787 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:42:19,780 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :148
+2021-05-27 08:42:19,780 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :202
+2021-05-27 08:42:19,780 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :96
+2021-05-27 08:42:19,789 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:43:19,795 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:44:19,795 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:45:19,796 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:46:19,799 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:47:19,790 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :81
+2021-05-27 08:47:19,791 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :83
+2021-05-27 08:47:19,791 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :102
+2021-05-27 08:47:19,800 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:48:19,803 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:49:19,808 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:50:19,802 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :179
+2021-05-27 08:50:19,814 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:51:19,901 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:52:19,815 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:53:19,809 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :188
+2021-05-27 08:53:19,821 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:54:19,822 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:55:19,820 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:56:19,824 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:57:19,819 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :126
+2021-05-27 08:57:19,820 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :175
+2021-05-27 08:57:19,820 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :87
+2021-05-27 08:57:19,831 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:58:19,832 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 08:59:19,823 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :189
+2021-05-27 08:59:19,835 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:00:19,825 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :137
+2021-05-27 09:00:19,825 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :189
+2021-05-27 09:00:19,825 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :93
+2021-05-27 09:00:19,835 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:01:19,828 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :186
+2021-05-27 09:01:19,839 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:02:19,827 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :169
+2021-05-27 09:02:19,827 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :120
+2021-05-27 09:02:19,837 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:03:19,829 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :144
+2021-05-27 09:03:19,829 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :200
+2021-05-27 09:03:19,829 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :93
+2021-05-27 09:03:19,837 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:04:19,844 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:05:19,830 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :104
+2021-05-27 09:05:19,831 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :155
+2021-05-27 09:05:19,831 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :81
+2021-05-27 09:05:19,840 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:06:19,833 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :149
+2021-05-27 09:06:19,833 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :204
+2021-05-27 09:06:19,833 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :98
+2021-05-27 09:06:19,842 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:07:19,844 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:08:19,847 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:09:19,870 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:10:19,841 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :112
+2021-05-27 09:10:19,841 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :163
+2021-05-27 09:10:19,841 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :83
+2021-05-27 09:10:19,850 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:11:19,853 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:12:19,843 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :111
+2021-05-27 09:12:19,843 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :161
+2021-05-27 09:12:19,843 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :85
+2021-05-27 09:12:19,856 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:13:19,855 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:14:19,866 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:15:19,849 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :144
+2021-05-27 09:15:19,849 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :200
+2021-05-27 09:15:19,849 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :94
+2021-05-27 09:15:19,859 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:16:19,853 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :158
+2021-05-27 09:16:19,853 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :126
+2021-05-27 09:16:19,864 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:17:19,856 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :98
+2021-05-27 09:17:19,857 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :94
+2021-05-27 09:17:19,857 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :131
+2021-05-27 09:17:19,866 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:18:19,871 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:19:19,869 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:20:19,870 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:21:19,873 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:22:19,878 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:23:19,876 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:24:19,883 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:25:19,884 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:26:19,874 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :124
+2021-05-27 09:26:19,874 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :174
+2021-05-27 09:26:19,875 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :88
+2021-05-27 09:26:19,883 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:27:19,886 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:28:19,881 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :123
+2021-05-27 09:28:19,881 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :113
+2021-05-27 09:28:19,881 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :197
+2021-05-27 09:28:19,890 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:29:19,889 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:30:19,895 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:31:19,898 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:32:19,902 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:33:19,899 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:34:19,906 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:35:19,907 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:36:19,913 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:37:19,910 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:38:19,938 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:39:19,915 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:40:19,906 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :88
+2021-05-27 09:40:19,906 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :110
+2021-05-27 09:40:19,906 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :92
+2021-05-27 09:40:19,915 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:41:19,918 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:42:19,909 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :87
+2021-05-27 09:42:19,909 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :93
+2021-05-27 09:42:19,910 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :100
+2021-05-27 09:42:19,920 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:43:19,916 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :154
+2021-05-27 09:43:19,916 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :107
+2021-05-27 09:43:19,927 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:44:19,915 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :88
+2021-05-27 09:44:19,915 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :100
+2021-05-27 09:44:19,915 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :94
+2021-05-27 09:44:19,931 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:45:19,927 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:46:19,931 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:47:19,922 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :192
+2021-05-27 09:47:19,931 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:48:19,925 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :94
+2021-05-27 09:48:19,926 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :139
+2021-05-27 09:48:19,926 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :89
+2021-05-27 09:48:19,935 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:49:19,937 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:50:19,938 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:51:19,931 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :197
+2021-05-27 09:51:19,940 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:52:19,935 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :185
+2021-05-27 09:52:19,935 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :139
+2021-05-27 09:52:19,944 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:53:19,949 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:54:19,938 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :166
+2021-05-27 09:54:20,234 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:55:19,956 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:56:19,955 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:57:19,944 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :178
+2021-05-27 09:57:19,945 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :134
+2021-05-27 09:57:19,956 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:58:19,958 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 09:59:19,959 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:00:19,966 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:01:19,954 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :86
+2021-05-27 10:01:19,954 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :90
+2021-05-27 10:01:19,954 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :100
+2021-05-27 10:01:19,963 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:02:19,968 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:03:19,961 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :190
+2021-05-27 10:03:19,970 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:04:19,970 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:05:19,972 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:06:19,975 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:07:19,975 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:08:19,971 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :166
+2021-05-27 10:08:19,980 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:09:19,973 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :161
+2021-05-27 10:09:19,982 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:10:19,987 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:11:19,987 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:12:19,991 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:13:19,980 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :90
+2021-05-27 10:13:19,980 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :104
+2021-05-27 10:13:19,981 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :97
+2021-05-27 10:13:19,993 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:14:19,983 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :98
+2021-05-27 10:14:19,983 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :141
+2021-05-27 10:14:19,983 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :98
+2021-05-27 10:14:19,992 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:15:19,997 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:16:19,991 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :99
+2021-05-27 10:16:19,991 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :100
+2021-05-27 10:16:19,991 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :129
+2021-05-27 10:16:20,000 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:17:19,989 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :111
+2021-05-27 10:17:19,990 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :158
+2021-05-27 10:17:19,990 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :96
+2021-05-27 10:17:19,999 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:18:19,993 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :114
+2021-05-27 10:18:19,993 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :163
+2021-05-27 10:18:19,994 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :95
+2021-05-27 10:18:20,003 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:19:20,009 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:20:20,009 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:21:19,999 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :92
+2021-05-27 10:21:19,999 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :106
+2021-05-27 10:21:20,000 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :97
+2021-05-27 10:21:20,013 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:22:20,004 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :102
+2021-05-27 10:22:20,004 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :103
+2021-05-27 10:22:20,004 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :137
+2021-05-27 10:22:20,014 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:23:20,006 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :169
+2021-05-27 10:23:20,015 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:24:20,017 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:25:20,009 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :183
+2021-05-27 10:25:20,018 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:26:20,021 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:27:20,025 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:28:20,015 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :189
+2021-05-27 10:28:20,025 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:29:20,029 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:30:20,034 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:31:20,026 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :106
+2021-05-27 10:31:20,027 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :150
+2021-05-27 10:31:20,027 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :105
+2021-05-27 10:31:20,036 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:32:20,025 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :99
+2021-05-27 10:32:20,026 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :117
+2021-05-27 10:32:20,026 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :106
+2021-05-27 10:32:20,037 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:33:20,029 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :116
+2021-05-27 10:33:20,029 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :113
+2021-05-27 10:33:20,029 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :161
+2021-05-27 10:33:20,040 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:34:20,032 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :142
+2021-05-27 10:34:20,033 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :191
+2021-05-27 10:34:20,033 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :112
+2021-05-27 10:34:20,041 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:35:20,045 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:36:20,049 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:37:20,048 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:38:20,049 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:39:20,051 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:40:20,055 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:41:20,049 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :105
+2021-05-27 10:41:20,050 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :110
+2021-05-27 10:41:20,050 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :120
+2021-05-27 10:41:20,062 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:42:20,049 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :191
+2021-05-27 10:42:20,049 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :153
+2021-05-27 10:42:20,058 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:43:20,051 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :171
+2021-05-27 10:43:20,061 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:44:20,051 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :178
+2021-05-27 10:44:20,060 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:45:20,053 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :96
+2021-05-27 10:45:20,053 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :132
+2021-05-27 10:45:20,053 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :108
+2021-05-27 10:45:20,066 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:46:20,069 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:47:20,067 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:48:20,067 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:49:20,064 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :144
+2021-05-27 10:49:20,064 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :195
+2021-05-27 10:49:20,064 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :109
+2021-05-27 10:49:20,074 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:50:20,074 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:51:20,072 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:52:20,063 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :141
+2021-05-27 10:52:20,064 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :193
+2021-05-27 10:52:20,064 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :109
+2021-05-27 10:52:20,073 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:53:20,072 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:54:20,080 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:55:20,081 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:56:20,080 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:57:20,077 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:58:20,072 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :168
+2021-05-27 10:58:20,072 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :126
+2021-05-27 10:58:20,084 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 10:59:20,076 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:00:20,080 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:01:20,071 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :94
+2021-05-27 11:01:20,072 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :136
+2021-05-27 11:01:20,072 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :96
+2021-05-27 11:01:20,081 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:02:20,084 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:03:20,079 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :132
+2021-05-27 11:03:20,080 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :185
+2021-05-27 11:03:20,080 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :100
+2021-05-27 11:03:20,092 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:04:20,088 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:05:20,083 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :185
+2021-05-27 11:05:20,092 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:06:20,083 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :173
+2021-05-27 11:06:20,092 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:07:20,096 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:08:20,105 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:09:20,105 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:10:20,094 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :81
+2021-05-27 11:10:20,094 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :90
+2021-05-27 11:10:20,094 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :95
+2021-05-27 11:10:20,106 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:11:20,107 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:12:20,112 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:13:20,102 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :119
+2021-05-27 11:13:20,102 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :174
+2021-05-27 11:13:20,103 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :94
+2021-05-27 11:13:20,114 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:14:20,105 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :198
+2021-05-27 11:14:20,117 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:15:20,110 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :101
+2021-05-27 11:15:20,110 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :156
+2021-05-27 11:15:20,110 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :92
+2021-05-27 11:15:20,119 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:16:20,123 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:17:20,126 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:18:20,125 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:19:20,124 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:20:20,117 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :86
+2021-05-27 11:20:20,117 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :112
+2021-05-27 11:20:20,117 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :92
+2021-05-27 11:20:20,134 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:21:20,130 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:22:20,122 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :193
+2021-05-27 11:22:20,123 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :143
+2021-05-27 11:22:20,131 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:23:20,121 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :202
+2021-05-27 11:23:20,125 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :155
+2021-05-27 11:23:20,132 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:24:20,137 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:25:20,135 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:26:20,125 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :95
+2021-05-27 11:26:20,125 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :94
+2021-05-27 11:26:20,125 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :141
+2021-05-27 11:26:20,134 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:27:20,129 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :155
+2021-05-27 11:27:20,129 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :109
+2021-05-27 11:27:20,139 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:28:20,127 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :85
+2021-05-27 11:28:20,128 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :90
+2021-05-27 11:28:20,128 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :104
+2021-05-27 11:28:20,136 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:29:20,143 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:30:20,143 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:31:20,137 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :182
+2021-05-27 11:31:20,145 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:32:20,136 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :180
+2021-05-27 11:32:20,147 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:33:20,140 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :107
+2021-05-27 11:33:20,140 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :161
+2021-05-27 11:33:20,140 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :96
+2021-05-27 11:33:20,149 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:34:20,142 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :158
+2021-05-27 11:34:20,152 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:35:20,154 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:36:20,145 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :187
+2021-05-27 11:36:20,158 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:37:20,158 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:38:20,161 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:39:20,151 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :89
+2021-05-27 11:39:20,152 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :126
+2021-05-27 11:39:20,152 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :93
+2021-05-27 11:39:20,162 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:40:20,168 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:41:20,167 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:42:20,170 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:43:20,169 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:44:20,164 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :191
+2021-05-27 11:44:20,165 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :135
+2021-05-27 11:44:20,174 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:45:20,178 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:46:20,176 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:47:20,171 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :157
+2021-05-27 11:47:20,180 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:48:20,170 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :96
+2021-05-27 11:48:20,170 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :95
+2021-05-27 11:48:20,171 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :134
+2021-05-27 11:48:20,180 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:49:20,178 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :152
+2021-05-27 11:49:20,178 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :108
+2021-05-27 11:49:20,187 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:50:20,177 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :184
+2021-05-27 11:50:20,186 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:51:20,189 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:52:20,192 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:53:20,196 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:54:20,188 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :180
+2021-05-27 11:54:20,188 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :132
+2021-05-27 11:54:20,198 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:55:20,186 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :98
+2021-05-27 11:55:20,187 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :94
+2021-05-27 11:55:20,187 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :147
+2021-05-27 11:55:20,198 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:56:20,201 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:57:20,192 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :161
+2021-05-27 11:57:20,201 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:58:20,195 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :192
+2021-05-27 11:58:20,196 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :143
+2021-05-27 11:58:20,207 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 11:59:20,208 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:00:20,207 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:01:20,212 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:02:20,201 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :84
+2021-05-27 12:02:20,201 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :96
+2021-05-27 12:02:20,201 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :97
+2021-05-27 12:02:20,210 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:03:20,208 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :198
+2021-05-27 12:03:20,217 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:04:20,224 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:05:20,222 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:06:20,223 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:07:20,227 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:08:20,226 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:09:20,221 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :130
+2021-05-27 12:09:20,221 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :185
+2021-05-27 12:09:20,221 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :91
+2021-05-27 12:09:20,231 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:10:20,222 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :82
+2021-05-27 12:10:20,222 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :86
+2021-05-27 12:10:20,222 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :107
+2021-05-27 12:10:20,232 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:11:20,225 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :112
+2021-05-27 12:11:20,225 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :166
+2021-05-27 12:11:20,225 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :86
+2021-05-27 12:11:20,238 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:12:20,238 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:13:20,231 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :166
+2021-05-27 12:13:20,241 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:14:20,251 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:15:20,238 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :137
+2021-05-27 12:15:20,250 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:16:20,238 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :108
+2021-05-27 12:16:20,238 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :92
+2021-05-27 12:16:20,238 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :200
+2021-05-27 12:16:20,251 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:17:20,237 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :84
+2021-05-27 12:17:20,237 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :135
+2021-05-27 12:17:20,237 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :78
+2021-05-27 12:17:20,246 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:18:20,249 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:19:20,244 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :77
+2021-05-27 12:19:20,244 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :82
+2021-05-27 12:19:20,245 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :90
+2021-05-27 12:19:20,254 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:20:20,260 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:21:20,250 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :74
+2021-05-27 12:21:20,251 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :82
+2021-05-27 12:21:20,251 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :89
+2021-05-27 12:21:20,260 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:22:20,273 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:23:20,253 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :77
+2021-05-27 12:23:20,253 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :114
+2021-05-27 12:23:20,254 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :75
+2021-05-27 12:23:20,263 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:24:20,269 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:25:20,267 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:26:20,267 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:27:20,268 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:28:20,259 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :145
+2021-05-27 12:28:20,259 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :200
+2021-05-27 12:28:20,260 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :97
+2021-05-27 12:28:20,268 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:29:20,275 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:30:20,264 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :144
+2021-05-27 12:30:20,279 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:31:20,275 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:32:20,264 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :157
+2021-05-27 12:32:20,264 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :116
+2021-05-27 12:32:20,274 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:33:20,273 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:34:20,268 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :91
+2021-05-27 12:34:20,268 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :89
+2021-05-27 12:34:20,268 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :126
+2021-05-27 12:34:20,278 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:35:20,277 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:36:20,277 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:37:20,272 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :153
+2021-05-27 12:37:20,272 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :106
+2021-05-27 12:37:20,284 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:38:20,287 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:39:20,288 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:40:20,314 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:41:20,300 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :84
+2021-05-27 12:41:20,300 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :130
+2021-05-27 12:41:20,300 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :85
+2021-05-27 12:41:20,310 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:42:20,314 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:43:20,311 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:44:20,314 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:45:20,311 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:46:20,311 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:47:20,302 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :81
+2021-05-27 12:47:20,302 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :108
+2021-05-27 12:47:20,302 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :88
+2021-05-27 12:47:20,313 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:48:20,318 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:49:20,306 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :152
+2021-05-27 12:49:20,306 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :106
+2021-05-27 12:49:20,315 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:50:20,317 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:51:20,320 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:52:20,319 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:53:20,316 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :172
+2021-05-27 12:53:20,316 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :126
+2021-05-27 12:53:20,325 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:54:20,315 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :78
+2021-05-27 12:54:20,316 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :90
+2021-05-27 12:54:20,316 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :90
+2021-05-27 12:54:20,326 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:55:20,334 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:56:20,323 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :120
+2021-05-27 12:56:20,323 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :172
+2021-05-27 12:56:20,323 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :94
+2021-05-27 12:56:20,334 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:57:20,335 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:58:20,322 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :98
+2021-05-27 12:58:20,322 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :152
+2021-05-27 12:58:20,322 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :87
+2021-05-27 12:58:20,332 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 12:59:20,339 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:00:20,329 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :154
+2021-05-27 13:00:20,329 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :122
+2021-05-27 13:00:20,341 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:01:20,342 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:02:20,336 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :184
+2021-05-27 13:02:20,349 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:03:20,345 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:04:20,347 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:05:20,341 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :196
+2021-05-27 13:05:20,350 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:06:20,355 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:07:20,343 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :169
+2021-05-27 13:07:20,353 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:08:20,350 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :200
+2021-05-27 13:08:20,359 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:09:20,359 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:10:20,362 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:11:20,361 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:12:20,370 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:13:20,373 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:14:20,363 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :102
+2021-05-27 13:14:20,363 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :154
+2021-05-27 13:14:20,363 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :92
+2021-05-27 13:14:20,374 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:15:20,362 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :203
+2021-05-27 13:15:20,362 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :157
+2021-05-27 13:15:20,372 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS
+2021-05-27 13:16:20,367 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVL1:1 :82
+2021-05-27 13:16:20,367 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:LVLWTR:2 :104
+2021-05-27 13:16:20,368 MainThread      ERROR    Roraima_Comm   :132      Error en sensor Analogico (131) : tk1:TMP:0 :91
+2021-05-27 13:16:20,378 MainThread      INFO     Roraima_Comm   :151      Se actualizo: tk1,3 TAGS

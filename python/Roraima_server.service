@@ -1,0 +1,11 @@
+[Unit]
+Description=My Python daemon
+
+[Service]
+Type=simple
+ExecStart=python3 /home/pi/Documents/bluedespite/python/Roraima_server.py
+WorkingDirectory=/home/pi/Documents
+User=pi
+
+[Install]
+WantedBy=multi-user.target
