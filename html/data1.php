@@ -18,7 +18,7 @@ if(!$mysqli){
 }
 
 // Seleccionamos los datos de la tabla postres
-$query = sprintf("SELECT * FROM tk1_MEASURE");
+$query = sprintf("SELECT * FROM tk1_MEASURE LIMIT 50");
 $result = $mysqli->query($query);
 
 // Hacemos un bucle con los datos obntenidos
