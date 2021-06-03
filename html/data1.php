@@ -18,7 +18,7 @@ if(!$mysqli){
 }
 
 // Seleccionamos los datos de la tabla postres
-$query = sprintf("SELECT * FROM tk1_MEASURE ORDER BY ID DESC LIMIT 50");
+$query = sprintf("SELECT * FROM tk1_MEASURE ORDER BY ID DESC LIMIT 250");
 $result = $mysqli->query($query);
 
 // Hacemos un bucle con los datos obntenidos
