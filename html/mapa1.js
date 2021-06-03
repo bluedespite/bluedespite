@@ -39,8 +39,9 @@ $(document).ready(function() {
             var distance = mymap.distance(TRYC[0] ,PFINAL);
             L.marker(TRYC[0]).addTo(mymap).bindPopup("Comienzo");
           	L.marker(PFINAL).addTo(mymap).bindPopup("Final");
-      	    L.polyline(TRYC).addTo(mymap).bindPopup("<b>Trayectoria:</b><br> Distancia: "+distance.toString()+ " metros <br> Vel(Max): "+Vmax.toString()+ " Km/h" + "<br> Vel(Min): "+Vmin.toString()+ " Km/h");
-          	var popup = L.popup();
+      	    var polyline = L.polyline(TRYC).addTo(mymap).bindPopup("<b>Trayectoria:</b><br> Distancia: "+distance.toString()+ " metros <br> Vel(Max): "+Vmax.toString()+ " Km/h" + "<br> Vel(Min): "+Vmin.toString()+ " Km/h");
+            map.fitBounds(polyline.getBounds());
+            var popup = L.popup();
 
           	function onMapClick(e) {
           		popup
