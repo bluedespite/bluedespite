@@ -25,7 +25,6 @@ $(document).ready(function() {
                 LAT.push(data[i].LAT);
                 LON.push(data[i].LON);
                 VEL.push(data[i].VEL);
-                TRYC.push([data[i].LAT,data[i].LON]);
             }
             console.log("value,", TRYC);
             var chartdata = {
@@ -70,7 +69,7 @@ $(document).ready(function() {
                         yAxes: [
                         {id:'A',ticks: {min: 0,max: 10000}},
                         {id:'B',ticks: {min: 0,max: 10000}},
-                        {id:'C',ticks: {min: 0,max: 10}},
+                        {id:'C',ticks: {min: 0,max: 250}},
                         {id:'D',ticks: {min: 0,max: 100}}
 
                             ]
