@@ -1,35 +1,40 @@
 from tkinter import *
 import mysql.connector
 from tkinter import messagebox as MessageBox
+from tkinter import ttk, font
+import pandas as pd
+import numpy as np
 
-# Here, we are creating our class, Window, and inheriting from the Frame
-# class. Frame is a class from the tkinter module. (see Lib/tkinter/__init__)
-class Window(Frame):
-    # Define settings upon initialization. Here you can specify
-    def __init__(self, master=None):
-        # parameters that you want to send through the Frame class. 
-        Frame.__init__(self, master)   
-        #reference to the master widget, which is the tk window                 
-        self.master = master
-        #with that, we want to then run init_window, which doesn't yet exist
-        self.init_window()
-    #Creation of init_window
-    def init_window(self):
-        # changing the title of our master widget      
-        self.master.title("Configuracion Inicial")
-        # allowing the widget to take the full space of the root window
-        self.pack(fill=BOTH, expand=1)
-        # creating a menu instance
-        menu = Menu(self.master)
-        self.master.config(menu=menu)
-        file = Menu(menu)
-        edit = Menu(menu)
-        file.add_command(label="Exit", command=self.client_exit)
-        menu.add_cascade(label="File", menu=file)
-        edit.add_command(label="Conectar",command=self.database_connect)
-        menu.add_cascade(label="Database", menu=edit)
+df = pd.DataFrame({'ID': [],'ESTACION': [], 'ID_ESTACION': [], 'TANQUE':[], 'ID_TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'LINEALIZACION':[]})
+columnas=list(df.keys())
+class Window:
+    def __init__(self):
+        self.ventana=Tk()
+        self.ventana.geometry("800x400")
+        self.ventana.title("Configuracion Inicial")
+        menubar = Menu(self.ventana)
+        self.ventana.config(menu=menubar)
+        Archivo = Menu(menubar, tearoff=0)
+        Ayuda = Menu(menubar, tearoff=0)
+        Archivo.add_command(label="Nuevo")
+        Archivo.add_command(label="Editar")
+        Archivo.add_command(label="Exit", command=self.client_exit)
+        menubar.add_cascade(label="Archivo", menu=Archivo)
+        Ayuda.add_command(label="Acerca de..", command=self.acerca_de)
+        menubar.add_cascade(label="Ayuda", menu=Ayuda)
+        #Estacion
+        self.ventana.etiq=[]
+        self.ventana.centr=[]
+        for i in range(len(columnas)):
+            self.ventana.etiq.append(Label(self.ventana, text=columnas[i]))
+            self.ventana.etiq[i].grid(column=1,row=2*i)
+            self.ventana.centr.append(Entry(self.ventana, width=30))
+            self.ventana.centr[i].grid(column=2,row=2*i)
+        self.ventana.mainloop()
     def client_exit(self):
         exit()
+    def acerca_de(self):
+        MessageBox.showinfo("Acerca de..", " Proyecto Roraima \n Jul-2021 \n Miguel Angel Aguirre")
     def database_connect(self):
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
@@ -37,14 +42,6 @@ class Window(Frame):
             MessageBox.showinfo("Success", "Conexion Exitosa")
         except:
             MessageBox.showinfo("Error", "Fallo de Conexion")
-# root window created. Here, that would be the only window, but
-# you can later have windows within windows.
-root = Tk()
-
-root.geometry("800x400")
 
 #creation of an instance
-app = Window(root)
-
-#mainloop 
-root.mainloop()
+app = Window()
