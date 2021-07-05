@@ -42,7 +42,7 @@ class Window:
         Reemplazar=Button(text ="REPLACE", command = self.Reemplazo)
         Reemplazar.grid(column=3,row=12)
         StartOver=Button(text ="Start Over", command = self.StartOver)
-        StartOver.grid(column=3,row=12)
+        StartOver.grid(column=4,row=12)
         #Numero de Entrada (ID)
         self.ventana.etiq0=Label(self.ventana, text="Numero Entrada: $"+columnas[0])
         self.ventana.etiq0.grid(column=1,row=0,sticky="E")
