@@ -4,7 +4,7 @@ import mysql.connector
 from tkinter import messagebox as MessageBox
 from tkinter import ttk, font
 import pandas as pd
-from PIL import ImageTk,Image
+
 
 df = pd.DataFrame({'ID': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[]})
 columnas=list(df.keys())
@@ -25,10 +25,8 @@ class Window:
         menubar.add_cascade(label="Archivo", menu=Archivo)
         Ayuda.add_command(label="Acerca de..", command=self.acerca_de)
         menubar.add_cascade(label="Ayuda", menu=Ayuda)
-        img = Image.open("Roraima.jpg")
-        img = img.resize((800,400),Image.ANTIALIAS)
-        photog = ImageTk.PhotoImage(img)
-        lab=Label(image=photog).place(x=0,y=0)
+        img = PhotoImage(file="Roraima2.gif")
+        lab=Label(image=img).place(x=0,y=0)
         test=Button(text ="TEST DB", command = self.database_connect)
         test.grid(column=5,row=0)
         Init=Button(text ="INIT DB", command = self.database_init)
