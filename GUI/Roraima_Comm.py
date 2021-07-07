@@ -7,6 +7,7 @@ import serial
 import serial.tools.list_ports
 import threading
 import pandas as pd
+
 arduinos={}
 df = pd.DataFrame({'ID': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[]})
 analogico=[0,0,0,0,0,0]
@@ -81,6 +82,7 @@ def Read_Conf():
         logging.error("No se puede contectar a base de datos Main Sensor de este dispositivo")
         cursor.close()
         connection.close()
+        print(df)
         return df,False
 def Read_Measure():
     df,F_OK=Read_Conf()
@@ -113,11 +115,12 @@ def Read_Measure():
                             logging.warning("Medicion de sensor Analogico por debajo de 1 V: " + df['TAG_SENSOR'].loc[i])
                     except:
                         logging.error("Error en sensor Analogico (113) : " + df['TAG_SENSOR'].loc[i])
+    print(df)
     return df
 def Roraima_Comm():
     df =pd.DataFrame()
-    result=Read_Measure({'ID': [],ID': [] })
-
+    result=Read_Measure()
+    print(result)
 
 
 def contar():
@@ -128,10 +131,6 @@ def contar():
 
 init_logger()
 hilo1 = threading.Thread(target=Arduino_Comm)
-hilo2 = threading.Thread(target=contar)
+hilo2 = threading.Thread(target=Roraima_Comm)
 hilo1.start()
 hilo2.start()
-
-
-fecha=arduinos["DateTime"]
-        
