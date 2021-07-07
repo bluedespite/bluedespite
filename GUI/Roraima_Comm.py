@@ -27,7 +27,7 @@ def init_arduino():
             return arduino_ports,True
     return arduino_ports,False
 
-def Arduino_Comm(arduino_port):
+def Arduino_Comm():
     global arduinos
     global analogico
     while(True):
@@ -63,6 +63,7 @@ def Arduino_Comm(arduino_port):
                     if CLAVE=="Longitude":
                         LAST_VALID_LON=VALOR
                     arduinos[CLAVE]=VALOR
+            analogico=[0,0,0,0,0,0]
             analogico[0]=int(arduinos["Analog0"])
             analogico[1]=int(arduinos["Analog1"])
             analogico[2]=int(arduinos["Analog2"])
