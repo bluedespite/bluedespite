@@ -8,7 +8,7 @@ import serial.tools.list_ports
 import threading
 import pandas as pd
 
-arduinos={}
+arduinos={'Latitude': '-12.063190', 'Longitude': '-77.112600', 'Velocity': '0', 'DateTime': '2000-01-01 12:00:00', 'Analog0': '0', 'Analog1': '0', 'Analog2': '0', 'Analog3': '0', 'Analog4': '0', 'Analog5': '0'}
 df = pd.DataFrame({'ID': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[]})
 analogico=[0,0,0,0,0,0]
 
@@ -134,5 +134,5 @@ init_logger()
 hilo1 = threading.Thread(target=Arduino_Comm)
 hilo2 = threading.Thread(target=Roraima_Comm)
 hilo1.start()
-delay(10)
+time.sleep(10)
 hilo2.start()

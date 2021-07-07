@@ -1,0 +1,10 @@
+2021-07-07 16:48:24,097 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
+2021-07-07 16:48:34,285 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
+2021-07-07 16:48:37,144 - Thread-2 ERROR sync 219 Connection to (192.168.1.25, 502) failed: timed out
+2021-07-07 16:48:44,482 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
+2021-07-07 16:48:54,671 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
+2021-07-07 16:49:04,859 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
+2021-07-07 16:49:15,050 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
+2021-07-07 16:49:25,246 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
+2021-07-07 16:49:35,441 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
+2021-07-07 16:49:45,630 - Thread-1 INFO Roraima_Comm 26 Info Puerto Serie Arduino:/dev/ttyACM0
