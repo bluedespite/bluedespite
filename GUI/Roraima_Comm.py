@@ -9,7 +9,7 @@ import threading
 import pandas as pd
 
 arduinos={'Latitude': '-12.063190', 'Longitude': '-77.112600', 'Velocity': '0', 'DateTime': '2000-01-01 12:00:00', 'Analog0': '0', 'Analog1': '0', 'Analog2': '0', 'Analog3': '0', 'Analog4': '0', 'Analog5': '0'}
-df = pd.DataFrame({'ID': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[]})
+df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[]})
 analogico=[0,0,0,0,0,0]
 
 def init_logger():
@@ -77,7 +77,7 @@ def Read_Conf():
     try:
         connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
         cursor=connection.cursor()
-        df=pd.read_sql("SELECT * FROM MAIN_SENSOR.CONF", connection)
+        df=pd.read_sql("SELECT * FROM MAIN_SENSOR.CONF GROUP BY TAG_SENSOR", connection)
         return df, True
     except:
         logging.error("No se puede contectar a base de datos Main Sensor de este dispositivo")
@@ -116,8 +116,9 @@ def Read_Measure():
                             logging.warning("Medicion de sensor Analogico por debajo de 1 V: " + df['TAG_SENSOR'].loc[i])
                     except:
                         logging.error("Error en sensor Analogico (113) : " + df['TAG_SENSOR'].loc[i])
-    print(df)
     return df
+
+
 def Roraima_Comm():
     df =pd.DataFrame()
     result=Read_Measure()

@@ -1,14 +1,12 @@
-#!/usr/bin/env python3
 from tkinter import *
 from typing import ValuesView
 import mysql.connector
 from tkinter import messagebox as MessageBox
 from tkinter import ttk, font
 import pandas as pd
+from datetime import datetime
 
-
-df = pd.DataFrame({'ID': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[]})
-columnas=list(df.keys())
+df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[]})
 
 class Window:
     def __init__(self):
@@ -44,119 +42,113 @@ class Window:
         Reemplazar.grid(column=3,row=12)
         StartOver=Button(text ="Start Over", command = self.StartOver)
         StartOver.grid(column=4,row=12)
-        #Numero de Entrada (ID)
-        self.ventana.etiq0=Label(self.ventana, text="Numero Entrada: $"+columnas[0])
-        self.ventana.etiq0.grid(column=1,row=0,sticky="E")
-        self.ventana.centr0=Entry(self.ventana, width=20)
-        self.ventana.centr0.grid(column=2,row=0)
         #ID de la Estacion
-        self.ventana.etiq1=Label(self.ventana, text="ID Estacion: $"+columnas[1])
+        self.ventana.etiq1=Label(self.ventana, text="ID Estacion: $ID_ESTACION")
         self.ventana.etiq1.grid(column=1,row=1,sticky="E")
         self.ventana.centr1=Entry(self.ventana, width=20)
         self.ventana.centr1.grid(column=2,row=1)
         #Nombre de la Estacion
-        self.ventana.etiq2=Label(self.ventana, text="Nombre Estacion: $"+columnas[2])
+        self.ventana.etiq2=Label(self.ventana, text="Nombre Estacion: $ESTACION")
         self.ventana.etiq2.grid(column=1,row=2,sticky="E")
         self.ventana.centr2=Entry(self.ventana, width=20)
         self.ventana.centr2.grid(column=2,row=2)
         #ID del Tanque
-        self.ventana.etiq3=Label(self.ventana, text="ID Tanque: $"+columnas[3])
+        self.ventana.etiq3=Label(self.ventana, text="ID Tanque: $ID_TANQUE")
         self.ventana.etiq3.grid(column=1,row=3,sticky="E")
         self.ventana.centr3=Entry(self.ventana, width=20)
         self.ventana.centr3.grid(column=2,row=3)
         #Nombre del Tanque
-        self.ventana.etiq4=Label(self.ventana, text="Nombre Tanque: $"+columnas[4])
+        self.ventana.etiq4=Label(self.ventana, text="Nombre Tanque: $TANQUE")
         self.ventana.etiq4.grid(column=1,row=4,sticky="E")
         self.ventana.centr4=Entry(self.ventana, width=20)
         self.ventana.centr4.grid(column=2,row=4)
         #Producto Almacenado
-        self.ventana.etiq5=Label(self.ventana, text="Producto Tk: $"+columnas[5])
+        self.ventana.etiq5=Label(self.ventana, text="Producto Tk: $PRODUCTO")
         self.ventana.etiq5.grid(column=1,row=5,sticky="E")
         self.ventana.centr5=Entry(self.ventana, width=20)
         self.ventana.centr5.grid(column=2,row=5)
         #Densidad del Producto (Kgr/cm2)
-        self.ventana.etiq6=Label(self.ventana, text="Densidad(Kgr/cm2): $"+columnas[6])
+        self.ventana.etiq6=Label(self.ventana, text="Densidad(Kgr/cm2): $DENSIDAD")
         self.ventana.etiq6.grid(column=1,row=6,sticky="E")
         self.ventana.centr6=Entry(self.ventana, width=20)
         self.ventana.centr6.grid(column=2,row=6)
         #Tag del Instrumento
-        self.ventana.etiq7=Label(self.ventana, text="Tag Instrumento: $"+columnas[7])
+        self.ventana.etiq7=Label(self.ventana, text="Tag Instrumento: $TAG_SENSOR")
         self.ventana.etiq7.grid(column=1,row=7,sticky="E")
         self.ventana.centr7=Entry(self.ventana, width=20)
         self.ventana.centr7.grid(column=2,row=7)
         #Descripcion Instrumento
-        self.ventana.etiq8=Label(self.ventana, text="Descripcion: $"+columnas[8])
+        self.ventana.etiq8=Label(self.ventana, text="Descripcion: $DESCRIPCION")
         self.ventana.etiq8.grid(column=1,row=8,sticky="E")
         self.ventana.centr8=Entry(self.ventana, width=20)
         self.ventana.centr8.grid(column=2,row=8)
         #Unidad de la Medida
-        self.ventana.etiq9=Label(self.ventana, text="Unidad Medida: $"+columnas[9])
+        self.ventana.etiq9=Label(self.ventana, text="Unidad Medida: $UM")
         self.ventana.etiq9.grid(column=1,row=9,sticky="E")
         self.ventana.centr9=Entry(self.ventana, width=20)
         self.ventana.centr9.grid(column=2,row=9)
         #Rango Minimo
-        self.ventana.etiq10=Label(self.ventana, text="Rango Minimo: $"+columnas[10])
+        self.ventana.etiq10=Label(self.ventana, text="Rango Minimo: $RANGO_MIN")
         self.ventana.etiq10.grid(column=1,row=10,sticky="E")
         self.ventana.centr10=Entry(self.ventana, width=20)
         self.ventana.centr10.grid(column=2,row=10)
         #Rango Maximo
-        self.ventana.etiq11=Label(self.ventana, text="Rango Maximo: $"+columnas[11])
+        self.ventana.etiq11=Label(self.ventana, text="Rango Maximo: $RANGO_MAX")
         self.ventana.etiq11.grid(column=1,row=11,sticky="E")
         self.ventana.centr11=Entry(self.ventana, width=20)
         self.ventana.centr11.grid(column=2,row=11)
         #Tipo de Entrada
-        self.ventana.etiq12=Label(self.ventana, text="Tipo de Entrada: $"+columnas[12])
+        self.ventana.etiq12=Label(self.ventana, text="Tipo de Entrada: $TIPO")
         self.ventana.etiq12.grid(column=3,row=0,sticky="E")
         self.ventana.centr12=ttk.Combobox(self.ventana, width=20,values=["Analogico","ModbusTCP","Modbus RS232"])
         self.ventana.centr12.grid(column=4,row=0)
         #Direccion del instrumento
-        self.ventana.etiq13=Label(self.ventana, text="Direcc Instrumento: $"+columnas[13])
+        self.ventana.etiq13=Label(self.ventana, text="Dir Instrumento: $DIRECCION")
         self.ventana.etiq13.grid(column=3,row=1,sticky="E")
         self.ventana.centr13=Entry(self.ventana, width=20)
         self.ventana.centr13.grid(column=4,row=1)
         self.ventana.centr13.insert(0,"192.168.1.25")
         #Mascara de Subred
-        self.ventana.etiq14=Label(self.ventana, text="Mascara de Subred: $"+columnas[14])
+        self.ventana.etiq14=Label(self.ventana, text="Mascara de Subred: $MASCARA")
         self.ventana.etiq14.grid(column=3,row=2,sticky="E")
         self.ventana.centr14=Entry(self.ventana, width=20)
         self.ventana.centr14.grid(column=4,row=2)
         self.ventana.centr14.insert(0,"255.255.255.0")
         #Puerto de Comunicaiones
-        self.ventana.etiq15=Label(self.ventana, text="Puerto de Comm: $"+columnas[15])
+        self.ventana.etiq15=Label(self.ventana, text="Puerto de Comm: $PUERTO")
         self.ventana.etiq15.grid(column=3,row=3,sticky="E")
         self.ventana.centr15=Entry(self.ventana, width=20)
         self.ventana.centr15.grid(column=4,row=3)
         self.ventana.centr15.insert(0,"502")
         #ID de comunicacion
-        self.ventana.etiq16=Label(self.ventana, text="ID de Comm: $"+columnas[16])
+        self.ventana.etiq16=Label(self.ventana, text="ID de Comm:Regist: $ID")
         self.ventana.etiq16.grid(column=3,row=4,sticky="E")
         self.ventana.centr16=Entry(self.ventana, width=20)
         self.ventana.centr16.grid(column=4,row=4)
-        self.ventana.centr16.insert(0,"1")
+        self.ventana.centr16.insert(0,"1:400020")
         #Serial Settings
-        self.ventana.etiq17=Label(self.ventana, text="Serial Settings: $"+columnas[17])
+        self.ventana.etiq17=Label(self.ventana, text="Serial Settings: $SERIAL")
         self.ventana.etiq17.grid(column=3,row=5,sticky="E")
         self.ventana.centr17=Entry(self.ventana, width=20)
         self.ventana.centr17.grid(column=4,row=5)
         self.ventana.centr17.insert(0,"9600;N;8;1")
         #Tabla de Linealizacion
-        self.ventana.etiq18=Label(self.ventana, text="Tabla Linealizac(X:Y) $"+columnas[18])
+        self.ventana.etiq18=Label(self.ventana, text="Tabla Linealizac[(X:Y)] $LINEAR")
         self.ventana.etiq18.grid(column=3,row=6,sticky="E")
         self.ventana.centr18=Entry(self.ventana, width=20)
-        self.ventana.centr18.insert(0,"0:0,1:1,2:2,3:3")
+        self.ventana.centr18.insert(0,"[0:0,25:25,50:50,75:75,100:100]")
         self.ventana.centr18.grid(column=4,row=6)
         self.ventana.mainloop()
     def client_exit(self):
         exit()
     def StartOver(self):
-        df = pd.DataFrame({'ID': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[]})        
+        df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'VELOCIDAD':[], 'LATITUD':[],'LONGITUD':[]})
     def ultimo(self):
         global df
-        df.loc[len(df)]=[str(len(df)),self.ventana.centr1.get(),self.ventana.centr2.get(),self.ventana.centr3.get(),self.ventana.centr4.get(),self.ventana.centr5.get(),self.ventana.centr6.get(),self.ventana.centr7.get(),self.ventana.centr8.get(),self.ventana.centr9.get(),self.ventana.centr10.get(),self.ventana.centr11.get(),self.ventana.centr12.get(),self.ventana.centr13.get(),self.ventana.centr14.get(),self.ventana.centr15.get(),self.ventana.centr16.get(),self.ventana.centr17.get(),self.ventana.centr18.get()]
+        df.loc[len(df)]=[str(0),datetime.now().strftime('%Y-%m-%d %H:%M:%S'),self.ventana.centr1.get(),self.ventana.centr2.get(),self.ventana.centr3.get(),self.ventana.centr4.get(),self.ventana.centr5.get(),self.ventana.centr6.get(),self.ventana.centr7.get(),self.ventana.centr8.get(),self.ventana.centr9.get(),self.ventana.centr10.get(),self.ventana.centr11.get(),self.ventana.centr12.get(),self.ventana.centr13.get(),self.ventana.centr14.get(),self.ventana.centr15.get(),self.ventana.centr16.get(),self.ventana.centr17.get(),self.ventana.centr18.get(),'0','-12.063190','-77.112600']
     def Reemplazo(self):
         global df
-        indice=int(self.ventana.centr0.get())
-        df.loc[indice]=[self.ventana.centr0.get(),self.ventana.centr1.get(),self.ventana.centr2.get(),self.ventana.centr3.get(),self.ventana.centr4.get(),self.ventana.centr5.get(),self.ventana.centr6.get(),self.ventana.centr7.get(),self.ventana.centr8.get(),self.ventana.centr9.get(),self.ventana.centr10.get(),self.ventana.centr11.get(),self.ventana.centr12.get(),self.ventana.centr13.get(),self.ventana.centr14.get(),self.ventana.centr15.get(),self.ventana.centr16.get(),self.ventana.centr17.get(),self.ventana.centr18.get()]
+        df.loc[len(df)]=[str(0),self.ventana.centr1.get(),self.ventana.centr2.get(),self.ventana.centr3.get(),self.ventana.centr4.get(),self.ventana.centr5.get(),self.ventana.centr6.get(),self.ventana.centr7.get(),self.ventana.centr8.get(),self.ventana.centr9.get(),self.ventana.centr10.get(),self.ventana.centr11.get(),self.ventana.centr12.get(),self.ventana.centr13.get(),self.ventana.centr14.get(),self.ventana.centr15.get(),self.ventana.centr16.get(),self.ventana.centr17.get(),self.ventana.centr18.get()]
     def acerca_de(self):
         MessageBox.showinfo("Acerca de..", " Proyecto Roraima \n Jul-2021 \n Miguel Angel Aguirre")
     def database_connect(self):
@@ -171,7 +163,7 @@ class Window:
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
-            Query= "CREATE OR REPLACE TABLE MAIN_SENSOR.CONF ( `ID` INT NOT NULL , `ID_ESTACION` TEXT NOT NULL ,`ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL,`TANQUE` TEXT NOT NULL,`PRODUCTO` TEXT NOT NULL,`DENSIDAD` TEXT NOT NULL,`TAG_SENSOR` TEXT NOT NULL,`DESCRIPCION` TEXT NOT NULL,`UM` TEXT NOT NULL, `RANGO_MIN` FLOAT NOT NULL, `RANGO_MAX` FLOAT NOT NULL, `TIPO` TEXT NOT NULL,`DIRECCION` TEXT NOT NULL, `MASCARA` TEXT NOT NULL, `PUERTO` TEXT NOT NULL,`ID_COMM` TEXT NOT NULL,`SERIAL` TEXT NOT NULL,`LINEAR` TEXT NOT NULL,   INDEX `ID` (ID)) ENGINE = InnoDB"
+            Query= "CREATE OR REPLACE TABLE MAIN_SENSOR.DATA ( `ID` AUTOINCREMENT PRIMARY KEY, `FECHA_HORA` DATETIME NOT NULL,`ID_ESTACION` TEXT NOT NULL ,`ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL,`TANQUE` TEXT NOT NULL,`PRODUCTO` TEXT NOT NULL,`DENSIDAD` TEXT NOT NULL,`TAG_SENSOR` TEXT NOT NULL,`DESCRIPCION` TEXT NOT NULL,`UM` TEXT NOT NULL, `RANGO_MIN` FLOAT NOT NULL, `RANGO_MAX` FLOAT NOT NULL, `TIPO` TEXT NOT NULL,`DIRECCION` TEXT NOT NULL, `MASCARA` TEXT NOT NULL, `PUERTO` TEXT NOT NULL,`ID_COMM` TEXT NOT NULL,`SERIAL` TEXT NOT NULL,`LINEAR` TEXT NOT NULL,`VELOCIDAD` FLOAT NOT NULL, `LATITUD` FLOAT NOT NULL,`LONGITUD` FLOAT NOT NULL"
             cursor.execute(Query)
             MessageBox.showinfo("Success", "Inicializacion Exitosa DB")
             cursor.close()
@@ -183,30 +175,29 @@ class Window:
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
-            Query= "CREATE OR REPLACE TABLE MAIN_SENSOR.CONF ( `ID` INT NOT NULL , `ID_ESTACION` TEXT NOT NULL ,`ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL,`TANQUE` TEXT NOT NULL,`PRODUCTO` TEXT NOT NULL,`DENSIDAD` TEXT NOT NULL,`TAG_SENSOR` TEXT NOT NULL,`DESCRIPCION` TEXT NOT NULL,`UM` TEXT NOT NULL, `RANGO_MIN` FLOAT NOT NULL, `RANGO_MAX` FLOAT NOT NULL, `TIPO` TEXT NOT NULL,`DIRECCION` TEXT NOT NULL, `MASCARA` TEXT NOT NULL, `PUERTO` TEXT NOT NULL,`ID_COMM` TEXT NOT NULL,`SERIAL` TEXT NOT NULL,`LINEAR` TEXT NOT NULL,   INDEX `ID` (ID)) ENGINE = InnoDB"
-            cursor.execute(Query)
-            Query="INSERT INTO MAIN_SENSOR.CONF (`ID`,`ID_ESTACION`,`ESTACION`,`ID_TANQUE`,`TANQUE`,`PRODUCTO`,`DENSIDAD`,`TAG_SENSOR`,`DESCRIPCION`,`UM`, `RANGO_MIN`, `RANGO_MAX`, `TIPO`,`DIRECCION`, `MASCARA`, `PUERTO`,`ID_COMM`,`SERIAL`,`LINEAR`) VALUES (%(ID)s,%(ID_ESTACION)s,%(ESTACION)s,%(ID_TANQUE)s,%(TANQUE)s,%(PRODUCTO)s,%(DENSIDAD)s,%(TAG_SENSOR)s,%(DESCRIPCION)s,%(UM)s, %(RANGO_MIN)s, %(RANGO_MAX)s, %(TIPO)s,%(DIRECCION)s, %(MASCARA)s, %(PUERTO)s,%(ID_COMM)s,%(SERIAL)s,%(LINEAR)s)"
+            Query="INSERT INTO MAIN_SENSOR.DATA (`FECHA_HORA`,`ID_ESTACION`,`ESTACION`,`ID_TANQUE`,`TANQUE`,`PRODUCTO`,`DENSIDAD`,`TAG_SENSOR`,`DESCRIPCION`,`UM`, `RANGO_MIN`, `RANGO_MAX`, `TIPO`,`DIRECCION`, `MASCARA`, `PUERTO`,`ID_COMM`,`SERIAL`,`LINEAR`,`VELOCIDAD`,`LATITUD`,`LONGITUD`) VALUES (%(FECHA_HORA)s,%(ID_ESTACION)s,%(ESTACION)s,%(ID_TANQUE)s,%(TANQUE)s,%(PRODUCTO)s,%(DENSIDAD)s,%(TAG_SENSOR)s,%(DESCRIPCION)s,%(UM)s, %(RANGO_MIN)s, %(RANGO_MAX)s, %(TIPO)s,%(DIRECCION)s, %(MASCARA)s, %(PUERTO)s,%(ID_COMM)s,%(SERIAL)s,%(LINEAR)s,%(VELOCIDAD)s,%(LATITUD)s,%(LONGITUD)s)"
             for i in range(len(df)):
-                cursor.execute(Query,df.loc[i].to_dict())
+                if df['ID'].loc[i]=='0':
+                    cursor.execute(Query,df.loc[i].to_dict())
             connection.commit()
             MessageBox.showinfo("Success", "Escritura Exitosa en DB")
         except:
             MessageBox.showerror("Error", "Falló al Escribir DB")
         connection.close()
+        df=database_read()
     def database_read(self):
         global df
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
-            df=pd.read_sql("SELECT * FROM MAIN_SENSOR.CONF", connection)
+            df=pd.read_sql("SELECT * FROM MAIN_SENSOR.CONF ORDER BY ID DESC GROUP BY TAG_SENSOR", connection)
             MessageBox.showinfo("Success", "Se leyeron "+str(len(df))+ " Registros")
-            print (df)
             cursor.close()
             connection.close()
         except:
             MessageBox.showerror("Error", "Falló al Leer DB")
     def Search_ID(self):
-        indice=int(self.ventana.centr0.get())
+        indice=df[df['TAG_SENSOR']==self.ventana.centr7.get()].last_valid_index()
         self.ventana.centr1.delete(0,END)
         self.ventana.centr2.delete(0,END)
         self.ventana.centr3.delete(0,END)
