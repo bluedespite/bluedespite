@@ -9,7 +9,7 @@ import threading
 import pandas as pd
 
 arduinos={'Latitude': '-12.063190', 'Longitude': '-77.112600', 'Velocity': '0', 'DateTime': '2000-01-01 12:00:00', 'Analog0': '0', 'Analog1': '0', 'Analog2': '0', 'Analog3': '0', 'Analog4': '0', 'Analog5': '0'}
-df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[]})
+df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[],'MEASURE':[]})
 analogico=[0,0,0,0,0,0]
 
 def init_logger():
@@ -77,7 +77,7 @@ def Read_Conf():
     try:
         connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
         cursor=connection.cursor()
-        df=pd.read_sql("SELECT * FROM MAIN_SENSOR.CONF GROUP BY TAG_SENSOR", connection)
+        df=pd.read_sql("SELECT * FROM MAIN_SENSOR.DATA WHERE ID IN (SELECT MAX(ID) FROM MAIN_SENSOR.DATA GROUP BY TAG_SENSOR)", connection)
         return df, True
     except:
         logging.error("No se puede contectar a base de datos Main Sensor de este dispositivo")
@@ -85,9 +85,11 @@ def Read_Conf():
         connection.close()
         print(df)
         return df,False
+        
 def Read_Measure():
     df,F_OK=Read_Conf()
-    df['MEASURE']=0
+    df['MEASURE']='0'
+    df['ID'].loc[i]='0'
     df['LATITUD']=arduinos['Latitude']
     df['LONGITUD']=arduinos['Longitude']
     df['VELOCIDAD']=arduinos['Velocity']
@@ -97,39 +99,45 @@ def Read_Measure():
             if df['TIPO'].loc[i]=='ModbusTCP':
                 client = ModbusTcpClient(df['DIRECCION'].loc[i],port=int(df['PUERTO'].loc[i]))
                 if client.connect():
-                    CCOM=df['ID'].loc[0] 
+                    CCOM=df['ID_COMM'].loc[0] 
                     CCOM1=CCOM.split(':')
                     ID=int(CCOM1[0])
                     DIRECCION=int(CCOM1[1])-40001
                     try:
                         rr = client.read_holding_registers(DIRECCION,1,unit=ID)
-                        df['MEASURE'].loc[i]=rr.registers[0]
+                        df['MEASURE'].loc[i]=str(rr.registers[0])
                     except:
                         logging.exception("No se puede leer registros: "+ df['TAG_SENSOR'].loc[i])
             if df['TIPO'].loc[i]=="Analogico":
-                    canal=int(df['ID'].loc[i])
+                    canal=int(df['ID_COMM'].loc[i])
                     try:
                         rANA=(float(analogico[canal])-(1024/5))/(1024-(1024/5))
                         rMed=rANA*(float(df['RANGO_MAX'].loc[i])-float(df['RANGO_MIN'].loc[i]))+float(df['RANGO_MIN'].loc[i])
-                        df['MEASURE'].loc[i]=rMed
+                        df['MEASURE'].loc[i]=str(rMed)
                         if float(analogico[canal])<(1024/5):
                             logging.warning("Medicion de sensor Analogico por debajo de 1 V: " + df['TAG_SENSOR'].loc[i])
                     except:
-                        logging.error("Error en sensor Analogico (113) : " + df['TAG_SENSOR'].loc[i])
+                        logging.error("Error en sensor Analogico (112) : " + df['TAG_SENSOR'].loc[i])
     return df
 
+def database_write(df):
+    try:
+        connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
+        cursor=connection.cursor()
+        Query="INSERT INTO MAIN_SENSOR.DATA (`FECHA_HORA`,`ID_ESTACION`,`ESTACION`,`ID_TANQUE`,`TANQUE`,`PRODUCTO`,`DENSIDAD`,`TAG_SENSOR`,`DESCRIPCION`,`UM`, `RANGO_MIN`, `RANGO_MAX`, `TIPO`,`DIRECCION`, `MASCARA`, `PUERTO`,`ID_COMM`,`SERIAL`,`LINEAR`,`LATITUD`,`LONGITUD`,`VELOCIDAD`,`MEASURE`) VALUES (%(FECHA_HORA)s,%(ID_ESTACION)s,%(ESTACION)s,%(ID_TANQUE)s,%(TANQUE)s,%(PRODUCTO)s,%(DENSIDAD)s,%(TAG_SENSOR)s,%(DESCRIPCION)s,%(UM)s, %(RANGO_MIN)s, %(RANGO_MAX)s, %(TIPO)s,%(DIRECCION)s, %(MASCARA)s, %(PUERTO)s,%(ID_COMM)s,%(SERIAL)s,%(LINEAR)s,%(LATITUD)s,%(LONGITUD)s,%(VELOCIDAD)s,%(MEASURE)s)"
+        for i in range(len(df)):
+            cursor.execute(Query,df.loc[i].to_dict())
+        connection.commit()
+        cursor.close()
+        connection.close()
+    except:
+        logging.error("Error: Falla al Escribir DB")
 
 def Roraima_Comm():
-    df =pd.DataFrame()
-    result=Read_Measure()
-    print(result)
+    while(True):
+        df=Read_Measure()
+        database_write(df)
 
-
-def contar():
-    contador = 0
-    while contador<100:
-        contador+=1
-        #print('Hilo:', threading.current_thread().getName(), 'con identificador:',  threading.current_thread().ident,'Contador:', contador)
 
 init_logger()
 hilo1 = threading.Thread(target=Arduino_Comm)

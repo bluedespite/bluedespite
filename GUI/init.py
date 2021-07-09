@@ -6,7 +6,7 @@ from tkinter import ttk, font
 import pandas as pd
 from datetime import datetime
 
-df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[]})
+df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[],'MEASURE':[]})
 
 class Window:
     def __init__(self):
@@ -36,7 +36,7 @@ class Window:
         Write.grid(column=4,row=13)
         Ultimo=Button(text ="APPEND", command = self.ultimo)
         Ultimo.grid(column=1,row=12)
-        Buscar=Button(text ="SEARCH ID", command = self.Search_ID)
+        Buscar=Button(text ="SEARCH TAG", command = self.Search_ID)
         Buscar.grid(column=2,row=12)
         StartOver=Button(text ="Start Over", command = self.StartOver)
         StartOver.grid(column=3,row=12)
@@ -140,10 +140,10 @@ class Window:
     def client_exit(self):
         exit()
     def StartOver(self):
-        df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'VELOCIDAD':[], 'LATITUD':[],'LONGITUD':[]})
+        df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[],'MEASURE':[]})
     def ultimo(self):
         global df
-        df.loc[len(df)]=[str(0),datetime.now().strftime('%Y-%m-%d %H:%M:%S'),self.ventana.centr1.get(),self.ventana.centr2.get(),self.ventana.centr3.get(),self.ventana.centr4.get(),self.ventana.centr5.get(),self.ventana.centr6.get(),self.ventana.centr7.get(),self.ventana.centr8.get(),self.ventana.centr9.get(),self.ventana.centr10.get(),self.ventana.centr11.get(),self.ventana.centr12.get(),self.ventana.centr13.get(),self.ventana.centr14.get(),self.ventana.centr15.get(),self.ventana.centr16.get(),self.ventana.centr17.get(),self.ventana.centr18.get(),'0','-12.063190','-77.112600']
+        df.loc[len(df)]=[str(0),datetime.now().strftime('%Y-%m-%d %H:%M:%S'),self.ventana.centr1.get(),self.ventana.centr2.get(),self.ventana.centr3.get(),self.ventana.centr4.get(),self.ventana.centr5.get(),self.ventana.centr6.get(),self.ventana.centr7.get(),self.ventana.centr8.get(),self.ventana.centr9.get(),self.ventana.centr10.get(),self.ventana.centr11.get(),self.ventana.centr12.get(),self.ventana.centr13.get(),self.ventana.centr14.get(),self.ventana.centr15.get(),self.ventana.centr16.get(),self.ventana.centr17.get(),self.ventana.centr18.get(),'-12.063190','-77.112600','0','0']
         print(df)
     def acerca_de(self):
         MessageBox.showinfo("Acerca de..", " Proyecto Roraima \n Jul-2021 \n Miguel Angel Aguirre")
@@ -152,6 +152,7 @@ class Window:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
             MessageBox.showinfo("Success", "TEST:Conexion Exitosa")
+            cursor.close()
             connection.close()
         except:
             MessageBox.showerror("Error", "TEST:Fallo de Conexion")
@@ -159,7 +160,7 @@ class Window:
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
-            Query= "CREATE OR REPLACE TABLE MAIN_SENSOR.DATA ( `ID` INT NOT NULL PRIMARY KEY AUTO_INCREMENT , `FECHA_HORA` DATETIME NOT NULL,`ID_ESTACION` TEXT NOT NULL ,`ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL,`TANQUE` TEXT NOT NULL,`PRODUCTO` TEXT NOT NULL,`DENSIDAD` TEXT NOT NULL,`TAG_SENSOR` TEXT NOT NULL,`DESCRIPCION` TEXT NOT NULL,`UM` TEXT NOT NULL, `RANGO_MIN` FLOAT NOT NULL, `RANGO_MAX` FLOAT NOT NULL, `TIPO` TEXT NOT NULL,`DIRECCION` TEXT NOT NULL, `MASCARA` TEXT NOT NULL, `PUERTO` TEXT NOT NULL,`ID_COMM` TEXT NOT NULL,`SERIAL` TEXT NOT NULL,`LINEAR` TEXT NOT NULL,`VELOCIDAD` FLOAT NOT NULL, `LATITUD` FLOAT NOT NULL,`LONGITUD` FLOAT NOT NULL)"
+            Query= "CREATE OR REPLACE TABLE MAIN_SENSOR.DATA ( `ID` INT NOT NULL PRIMARY KEY AUTO_INCREMENT , `FECHA_HORA` DATETIME NOT NULL,`ID_ESTACION` TEXT NOT NULL ,`ESTACION` TEXT NOT NULL,`ID_TANQUE` TEXT NOT NULL,`TANQUE` TEXT NOT NULL,`PRODUCTO` TEXT NOT NULL,`DENSIDAD` TEXT NOT NULL,`TAG_SENSOR` TEXT NOT NULL,`DESCRIPCION` TEXT NOT NULL,`UM` TEXT NOT NULL, `RANGO_MIN` FLOAT NOT NULL, `RANGO_MAX` FLOAT NOT NULL, `TIPO` TEXT NOT NULL,`DIRECCION` TEXT NOT NULL, `MASCARA` TEXT NOT NULL, `PUERTO` TEXT NOT NULL,`ID_COMM` TEXT NOT NULL,`SERIAL` TEXT NOT NULL,`LINEAR` TEXT NOT NULL, `LATITUD` FLOAT NOT NULL,`LONGITUD` FLOAT NOT NULL,`VELOCIDAD` FLOAT NOT NULL,`MEASURE` FLOAT NOT NULL)"
             cursor.execute(Query)
             MessageBox.showinfo("Success", "Inicializacion Exitosa DB")
             cursor.close()
@@ -171,15 +172,17 @@ class Window:
         try:
             connection=mysql.connector.connect (host='localhost',database='MAIN_SENSOR',user='admin',password='12345')
             cursor=connection.cursor()
-            Query="INSERT INTO MAIN_SENSOR.DATA (`FECHA_HORA`,`ID_ESTACION`,`ESTACION`,`ID_TANQUE`,`TANQUE`,`PRODUCTO`,`DENSIDAD`,`TAG_SENSOR`,`DESCRIPCION`,`UM`, `RANGO_MIN`, `RANGO_MAX`, `TIPO`,`DIRECCION`, `MASCARA`, `PUERTO`,`ID_COMM`,`SERIAL`,`LINEAR`,`VELOCIDAD`,`LATITUD`,`LONGITUD`) VALUES (%(FECHA_HORA)s,%(ID_ESTACION)s,%(ESTACION)s,%(ID_TANQUE)s,%(TANQUE)s,%(PRODUCTO)s,%(DENSIDAD)s,%(TAG_SENSOR)s,%(DESCRIPCION)s,%(UM)s, %(RANGO_MIN)s, %(RANGO_MAX)s, %(TIPO)s,%(DIRECCION)s, %(MASCARA)s, %(PUERTO)s,%(ID_COMM)s,%(SERIAL)s,%(LINEAR)s,%(VELOCIDAD)s,%(LATITUD)s,%(LONGITUD)s)"
+            Query="INSERT INTO MAIN_SENSOR.DATA (`FECHA_HORA`,`ID_ESTACION`,`ESTACION`,`ID_TANQUE`,`TANQUE`,`PRODUCTO`,`DENSIDAD`,`TAG_SENSOR`,`DESCRIPCION`,`UM`, `RANGO_MIN`, `RANGO_MAX`, `TIPO`,`DIRECCION`, `MASCARA`, `PUERTO`,`ID_COMM`,`SERIAL`,`LINEAR`,`LATITUD`,`LONGITUD`,`VELOCIDAD`,`MEASURE`) VALUES (%(FECHA_HORA)s,%(ID_ESTACION)s,%(ESTACION)s,%(ID_TANQUE)s,%(TANQUE)s,%(PRODUCTO)s,%(DENSIDAD)s,%(TAG_SENSOR)s,%(DESCRIPCION)s,%(UM)s, %(RANGO_MIN)s, %(RANGO_MAX)s, %(TIPO)s,%(DIRECCION)s, %(MASCARA)s, %(PUERTO)s,%(ID_COMM)s,%(SERIAL)s,%(LINEAR)s,%(LATITUD)s,%(LONGITUD)s,%(VELOCIDAD)s,%(MEASURE)s)"
             for i in range(len(df)):
                 if df['ID'].loc[i]=='0':
                     cursor.execute(Query,df.loc[i].to_dict())
             connection.commit()
+            cursor.close()
+            connection.close()
+            df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[],'MEASURE':[]})
             MessageBox.showinfo("Success", "Escritura Exitosa en DB")
         except:
             MessageBox.showerror("Error", "Falla al Escribir DB")
-        connection.close()
     def database_read(self):
         global df
         try:
