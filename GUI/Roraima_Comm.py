@@ -85,11 +85,11 @@ def Read_Conf():
         connection.close()
         print(df)
         return df,False
-        
+
 def Read_Measure():
     df,F_OK=Read_Conf()
     df['MEASURE']='0'
-    df['ID'].loc[i]='0'
+    df['ID']='0'
     df['LATITUD']=arduinos['Latitude']
     df['LONGITUD']=arduinos['Longitude']
     df['VELOCIDAD']=arduinos['Velocity']
@@ -99,7 +99,7 @@ def Read_Measure():
             if df['TIPO'].loc[i]=='ModbusTCP':
                 client = ModbusTcpClient(df['DIRECCION'].loc[i],port=int(df['PUERTO'].loc[i]))
                 if client.connect():
-                    CCOM=df['ID_COMM'].loc[0] 
+                    CCOM=df['ID_COMM'].loc[i] 
                     CCOM1=CCOM.split(':')
                     ID=int(CCOM1[0])
                     DIRECCION=int(CCOM1[1])-40001
