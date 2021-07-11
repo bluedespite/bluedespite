@@ -7,10 +7,38 @@ import serial
 import serial.tools.list_ports
 import threading
 import pandas as pd
+from tkinter import *
+from tkinter import messagebox as MessageBox
+from tkinter import ttk, font
+import matplotlib as plt
 
 arduinos={'Latitude': '-12.063190', 'Longitude': '-77.112600', 'Velocity': '0', 'DateTime': '2000-01-01 12:00:00', 'Analog0': '0', 'Analog1': '0', 'Analog2': '0', 'Analog3': '0', 'Analog4': '0', 'Analog5': '0'}
 df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[],'MEASURE':[]})
 analogico=[0,0,0,0,0,0]
+
+class Window:
+    def __init__(self):
+        self.ventana=Tk()
+        self.ventana.geometry("800x400")
+        self.ventana.title("Roraima: Interface de Usuario")
+        menubar = Menu(self.ventana)
+        self.ventana.config(menu=menubar)
+        Archivo = Menu(menubar, tearoff=0)
+        Ayuda = Menu(menubar, tearoff=0)
+        Archivo.add_command(label="Nuevo")
+        Archivo.add_command(label="Editar")
+        Archivo.add_command(label="Exit", command=self.client_exit)
+        menubar.add_cascade(label="Archivo", menu=Archivo)
+        Ayuda.add_command(label="Acerca de..", command=self.acerca_de)
+        menubar.add_cascade(label="Ayuda", menu=Ayuda)
+        img = PhotoImage(file="Roraima2.gif")
+        lab=Label(image=img).place(x=0,y=0)
+        self.ventana.mainloop()
+    def client_exit(self):
+        exit()
+    def acerca_de(self):
+        MessageBox.showinfo("Acerca de..", " Proyecto Roraima \n Jul-2021 \n Miguel Angel Aguirre")
+
 
 def init_logger():
     FORMAT = ('%(asctime)s - %(threadName)s %(levelname)s %(module)s %(lineno)s %(message)s')
@@ -167,3 +195,5 @@ hilo2 = threading.Thread(target=Roraima_Comm)
 hilo1.start()
 time.sleep(10)
 hilo2.start()
+#creation of an instance
+app = Window()
