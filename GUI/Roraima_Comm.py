@@ -72,6 +72,7 @@ def Arduino_Comm():
             analogico[5]=int(arduinos["Analog5"])
         else:
             logging.error("No se puede contectar a Tarjeta ARDUINO")    
+
 def Read_Conf():
     df=pd.DataFrame=[]
     try:
@@ -101,11 +102,12 @@ def Read_Measure():
                 if client.connect():
                     CCOM=df['ID_COMM'].loc[i] 
                     CCOM1=CCOM.split(':')
-                    ID=int(CCOM1[0])
+                    ID=int(CCOM1[i])
                     DIRECCION=int(CCOM1[1])-40001
                     try:
                         rr = client.read_holding_registers(DIRECCION,1,unit=ID)
-                        df['MEASURE'].loc[i]=str(rr.registers[0])
+                        Med_lin=linealization(rr.registers[0],df['LINEAR'].iloc[i])
+                        df['MEASURE'].loc[i]=str(Med_lin)
                     except:
                         logging.exception("No se puede leer registros: "+ df['TAG_SENSOR'].loc[i])
             if df['TIPO'].loc[i]=="Analogico":
@@ -113,12 +115,32 @@ def Read_Measure():
                     try:
                         rANA=(float(analogico[canal])-(1024/5))/(1024-(1024/5))
                         rMed=rANA*(float(df['RANGO_MAX'].loc[i])-float(df['RANGO_MIN'].loc[i]))+float(df['RANGO_MIN'].loc[i])
-                        df['MEASURE'].loc[i]=str(rMed)
+                        Med_lin=linealization(rMed,df['LINEAR'].iloc[i])
+                        df['MEASURE'].loc[i]=str(Med_lin)
                         if float(analogico[canal])<(1024/5):
                             logging.warning("Medicion de sensor Analogico por debajo de 1 V: " + df['TAG_SENSOR'].loc[i])
                     except:
                         logging.error("Error en sensor Analogico (112) : " + df['TAG_SENSOR'].loc[i])
     return df
+
+def linealization(var,linear):
+    linear1=linear[1:-1].split(',')
+    for i in range(len(linear1)):
+        xx=linear1[i].split(':')
+        xx1=linear1[i+1].split(':')
+        print(xx)
+        print(xx1)
+        try:
+            x1=float(xx[0])
+            x2=float(xx1[0])
+            y1=float(xx[1])
+            y2=float(xx1[1])
+            if (var>=x1 and var<=x2):
+                valor=(var-x1)*((y2-y1)/(x2-x1))+y1
+                return valor
+        except:
+            return 0
+    return 0
 
 def database_write(df):
     try:
