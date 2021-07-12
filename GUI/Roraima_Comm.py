@@ -59,12 +59,12 @@ class VentanaSenales(tk.Frame):
         self.btn_iniciar = tk.Button(
             self.frame_botones, bg="#7401DF", fg="#FFBF00",
             activebackground="#8258FA", font=('Courier', 16),
-            text="Iniciar", command=self.iniciar_animación
+            text="Iniciar", command=self.iniciar_animacion
             )
         self.btn_pausar = tk.Button(
             self.frame_botones, bg="#7401DF", fg="#FFBF00",
             activebackground="#8258FA", font=('Courier', 16),
-            text="  Pausa  ", command=self.pausar_animación, state=tk.DISABLED
+            text="  Pausa  ", command=self.pausar_animacion, state=tk.DISABLED
             )
         self.btn_iniciar.pack(
             side="left", padx=(100, 100), pady=(100, 100),
@@ -98,7 +98,7 @@ class VentanaSenales(tk.Frame):
         self._ax3.set_ylim(-1, 1)
 
 
-    def iniciar_animación(self):
+    def iniciar_animacion(self):
 
         def animate(values):
             value=values
@@ -167,7 +167,7 @@ class VentanaSenales(tk.Frame):
             self._anim1 = self._anim2 = self._anim3 = None
 
 
-    def pausar_animación(self):
+    def pausar_animacion(self):
         if self.btn_pausar["text"] == "  Pausa  ":
             self._anim1.event_source.stop()
             self._anim2.event_source.stop()
