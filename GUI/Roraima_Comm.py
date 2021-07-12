@@ -7,37 +7,179 @@ import serial
 import serial.tools.list_ports
 import threading
 import pandas as pd
-from tkinter import *
-from tkinter import messagebox as MessageBox
-from tkinter import ttk, font
-import matplotlib as plt
+
+import tkinter as tk
+import collections
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.figure import Figure
+from tkinter import font as tkFont
+import numpy as np
+
 
 arduinos={'Latitude': '-12.063190', 'Longitude': '-77.112600', 'Velocity': '0', 'DateTime': '2000-01-01 12:00:00', 'Analog0': '0', 'Analog1': '0', 'Analog2': '0', 'Analog3': '0', 'Analog4': '0', 'Analog5': '0'}
 df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[],'MEASURE':[]})
 analogico=[0,0,0,0,0,0]
 
-class Window:
-    def __init__(self):
-        self.ventana=Tk()
-        self.ventana.geometry("800x400")
-        self.ventana.title("Roraima: Interface de Usuario")
-        menubar = Menu(self.ventana)
-        self.ventana.config(menu=menubar)
-        Archivo = Menu(menubar, tearoff=0)
-        Ayuda = Menu(menubar, tearoff=0)
-        Archivo.add_command(label="Nuevo")
-        Archivo.add_command(label="Editar")
-        Archivo.add_command(label="Exit", command=self.client_exit)
-        menubar.add_cascade(label="Archivo", menu=Archivo)
-        Ayuda.add_command(label="Acerca de..", command=self.acerca_de)
-        menubar.add_cascade(label="Ayuda", menu=Ayuda)
-        img = PhotoImage(file="Roraima2.gif")
-        lab=Label(image=img).place(x=0,y=0)
-        self.ventana.mainloop()
-    def client_exit(self):
-        exit()
-    def acerca_de(self):
-        MessageBox.showinfo("Acerca de..", " Proyecto Roraima \n Jul-2021 \n Miguel Angel Aguirre")
+class VentanaSenales(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+        self.parent = parent
+        plt.style.use('dark_background')
+        self.frame_graficas = tk.Frame(self, bg="#6E6E6E")
+        self._figure_1, self._ax1 = plt.subplots()
+        self._figure_1_canvas = FigureCanvasTkAgg(
+            self._figure_1, master=self.frame_graficas
+            )
+        self._figure_2, self._ax2 = plt.subplots()
+        self._figure_2_canvas = FigureCanvasTkAgg(
+            self._figure_2, master=self.frame_graficas
+            )
+        self._figure_3, self._ax3 = plt.subplots()
+        self._figure_3_canvas = FigureCanvasTkAgg(
+            self._figure_3, master=self.frame_graficas
+            )
+        self.frame_graficas.grid_columnconfigure(0, weight=1, uniform="fig")
+        self.frame_graficas.grid_columnconfigure(1, weight=1, uniform="fig")
+        self.frame_graficas.grid_columnconfigure(2, weight=1, uniform="fig")
+        self._figure_1_canvas.get_tk_widget().grid(
+            row=0, column=0, padx=(10, 30), pady=(30, 30),
+            sticky="nsew"
+            )
+        self._figure_2_canvas.get_tk_widget().grid(
+            row=0, column=1, padx=(10, 30), pady=(30, 30),
+            sticky="nsew"
+            )
+        self._figure_3_canvas.get_tk_widget().grid(
+            row=0, column=2, padx=(10, 30), pady=(30, 30),
+            sticky="nsew"
+            )
+        self.frame_botones = tk.Frame(self, bg="#151515")
+        self.btn_iniciar = tk.Button(
+            self.frame_botones, bg="#7401DF", fg="#FFBF00",
+            activebackground="#8258FA", font=('Courier', 16),
+            text="Iniciar", command=self.iniciar_animación
+            )
+        self.btn_pausar = tk.Button(
+            self.frame_botones, bg="#7401DF", fg="#FFBF00",
+            activebackground="#8258FA", font=('Courier', 16),
+            text="  Pausa  ", command=self.pausar_animación, state=tk.DISABLED
+            )
+        self.btn_iniciar.pack(
+            side="left", padx=(100, 100), pady=(100, 100),
+            fill="y", expand=True
+            )
+        self.btn_pausar.pack(
+            side="left", padx=(100, 100), pady=(100, 100),
+            fill="y", expand=True
+            )
+        self._anim1 = None
+        self._anim2 = None
+        self._anim3 = None
+        self.frame_graficas.pack(fill="both", expand=True)
+        self.frame_botones.pack(fill="x")
+        self._init_axes()
+    def _init_axes(self):
+        self._ax1.set_title('Signal')
+        self._ax1.set_xlabel("Time")
+        self._ax1.set_ylabel("Amplitude")
+        self._ax1.set_xlim(0, 100)
+        self._ax1.set_ylim(-1, 1)
+        self._ax2.set_title('Signal2')
+        self._ax2.set_xlabel("Time")
+        self._ax2.set_ylabel("Amplitude")
+        self._ax2.set_xlim(0, 100)
+        self._ax2.set_ylim(-1, 1)
+        self._ax3.set_title('Signal3')
+        self._ax3.set_xlabel("Time")
+        self._ax3.set_ylabel("Amplitude")
+        self._ax3.set_xlim(0, 100)
+        self._ax3.set_ylim(-1, 1)
+
+
+    def iniciar_animación(self):
+
+        def animate(values):
+            value=values
+            data.append(value)
+            lines.set_data(range(0, 100), data)
+            return lines
+
+        def animate2(values):
+            value=values
+            data2.append(value)
+            lines2.set_data(range(0, 100), data2)
+            return lines2
+
+        def animate3(values):
+            value=values
+            data3.append(value)
+            lines3.set_data(range(0, 100), data3)
+            return lines3
+
+        def data_gen():
+            for k in range(100):
+                t = k / 100
+                yield 0.5 * np.sin(40 * t) * np.exp(-2 * t)
+
+        def data_gen2():
+            for k in range(100):
+                t = k / 100
+                yield 0.5 * np.sin(60 * t)
+
+        def data_gen3():
+            for k in range(100):
+                t = k / 100
+                yield 0.5 * np.cos(60 * t)
+
+        if self._anim1 is None:
+            lines = self._ax1.plot([], [], color='#80FF00')[0]
+            lines2 = self._ax2.plot([], [], color='#80FF00')[0]
+            lines3 = self._ax3.plot([], [], color='#80FF00')[0]
+
+            data = collections.deque([0] * 100, maxlen=100)
+            data2 = collections.deque([0] * 100, maxlen=100)
+            data3 = collections.deque([0] * 100, maxlen=100)
+
+            self._anim1 = animation.FuncAnimation(
+                self._figure_1, animate, data_gen, interval=5
+                )
+            self._anim2 = animation.FuncAnimation(
+                self._figure_2, animate2, data_gen2, interval=5
+                )
+            self._anim3 = animation.FuncAnimation(
+                self._figure_3, animate3, data_gen3, interval=5
+                )
+
+            self._figure_1_canvas.draw()
+            self._figure_2_canvas.draw()
+            self._figure_3_canvas.draw()
+
+            self.btn_pausar.configure(state=tk.NORMAL)
+            self.btn_iniciar.configure(text="Detener")
+        else:
+            self._ax1.lines = []  
+            self._ax2.lines = []
+            self._ax3.lines = []
+            self.btn_pausar.configure(state=tk.DISABLED, text="  Pausa  ")
+            self.btn_iniciar.configure(text="Iniciar")
+            self._anim1 = self._anim2 = self._anim3 = None
+
+
+    def pausar_animación(self):
+        if self.btn_pausar["text"] == "  Pausa  ":
+            self._anim1.event_source.stop()
+            self._anim2.event_source.stop()
+            self._anim3.event_source.stop()
+            self.btn_pausar.configure(text="Continuar")
+
+        else:
+            self._anim1.event_source.start()
+            self._anim2.event_source.start()
+            self._anim3.event_source.start()
+            self.btn_pausar.configure(text="  Pausa  ")
+
 
 
 def init_logger():
@@ -189,11 +331,16 @@ def Roraima_Comm():
         database_write(df)
 
 
-init_logger()
-hilo1 = threading.Thread(target=Arduino_Comm)
-hilo2 = threading.Thread(target=Roraima_Comm)
-hilo1.start()
-time.sleep(10)
-hilo2.start()
 #creation of an instance
-app = Window()
+
+
+if __name__ == "__main__":
+    init_logger()
+    hilo1 = threading.Thread(target=Arduino_Comm)
+    hilo2 = threading.Thread(target=Roraima_Comm)
+    hilo1.start()
+    time.sleep(10)
+    hilo2.start()
+    root = tk.Tk()
+    VentanaSeñales(root).pack(side="top", fill="both", expand=True)
+    root.mainloop()
