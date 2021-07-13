@@ -8,13 +8,15 @@ import serial.tools.list_ports
 import threading
 import pandas as pd
 
-import tkinter as tk
+from tkinter import *
+from tkinter import messagebox as MessageBox
+from tkinter import ttk, font
+
 import collections
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
-from tkinter import font as tkFont
 import numpy as np
 
 
@@ -22,6 +24,49 @@ arduinos={'Latitude': '-12.063190', 'Longitude': '-77.112600', 'Velocity': '0', 
 df = pd.DataFrame({'ID':[], 'FECHA_HORA': [], 'ID_ESTACION': [],'ESTACION': [], 'ID_TANQUE':[],'TANQUE':[], 'PRODUCTO':[], 'DENSIDAD':[], 'TAG_SENSOR':[],'DESCRIPCION':[],'UM':[], 'RANGO_MIN':[], 'RANGO_MAX':[],'TIPO':[],'DIRECCION':[],'MASCARA':[],'PUERTO':[],'ID_COMM':[],'SERIAL':[],'LINEAR':[], 'LATITUD':[], 'LONGITUD':[],'VELOCIDAD':[],'MEASURE':[]})
 analogico=[0,0,0,0,0,0]
 
+
+class Window:
+    def __init__(self):
+        plt.style.use('dark_background')
+        self.ventana=Tk()
+        self.ventana.geometry("800x400")
+        self.ventana.title("Roraima: Tendencias")
+        menubar = Menu(self.ventana)
+        self.ventana.config(menu=menubar)
+        Archivo = Menu(menubar, tearoff=0)
+        Ayuda = Menu(menubar, tearoff=0)
+        Archivo.add_command(label="Nuevo")
+        Archivo.add_command(label="Editar")
+        Archivo.add_command(label="Exit", command=self.client_exit)
+        menubar.add_cascade(label="Archivo", menu=Archivo)
+        Ayuda.add_command(label="Acerca de..", command=self.acerca_de)
+        menubar.add_cascade(label="Ayuda", menu=Ayuda)
+        self._figure_1, self._ax1 = plt.subplots()
+        self._figure_1_canvas = FigureCanvasTkAgg(self._figure_1, master=self.frame_graficas)
+        self._figure_2, self._ax2 = plt.subplots()
+        self._figure_2_canvas = FigureCanvasTkAgg(self._figure_2, master=self.frame_graficas)
+        self._figure_3, self._ax3 = plt.subplots()
+        self._figure_3_canvas = FigureCanvasTkAgg(self._figure_3, master=self.frame_graficas)
+        self.frame_graficas.grid_columnconfigure(0, weight=1, uniform="fig")
+        self.frame_graficas.grid_columnconfigure(1, weight=1, uniform="fig")
+        self.frame_graficas.grid_columnconfigure(2, weight=1, uniform="fig")
+        self._figure_1_canvas.get_tk_widget().grid(
+            row=0, column=0, padx=(10, 30), pady=(30, 30),
+            sticky="nsew"
+            )
+        self._figure_2_canvas.get_tk_widget().grid(
+            row=0, column=1, padx=(10, 30), pady=(30, 30),
+            sticky="nsew"
+            )
+        self._figure_3_canvas.get_tk_widget().grid(
+            row=0, column=2, padx=(10, 30), pady=(30, 30),
+            sticky="nsew"
+            )
+        self.ventana.mainloop()
+    def client_exit(self):
+        exit()
+    def acerca_de(self):
+        MessageBox.showinfo("Acerca de..", " Proyecto Roraima \n Jul-2021 \n Miguel Angel Aguirre")
 
 def init_logger():
     FORMAT = ('%(asctime)s - %(threadName)s %(levelname)s %(module)s %(lineno)s %(message)s')
